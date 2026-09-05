@@ -7,6 +7,9 @@
 media:
   bonsai/automatar-starfield.png | Flower-headed cellular avatar against a starfield.
   bonsai/automatar-neutral.png | The same cellular avatar on a neutral background.
+  bonsai/rounded-form.png | A dark rounded form with pale nodules and hanging limbs.
+  bonsai/tentacled-form.png | A tentacled form with bright circular markings.
+  bonsai/flower-form.png | A flower-like form with orange petals and a pale face.
 # links:
 #   Design notes | https://example.com
 ---
