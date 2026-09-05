@@ -4,9 +4,9 @@
 # stats:
 #   23.4 dB | WHAT IT MEASURES
 #   ~600 KB | ON DISK
-# media:
-#   something.gif | alt text        (file goes in static/media/)
-#   slot | drop: a placeholder caption
+media:
+  1kee/local-terrain.png | Local terrain view with elevation contours and coastline outlines.
+  1kee/globe-camera.png | Globe view with terrain contours and an open camera panel.
 # links:
 #   Design notes | https://example.com
 ---
