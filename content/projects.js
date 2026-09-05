@@ -220,7 +220,7 @@ export default [
 
 /* ============ PHONICA — things that speak and sound ============ */
 {
-  slug: 'gong', name: 'RUBBED GONG', short: 'GONG', genus: 'phonica', status: 'CYCLING', featured: false,
+  slug: 'gong', name: 'PHYSICAL GONG SIM', short: 'GONG', genus: 'phonica', status: 'CYCLING', featured: false,
   repo: null,
   summary: 'An interactive gong built with modal synthesis: a circular plate, a movable contact point, and controls for excitation, plate shape, and resonance.',
   log: [

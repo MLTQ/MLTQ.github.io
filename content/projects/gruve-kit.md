@@ -6,7 +6,7 @@ stats:
   3 s | PRESENCE HEARTBEAT
   6 | PLATFORMS, POCKET TO HEADLESS
 media:
-  gruve-whiteboard.webp | Rubbed Gong, served from the laptop that made it, with the whiteboard and the encrypted chat drawer composited over the top
+  gruve-whiteboard.webp | Physical Gong Sim, served from the laptop that made it, with the whiteboard and the encrypted chat drawer composited over the top
   gruve-port-share.webp | Share a port. A game server, SSH, a database: everyone in the net gets a localhost of their own, and the mesh is the cable
 ---
 

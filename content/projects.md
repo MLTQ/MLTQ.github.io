@@ -12,4 +12,4 @@ The archive's project ledger. Supplies the index, project routes, section member
 - Legacy `glyph` data remains for older consumers; the current index uses the species footprint.
 
 ## Content notes
-Rubbed Gong is filed under PHONICA with a compact row and an initial CYCLING status. Its description and field notes come from the owner's screenshot; no source repository or activity history was supplied. Its image is preserved in `static/media/gong/`.
+Physical Gong Sim is filed under PHONICA with a compact row and an initial CYCLING status. The owner supplied its name; its description and field notes come from the owner's screenshot. No source repository or activity history was supplied. Its stable slug is `gong`, and its image is preserved in `static/media/gong/`.
