@@ -19,4 +19,7 @@ Builds the static archive from the structured ledger, Markdown content, and stat
 | `static/lenia/index.js` | Homepage specimen DOM from `leniaMarkup()` | Selectors, controls |
 
 ## Notes
-Never edit generated `dist` files. Project detail headers call `projectLeniaMarkup` once; archive-list sigils remain unchanged.
+Never edit generated `dist` files. Project detail headers call `projectLeniaMarkup` once; archive-list marks are static footprints of the same assigned species.
+
+## Archive footprints
+`footprintSVG` generates one static asset per project from its assigned Lenia seed during the build. `footprint` inserts decorative image tags in featured and compact project links. Assets are registered through `write` so output cleanup preserves them. No additional live surfaces are added.

@@ -17,6 +17,8 @@ import { ensureSpectra, spectrumName } from './spectrogram.js'
 import site from './content/site.js'
 import projects from './content/projects.js'
 import { projectLeniaMarkup } from './project-lenia.js'
+import specimens from './content/lenia.js'
+import { footprintSVG } from './lenia-footprint.js'
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url))
 const DIST = path.join(ROOT, 'dist')
@@ -112,22 +114,11 @@ function heatField(p, { weeks = WEEKS, large = false } = {}) {
 <p class="hmcap">${esc(cap)}</p>`
 }
 
-/* ------------------------------------------------------------------ glyphs */
+/* ------------------------------------------------------------- footprints */
 
-/* Shapes are authored on a 56-unit grid and scaled to any pixel size, so one
-   definition drives both the 56px index mark and the 110px page hero. */
-function glyph(p, size = 56) {
-  if (!p.glyph) return ''
-  const k = size / 56
-  const px = n => `${+(n * k).toFixed(2)}px`
-  const shapes = p.glyph.map(s => {
-    const st = [`left:${px(s.x)}`, `top:${px(s.y)}`, `width:${px(s.w)}`, `height:${px(s.h)}`]
-    if (s.r !== undefined) st.push(`border-radius:${typeof s.r === 'number' ? px(s.r) : s.r}`)
-    if (s.ring) st.push('background:none', `border:${px(s.ring)} solid var(--peri)`)
-    if (s.rot) st.push(`transform:rotate(${s.rot}deg)`)
-    return `<div style="${st.join(';')}"></div>`
-  }).join('')
-  return `<div class="g" style="width:${px(56)};height:${px(56)}" aria-hidden="true">${shapes}</div>`
+/* Static density contours share their identity with each project's live creature. */
+function footprint(p, size = 56) {
+  return `<img class="g footprint" src="lenia/footprints/${p.slug}.svg" width="${size}" height="${size}" alt="" aria-hidden="true" loading="lazy" decoding="async">`
 }
 
 /* ------------------------------------------------------------------- media */
@@ -622,7 +613,7 @@ function statusLine(p) {
 function featuredRow(p) {
   return `<article class="row">
 <div>
-<a class="idlink" href="projects/${p.slug}.html">${glyph(p, 56)}<h3 class="pname">${esc(p.name)}</h3></a>
+<a class="idlink" href="projects/${p.slug}.html">${footprint(p, 56)}<h3 class="pname">${esc(p.name)}</h3></a>
 ${statusLine(p)}
 </div>
 <div>
@@ -637,7 +628,7 @@ function compactRow(p) {
   const cross = (p.cross || []).map(c =>
     ` Cross-filed: <a href="index.html#${c}">${esc(genusOf(c).label)}</a>.`).join('')
   return `<article class="crow">
-<h3 class="n"><a href="projects/${p.slug}.html">${esc(p.name)}</a></h3>
+<h3 class="n"><a class="compact-id" href="projects/${p.slug}.html">${footprint(p, 28)}<span>${esc(p.name)}</span></a></h3>
 <div class="d">${p.summary}${cross}</div>
 <div class="s">${esc(p.status)}</div>
 </article>`
@@ -1024,6 +1015,7 @@ function build() {
     })(STATIC)
   }
 
+  projects.forEach(p => write(`lenia/footprints/${p.slug}.svg`, footprintSVG(specimens[p.slug])))
   buildIndex(posts)
   buildChronica()
   buildWriting(posts)

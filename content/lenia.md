@@ -9,4 +9,4 @@ Permanent project-to-species assignments for all 26 archive projects. Each recor
 - Parameters and RLE were copied intact. All selected species use polynomial kernel/growth and survived 1,000 steps in a 96² periodic numerical check before integration.
 
 ## Contracts
-`project-lenia.js` embeds only the requested project's record. Each slug and species code must be unique. Preserve assignments when adding/reordering projects: these will also define the future archive's 2D sigils. Do not assign by list position or randomly per visit.
+`project-lenia.js` embeds only the requested project's record. Each slug and species code must be unique. Preserve assignments when adding/reordering projects: these also define the archive's static 2D footprints. Do not assign by list position or randomly per visit.

@@ -33,7 +33,7 @@ dist/                   output — generated, gitignored, never edited by hand
 ```
 
 **The split matters.** `projects.js` holds the structured facts that appear in
-more than one place — name, genus, status, glyph, commit field, cross-filing.
+more than one place — name, genus, status, commit field, cross-filing.
 `content/projects/<slug>.md` holds everything that appears only on that
 system's own page. You write prose in Markdown; you never edit generated HTML,
 and you never write a paragraph inside a JS string literal.
@@ -88,11 +88,13 @@ and multi-ring kernel are preserved. A toroidal tracking camera follows its
 motion without modifying the cells. Reset and extinction restore one creature
 of that same species.
 
+Archive marks are static top-down SVG footprints traced from those same seeds.
+They preserve the original periwinkle color and need no extra GPU work.
+
 Project drawing width is capped at 480 pixels, with the same 30 fps limit,
 offscreen suspension, reduced-motion support, and device cleanup as the homepage.
-Unsupported views display a density map of the assigned seed. Archive-list sigils
-remain in place until the later 2D identity pass. The assignments in
-`content/lenia.js` should be reused for that pass, and extended when adding projects.
+Unsupported views display a density map of the assigned seed. The assignments in
+`content/lenia.js` drive both footprints and project creatures; extend them when adding projects.
 
 Run `npm run build` before `node --test tests/*.test.js`. The isolated
 `tests/species-browser.js` harness checks all species with actual GPU evolution,
@@ -113,7 +115,6 @@ One object in `content/projects.js`. Order within a genus is the order shown.
   summary: 'One sentence.',
   log: [{ date: '2026.09.01', text: 'first light' }],  // date optional
   heat: { seed: 227, ramp: 'seed' },
-  glyph: [{ x: 14, y: 14, w: 28, h: 28, r: '50%' }],
   tags: ['Optics'],
 }
 ```
@@ -128,13 +129,13 @@ appends `· ON THE MESH` to its status.
 
 Then run `node build.js --scaffold` to create its page file.
 
-### Glyphs
+### Footprints
 
-A list of rectangles on a 56×56 grid — `x, y, w, h`, plus optional `r`
-(border-radius: a number in grid units, or a CSS string like `'50%'` or
-`'38% 62% 55% 45%'`), `rot` (degrees), and `ring` (border width, which makes
-the shape hollow). The build scales one definition to 56px for the index and
-110px for the page hero, so a mark is never redrawn at a second size.
+Assign an original Lenia species to the new slug in `content/lenia.js`. The build
+traces its density boundary into a static SVG under `dist/lenia/footprints/`.
+Featured rows use 56px marks and compact rows use 28px marks; both correspond to
+the single live creature on that project's page. Legacy `glyph` fields in older
+ledger records are no longer rendered.
 
 ### Commit fields
 

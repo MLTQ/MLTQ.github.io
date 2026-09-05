@@ -55,8 +55,7 @@ img{max-width:100%;height:auto;display:block}
 /* --------------------------------------------------------- featured project */
 .row{display:grid;grid-template-columns:110px 1fr 240px;gap:0 32px;
   padding:28px var(--pad);border-bottom:1px solid var(--hair);align-items:start}
-.g{position:relative}
-.g div{position:absolute;background:var(--peri)}
+.footprint{display:block;flex:none;object-fit:contain}
 .idlink{display:block;color:inherit}
 .idlink:hover .pname{color:var(--peri-dk)}
 .pname{font-family:'Michroma',sans-serif;font-size:12px;margin:10px 0 0;color:var(--ink)}
@@ -72,6 +71,8 @@ img{max-width:100%;height:auto;display:block}
   padding:14px var(--pad);border-bottom:1px solid var(--hair);align-items:baseline}
 .crow .n{font-family:'Michroma',sans-serif;font-size:10.5px;color:var(--ink);margin:0}
 .crow .n a{color:inherit}
+.crow .compact-id{display:flex;align-items:center;gap:10px}
+.crow .compact-id span{min-width:0;overflow-wrap:anywhere}
 .crow .n a:hover{color:var(--peri-dk)}
 .crow .d{font-size:11px;line-height:1.6;color:var(--mut)}
 .crow .s{font-size:9px;letter-spacing:.18em;color:var(--faint);text-align:right}
