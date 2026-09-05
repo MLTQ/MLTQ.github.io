@@ -4,9 +4,9 @@
 # stats:
 #   23.4 dB | WHAT IT MEASURES
 #   ~600 KB | ON DISK
-# media:
-#   something.gif | alt text        (file goes in static/media/)
-#   slot | drop: a placeholder caption
+media:
+  bonsai/automatar-starfield.png | Flower-headed cellular avatar against a starfield.
+  bonsai/automatar-neutral.png | The same cellular avatar on a neutral background.
 # links:
 #   Design notes | https://example.com
 ---

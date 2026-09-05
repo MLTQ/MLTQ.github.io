@@ -107,6 +107,7 @@ img{max-width:100%;height:auto;display:block}
   gap:6px 6px;padding:24px var(--pad) 0;align-items:start}
 .media figure{margin:0}
 .media img,.media video{width:100%;height:auto;background:#e0e1e4}
+.media img{width:auto;max-width:100%}
 .media figcaption{font-size:9px;letter-spacing:.14em;color:var(--faint);margin-top:8px;
   display:flex;justify-content:space-between;gap:16px;align-items:baseline}
 /* audio has no picture to tile: give it the full width of the grid */

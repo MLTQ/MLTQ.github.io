@@ -8,6 +8,7 @@ Shared archive typography, navigation, colored genus bands, project rows, and re
 - `.gnav`: visible section navigation, including when graphics or JavaScript are unavailable.
 - `.band`, `.row`, `.crow`: existing archive content hierarchy.
 - Responsive rules retain readable project pages and avoid horizontal overflow.
+- Project gallery images shrink to fit their column but retain their native size when smaller, so low-resolution screenshots are not enlarged. Videos keep their existing full-column sizing.
 
 ## Contracts
 | Dependent | Expects | Breaking changes |
