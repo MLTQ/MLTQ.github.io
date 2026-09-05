@@ -363,5 +363,19 @@ export default {
       "gn": 1
     },
     "cells": "14.2B$10.BVpXqOqWqTqJpPVG$9.pNrStTuX2vJuXuFtDrXqOpFG$7.pDsCvMyB4yOyBxJwNvGtTrXqEQ$5.BqRvB10yOyBwSuXsWqTV$4.GsHxU13yOxPvRtJqWT$4.tD10yO3yL3yOyBvWtJqOL$3.sP10yOyIxRxMxWyI3yOxWvOsPpP$2.qR8yOyLyGxUwIvJvMwFxHyD3yOxJuPrIO$2.wNyByI4yOxRwQwIwAuAsMrVsKtTvMxEyG3yOwLtBpK$.sPvWwIxW3yOvRtDsKsFrApXpAOpFrAtLvWxRyL2yOxUuNqM$.tGtDuPxU2yOuIpA4.LE2.VrSuXxJ4yOvWrLE$qJpXqMtTxWyOwX5.pSrNrDpK.ErDuSxR4yOwXsCG$2.QtQyDyOB4.pKwDuUtOsCpAQrLvJyI4yOxUsKG$2.EtVyGtL5.yOyGtOtTuCqRpIsFwIyL4yOyIsCB$2.EtVyGsK4.wLyOvOsP2vTpUTsKwDyL4yOyGrI$2.EtQtTsME3.xUyOvRxMyOsW2.rLvOyL4yOxHqE$3.pFsWtBT2.tDxC3yOwN3.qJvG5yOvOV$4.sHtOpU2.sMvJxExUxC4.pSwA5yOtJB$4.rLtTrGE.qTsWuCtO5.qRyG5yOqT$4.qJtOsRpI.VpUpS6.wD5yOvRQ$4.pDsPtOrLpFB7.tT6yOrQ$5.rA2tGrXqJpKV2QVpStV2yOyLyDyIyOvEE$5.VrLtBtOtLtDtBsWtDtQuSyOyBwVvWwLxUxMpK$6.VqOrVsPsWtBsWsRsWwIvEtOsMtBvExEqO$8.JVpDV2OsFrDpPOpDrSuSqR$13.B5.rNqC$19.O!"
+  },
+  "gong": {
+    "code": "3ECv",
+    "name": "Circoechinium ventilans",
+    "params": {
+      "R": 18,
+      "T": 10,
+      "b": "1,1,1",
+      "m": 0.29,
+      "s": 0.0345,
+      "kn": 1,
+      "gn": 1
+    },
+    "cells": "24.pNuKwVvGpP$24.qWvJ3yOyIsF3.qRtVtD$15.pSuFwSxPyD3yOxE2vEyD5yOwLrNsMwFxUuK$14.QuF18yOvMwS2yOuK$14.qHuKyG22yOxC$13.sCwQ26yOrApFrDqE$11.tV10yOyLyGxMwS16yOuAuUvJrI$8.pSvE12yO2yGuX2.tGyI2yOyLvOwI8yOyIwLxEuN$7.rIwX9yOyDyOyDxWyIyOyLV2.vM2yOxMqH.sM10yOxCqC$6.pDtD8yOvTpI3.qRxC2yOtL3.vOyOvJ2.G11yOuS$6.VsM7yOyDwSuFqE5.wLuI4.GqH3.3yOwXxM6yOyLrA$6.pPuX7yOxExJ2yOsP5.pS9.sRyOvWqWpNuI6yOxUQ$5.pFwI7yOvJsWrGxJ2yO16.BL2.pN7yOwFqTB$4.V6yOwVuFqM4.rNxR20.rG8yOvTuAO$4.6yOwIqRqWV25.GuN8yOxEwDsF$3.wA6yOxEuFxRyOqC25.sCyOyIxC5yOyIvTsK$2.qJ7yOwXvJ3yOE25.VrNrDtT5yOwQrI$2.rI7yOuS.EwQyOwF28.OwF5yOsF$2.pKwA5yOyBV33.pIuU5yOvT$2.EvG5yOtT17.GB14.rDuX6yOxWT$2.pK4yOwVvEtQO13.rLxJ4yOtT11.EuS7yOyItD$.VvO4yOqWsRyDyOvE11.xH7yOxUpS10.BvByOyL4yOyLxCJ$.uU5yOtOsR3yOxR9.11yOT11.vOwX6yOsR$.6yOwXrIqOtGuKrL8.wA3yO4.vB3yOwI11.pIuF5yOyGuNB$O7yOpU12.3yO6.uF3yOqH11.rAxU4yOvWtTQ$pN7yOpK11.rX2yOtJ7.3yOuA9.qHrSrVvJ4yOtOrD$E7yOqT11.tG2yOpD7.xH2yOvW8.VvTwSvEwD4yOsR$.rA5yOvJ2tLqT9.sR2yOqJ7.wV2yOvR9.vByOxRxU4yOuA$2.uS3yOsWrAvG3yOpD7.qO2yOwN7.3yOtJ10.wLyByD4yOwI$2.rS3yOqRpFuC2yOuI9.3yOG5.rL3yOpF10.sRyG5yOwX$2.tO4yOuAsKqT11.vM3yOrG3.sC3yOvO11.sC6yOxM$.pDyL5yOvM13.yD9yOxW11.qMtL6yOyIQ$.sR7yO14.wL7yOwA10.rNvTuXtJxH6yOpI$.tB7yOrX14.qOvR3yOwLqO11.rGxHvEsHuK5yOvTO$.pK7yOsUuP2yOxJ29.wAuPsHuK4yOtDrS$2.yI5yOuSqWvO2yOpD29.vWwIvGxU3yOsMBE$2.TvM4yOrApNtVxRsC29.B6yOyLQ$4.qM3yOxMvJvWuP27.rQpA.qO6yOyI$5.uP6yO4.tVqH21.wVvRrIsP6yOyD$5.qE6yOwQ.rN2yOtQ21.wNuUqRqT6yOyB$5.rG7yOsFwD2yO22.wAtLpPpS6yOxH$5.sM7yOrNuFyOwL4.tDuX10.rIuN3.rQyLvOsHtL6yOsF$5.pK7yOqOsPvWtJ3.qR2yO4.sUtT4.uXyOrD2.7yO2yLyOwF$6.vB6yOxE3yOtL2.3yO4.2yO4.wQyGsF.sM7yOuNpUrLpS$7.tT10yOvJtByByOuN3.pD2yO3.pIxRwFqO.xJ6yOyG$10.rQ8yOuPtVvEsH3.vJyOxE2.qJyGyOwQrIrG7yOsM$11.qH7yOxRtJvGwQwNwVxCxMxCsWpPtT4yOwX8yO$12.wN14yOxHtQwF13yOtO$12.tG25yOyIyL2yOwN$13.wS23yOyLsRuCwXuS$14.rDvTwVvWvOxW16yOwQL.pKqE$19.pFtL14yOvG$20.pUvJ5yOtVrGrVvM2yOyGqT$21.GqErDqRT3.LrDsKqC!"
   }
 };

@@ -220,6 +220,17 @@ export default [
 
 /* ============ PHONICA — things that speak and sound ============ */
 {
+  slug: 'gong', name: 'RUBBED GONG', short: 'GONG', genus: 'phonica', status: 'CYCLING', featured: false,
+  repo: null,
+  summary: 'An interactive gong built with modal synthesis: a circular plate, a movable contact point, and controls for excitation, plate shape, and resonance.',
+  log: [
+    { text: 'circular plate visualization alongside a mode coupling spectrum' },
+    { text: 'controls for pitch, excitation, plate geometry, and reverb' },
+  ],
+  glyph: [],
+  tags: ['Modal synthesis', 'Sound', 'Interactive instruments'],
+},
+{
   slug: 'pharaoh', name: 'PHARAOH', genus: 'phonica', status: 'ACTIVE', featured: true,
   repo: 'MLTQ/pharaoh', mesh: true,
   summary: 'An AI-powered audio drama production suite built around the Pyramid workflow: story bible → storyboard → script → assets → composition → render. Operable by humans in the GUI and by agents through the headless CLI.',
