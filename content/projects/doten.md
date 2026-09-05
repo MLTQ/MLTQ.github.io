@@ -4,9 +4,8 @@
 # stats:
 #   23.4 dB | WHAT IT MEASURES
 #   ~600 KB | ON DISK
-# media:
-#   something.gif | alt text        (file goes in static/media/)
-#   slot | drop: a placeholder caption
+media:
+  doten/replay-space-time.png | Replay in space and time, with player paths and an activity cloud above the map.
 # links:
 #   Design notes | https://example.com
 ---
