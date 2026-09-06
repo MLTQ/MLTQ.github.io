@@ -32,6 +32,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - name: Refresh complete commit histories
+        run: npm run history:refresh
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Verify commit fields
+        run: npm run test:history
       - name: Build
         run: node build.js
       - uses: actions/configure-pages@v5

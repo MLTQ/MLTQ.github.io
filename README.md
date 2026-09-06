@@ -114,7 +114,6 @@ One object in `content/projects.js`. Order within a genus is the order shown.
   repo: 'MLTQ/lantern',         // or null
   summary: 'One sentence.',
   log: [{ date: '2026.09.01', text: 'first light' }],  // date optional
-  heat: { seed: 227, ramp: 'seed' },
   tags: ['Optics'],
 }
 ```
@@ -127,7 +126,8 @@ sitemap entry. Nothing is written twice.
 under that genus's bridges. `mesh: true`
 appends `· ON THE MESH` to its status.
 
-Then run `node build.js --scaffold` to create its page file.
+Run `npm run history:refresh` after adding a verified repository, then
+`node build.js --scaffold` to create its page file.
 
 ### Footprints
 
@@ -139,15 +139,39 @@ ledger records are no longer rendered.
 
 ### Commit fields
 
-Stylized by default: `{ seed, ramp }`, where ramp is `up`, `down`, `flat`, or
-`seed` (sparse). The caption says STYLIZED so nobody mistakes it for data.
+Every field comes from the full GitHub history of the project's public default
+branch, including merges and all authors. Dates use the committer timestamp in
+UTC. Nothing is simulated. The fixed grid ends on the last commit date, rather
+than today: read down each column, then left to right. The bottom-right pixel
+always includes the final commit.
 
-For real data, swap in one integer per day, oldest first — e.g. from the GitHub
-stats API — and the caption switches to naming the window:
+Short histories use one day per pixel. Long histories use equal multi-day bins
+(the first can be shorter), preserving every commit and quiet day between the
+first and last commit. Unused space on the left is transparent padding, not
+invented dates. Captions show the complete date range, total count, days per
+pixel, and source repos. Hover a pixel for its exact date range and count. Color
+intensity is relative to the busiest pixel in each field.
 
-```js
-heat: { counts: [0, 3, 1, 0, 0, 2, ...] }
+`repo` supplies the history source by default. For a page covering multiple
+repos, set `historyRepos: ['MLTQ/first', 'MLTQ/second']`; shared SHAs count once.
+Bonsai combines Neural-Cellular-Automatar and Bonsai, and LENIA combines
+Lenia-Rust and Lenia-3d. Projects without a verified repo have no field.
+
+After adding or changing a repository mapping, refresh using the authenticated
+GitHub CLI, then build:
+
+```sh
+npm run history:refresh
+npm run test:history
+npm run build
 ```
+
+The collector pins each default-branch head, retrieves all history pages, checks
+the reported total, and atomically saves aggregate daily counts and source
+provenance to `content/commit-history.json`. Failed or incomplete requests leave
+the previous snapshot intact. Commit messages and personal author information
+are not stored. The GitHub Pages workflow refreshes on each deployment; ordinary
+local builds use the checked-in snapshot offline. Visitors make no GitHub calls.
 
 ## Writing a project page
 

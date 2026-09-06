@@ -6,6 +6,8 @@
   "description": "MLTQ Archive \u2014 parallel systems / field log. Static site, no dependencies.",
   "scripts": {
     "build": "node build.js",
+    "history:refresh": "node scripts/refresh-commit-history.js",
+    "test:history": "node --test tests/commit-history.test.js",
     "dev": "node build.js --serve"
   },
   "engines": {

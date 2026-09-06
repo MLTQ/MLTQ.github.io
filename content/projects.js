@@ -19,10 +19,9 @@
    mesh      true -> status reads 'ACTIVE · ON THE MESH'
    cross     ['retia'] — cross-filed genera. Draws a periwinkle DAG edge
              and adds the project to that genus's bridge list.
-   heat      { seed, ramp } — stylized commit field.
-             ramp: 'up' (ramping) | 'down' (fading) | 'flat' | 'seed' (sparse)
-             For REAL data use { counts: [0,3,1,...] } — one integer per
-             day, oldest first, e.g. from the GitHub events or stats API.
+   historyRepos optional ['MLTQ/name', ...] for combined project histories.
+             Defaults to [repo], or [] when repo is null. Only verified
+             public repositories; counts live in content/commit-history.json.
    glyph     [{ x, y, w, h, r?, rot?, ring? }] on a 56x56 grid.
              r: number (units) or a CSS string, '50%' for a circle.
              ring: border width in units -> hollow shape.
@@ -47,14 +46,14 @@ export default [
 /* ============ BIOTA — things that live ============ */
 {
   slug: 'bonsai', name: 'BONSAI', genus: 'biota', status: 'ACTIVE', featured: true,
-  repo: 'MLTQ/neural-cellular-automatar',
+  repo: 'MLTQ/Neural-Cellular-Automatar',
+  historyRepos: ['MLTQ/Neural-Cellular-Automatar', 'MLTQ/Bonsai'],
   summary: 'Neural Cellular Automatar: a continuously moving cellular avatar on your desk, steered through two separate latent spaces — a 10-D preference space for what it wants, a pose/occupancy space for what its 256³ body can be.',
   log: [
     { text: 'limbs travel instead of crossfading; births only beside the live frontier' },
     { text: '9× render speedup: raymarch the motion envelope, not the cube' },
     { text: 'moods: idle, walk, sleep, dread, manic, curious, content, agitated' },
   ],
-  heat: { seed: 13, ramp: 'flat' },
   glyph: [
     { x: 7,  y: 23, w: 23, h: 23, r: '50%' },
     { x: 25, y: 9,  w: 28, h: 28, r: '50%' },
@@ -71,7 +70,6 @@ export default [
     { text: 'lesion brush: remove neurons and every incident dendrite' },
     { text: 'displayed traffic and credit are measurements, not animation' },
   ],
-  heat: { seed: 103, ramp: 'up' },
   glyph: [
     { x: 6,  y: 6,  w: 44, h: 44, r: '50%', ring: 4 },
     { x: 18, y: 16, w: 8,  h: 8,  r: '50%' },
@@ -82,14 +80,13 @@ export default [
 },
 {
   slug: 'flesh-and-bone', name: 'FLESH + BONE', short: 'F+B', genus: 'biota', status: 'ACTIVE', featured: true,
-  repo: 'MLTQ/flesh-and-bone',
+  repo: 'MLTQ/Flesh-and-bone',
   summary: 'A particle neural cellular automaton for skeletally coherent, self-assembling creatures: bone as scaffold, morphogen body plan, flesh as persistent mobile Gaussian splats. Cells migrate to under-filled tissue, differentiate, and heal wounds.',
   log: [
     { text: 'H0→H8 research ladder complete, failures retained as failures' },
     { text: '91,979-cell body; a ~48 KiB learned rule moves all of it' },
     { text: 'wound repair: 29 cells deleted, 29 fed, coverage returns to 0.97' },
   ],
-  heat: { seed: 113, ramp: 'up' },
   glyph: [
     { x: 4,  y: 20, w: 18, h: 18, r: '50%' },
     { x: 18, y: 25, w: 22, h: 8,  r: 4 },
@@ -99,14 +96,13 @@ export default [
 },
 {
   slug: 'ponderer', name: 'PONDERER', genus: 'biota', status: 'ACTIVE', featured: true,
-  repo: 'MLTQ/ponderer',
+  repo: 'MLTQ/Ponderer',
   summary: 'Not a coding agent. A buddy. Universal Basic Digimon: it chats with you, takes actions, has personal desires and thoughts, and acts on its own behalf. Capabilities arrive as versioned plugins it can draft for itself.',
   log: [
     { text: 'plugin workbench: the model scaffolds, validates, and stages its own plugins' },
     { text: 'staging never executes code; enabling authority stays with the operator' },
     { text: 'Telegram bridge, so the buddy fits in your pocket' },
   ],
-  heat: { seed: 131, ramp: 'flat' },
   glyph: [
     { x: 8,  y: 12, w: 32, h: 32, r: '50%' },
     { x: 34, y: 30, w: 16, h: 16, r: '50%' },
@@ -115,10 +111,9 @@ export default [
 },
 {
   slug: 'hunger', name: 'HUNGER', genus: 'biota', status: 'CYCLING', featured: false,
-  repo: null, cross: ['retia'],
+  repo: 'MLTQ/Hunger', cross: ['retia'],
   summary: 'A novelty-driven crawler: each page is digested, scored for nutrition, and allowed to reproduce into more links when it looks rich.',
   log: [{ text: 'nutrition score gates reproduction; starved branches are pruned' }],
-  heat: { seed: 149, ramp: 'flat' },
   glyph: [
     { x: 6,  y: 14, w: 28, h: 28, r: '50%' },
     { x: 30, y: 20, w: 17, h: 17, r: '50%' },
@@ -129,12 +124,12 @@ export default [
 {
   slug: 'lenia-3d', name: 'LENIA', short: 'LENIA', genus: 'biota', status: 'CYCLING', featured: false,
   repo: null,
+  historyRepos: ['MLTQ/Lenia-Rust', 'MLTQ/Lenia-3d'],
   summary: 'Two Rust workspaces for Lenia: a 2D cellular field with a species library and kernel preview, and a 3D volume with official species, FFT stepping, and wgpu raymarching.',
   log: [
     { text: 'Lenia-Rust: 2D fields, simulation controls, and a live kernel preview' },
     { text: 'Lenia-3D: reference and FFT steppers agree; wgpu raymarch for the view' },
   ],
-  heat: { seed: 151, ramp: 'flat' },
   glyph: [
     { x: 6,  y: 6,  w: 44, h: 44, r: '50%', ring: 3 },
     { x: 15, y: 15, w: 26, h: 26, r: '50%', ring: 3 },
@@ -146,14 +141,13 @@ export default [
 /* ============ OPTICA — things that watch ============ */
 {
   slug: '1kee', name: '1KEE', genus: 'optica', status: 'ACTIVE', featured: true,
-  repo: 'MLTQ/1kee', mesh: true, cross: ['retia'],
+  repo: 'MLTQ/1kEE', mesh: true, cross: ['retia'],
   summary: 'One Thousand Electric Eye. A GPU-rendered globe as an OSINT surface: live events, vessels, flights, and public webcams projected onto geography. Event → nearby cameras → attempted feed connection.',
   log: [
     { text: 'per-pixel ray–sphere globe shader; Earth, Moon, and Mars' },
     { text: 'AIS vessels, ADS-B flights, Factal events, camera registries' },
     { text: "mirrors the analyst's live view onto the local Gruve mesh" },
   ],
-  heat: { seed: 53, ramp: 'up' },
   glyph: [
     { x: 6,  y: 10, w: 44, h: 9, r: 5, rot: -4 },
     { x: 10, y: 24, w: 35, h: 9, r: 5, rot: 3 },
@@ -170,7 +164,6 @@ export default [
     { text: 'scan-plane playback, activity clouds, library aggregates' },
     { text: 'friends browse the replay library over Gruve; scrubbing syncs' },
   ],
-  heat: { seed: 97, ramp: 'flat' },
   glyph: [
     { x: 12, y: 6,  w: 14, h: 44, r: 7 },
     { x: 34, y: 10, w: 9,  h: 9,  r: '50%' },
@@ -181,10 +174,9 @@ export default [
 },
 {
   slug: 'fileogenetic-tree', name: 'FILEOGENETIC TREE', short: 'FILEO', genus: 'optica', status: 'CYCLING', featured: false,
-  repo: null,
+  repo: 'MLTQ/Fileogenetic-Tree',
   summary: 'A filesystem as a radial dendrogram or size-proportional treemap; live streamed indexing, an animated emerging tree.',
   log: [{ text: 'streamed indexing — the tree grows while the walk is still running' }],
-  heat: { seed: 157, ramp: 'flat' },
   glyph: [
     { x: 24, y: 24, w: 8,  h: 8, r: '50%' },
     { x: 28, y: 26, w: 21, h: 3, r: 2, rot: -40 },
@@ -198,10 +190,9 @@ export default [
 },
 {
   slug: 'vizier', name: 'VIZIER', genus: 'optica', status: 'SHIPPED', featured: false,
-  repo: null,
+  repo: 'MLTQ/vizier',
   summary: '`vz`: structured desktop-perception snapshots — an eye that gives agents a sense of the system they live in.',
   log: [{ text: 'structured snapshots, not screenshots: agents read state, not pixels' }],
-  heat: { seed: 163, ramp: 'down' },
   glyph: [
     { x: 3,  y: 18, w: 50, h: 21, r: '50%', ring: 4 },
     { x: 22, y: 22, w: 13, h: 13, r: '50%' },
@@ -210,10 +201,9 @@ export default [
 },
 {
   slug: 'big-arrows', name: 'BIG ARROWS', short: 'ARROWS', genus: 'optica', status: 'SEED', featured: false,
-  repo: null,
+  repo: 'MLTQ/Big-Arrows',
   summary: 'Arrows. Big ones. It will explain itself when it is ready.',
   log: [{ text: 'not yet' }],
-  heat: { seed: 167, ramp: 'seed' },
   glyph: [
     { x: 4,  y: 25, w: 30, h: 7,  r: 3 },
     { x: 30, y: 18, w: 21, h: 21, r: 3, rot: 45 },
@@ -235,14 +225,13 @@ export default [
 },
 {
   slug: 'pharaoh', name: 'PHARAOH', genus: 'phonica', status: 'ACTIVE', featured: true,
-  repo: 'MLTQ/pharaoh', mesh: true,
+  repo: 'MLTQ/Pharaoh', mesh: true,
   summary: 'An AI-powered audio drama production suite built around the Pyramid workflow: story bible → storyboard → script → assets → composition → render. Operable by humans in the GUI and by agents through the headless CLI.',
   log: [
     { text: 'local TTS, foley, and score servers; a Fountain scene editor' },
     { text: 'binaural spatialization: place any clip in 3D, fly it on waypoints' },
     { text: 'a 13-room spatial catalog, vocal booth to cathedral to cave' },
   ],
-  heat: { seed: 61, ramp: 'up' },
   glyph: [
     { x: 6,  y: 22, w: 8, h: 22, r: 4 },
     { x: 18, y: 10, w: 8, h: 40, r: 4 },
@@ -253,10 +242,9 @@ export default [
 },
 {
   slug: 'fosskiff', name: 'FOSSKIFF', genus: 'phonica', status: 'SHIPPED', featured: false,
-  repo: null, cross: ['campi'],
+  repo: 'MLTQ/FOSSkiff', cross: ['campi'],
   summary: 'An open-source 184HP Eurorack skiff in laser-cut sheet metal — rail-less, internal power, ~$150 built.',
   log: [{ text: 'rail-less sheet-metal body; internal power; ~$150 all-in' }],
-  heat: { seed: 173, ramp: 'down' },
   glyph: [
     { x: 6,  y: 10, w: 44, h: 6,  r: 3 },
     { x: 6,  y: 40, w: 44, h: 6,  r: 3 },
@@ -268,10 +256,9 @@ export default [
 },
 {
   slug: 'rubberbard', name: 'RUBBERBARD', short: 'RBARD', genus: 'phonica', status: 'DORMANT', featured: false,
-  repo: null,
+  repo: 'MLTQ/RubberBard',
   summary: 'An LSTM bard: MIDI in, songs out.',
   log: [{ text: 'dormant — kept for the archive' }],
-  heat: { seed: 179, ramp: 'down' },
   glyph: [
     { x: 4,  y: 26, w: 48, h: 4,  r: 2 },
     { x: 12, y: 14, w: 10, h: 10, r: '50%' },
@@ -285,7 +272,6 @@ export default [
   repo: null,
   summary: 'Patch notes from the rack. Voltage is a medium; the cables are the score.',
   log: [{ text: 'patches logged as they happen' }],
-  heat: { seed: 181, ramp: 'flat' },
   glyph: [
     { x: 8,  y: 10, w: 14, h: 14, r: '50%', ring: 3 },
     { x: 34, y: 34, w: 14, h: 14, r: '50%', ring: 3 },
@@ -297,14 +283,13 @@ export default [
 /* ============ RETIA — things that connect ============ */
 {
   slug: 'starchan', name: 'STARCHAN', genus: 'retia', status: 'ACTIVE', featured: true,
-  repo: 'MLTQ/starchan',
+  repo: 'MLTQ/Starchan',
   summary: 'A Tauri frontend for Graphchan — a decentralized, encrypted, p2p imageboard. Threads are DAGs: you can fork a conversation or reply to anything earlier, and there is no derailing. Posting is sharing.',
   log: [
     { text: 'GPG-signed posts; gossip propagation; local-first storage' },
     { text: 'DHT topic discovery rides the BitTorrent hash table' },
     { text: 'the graph view is the thread view; agents post as first-class peers' },
   ],
-  heat: { seed: 127, ramp: 'flat' },
   glyph: [
     { x: 6,  y: 8,  w: 13, h: 13, r: '50%' },
     { x: 38, y: 16, w: 13, h: 13, r: '50%' },
@@ -316,10 +301,9 @@ export default [
 },
 {
   slug: 'orbweaver', name: 'ORBWEAVER', short: 'ORBWEAV', genus: 'retia', status: 'CYCLING', featured: false,
-  repo: null,
+  repo: 'MLTQ/OrbWeaver',
   summary: "The original, native Rust Graphchan — backend, egui frontend, MCP server. Starchan's parent.",
   log: [{ text: 'backend, egui frontend, and MCP server in one tree' }],
-  heat: { seed: 191, ramp: 'flat' },
   glyph: [
     { x: 2,  y: 2,  w: 52, h: 52, r: '50%', ring: 3 },
     { x: 13, y: 13, w: 30, h: 30, r: '50%', ring: 3 },
@@ -333,7 +317,6 @@ export default [
   repo: 'MLTQ/gruve-kit',
   summary: 'A peer-hosted lobby for a friend group. One app on each laptop, and everyone\'s running projects appear on everyone\'s board over direct encrypted connections: no server, no deploy, no accounts. The kit is the SDKs that make any app mesh-ready, reached by name, never by address.',
   log: [{ text: 'name-addressed apps; a lobby tile per announcement' }],
-  heat: { seed: 193, ramp: 'up' },
   glyph: [
     { x: 5,  y: 5,  w: 12, h: 12, r: '50%' },
     { x: 39, y: 5,  w: 12, h: 12, r: '50%' },
@@ -354,7 +337,6 @@ export default [
     { date: '2026.08.02', text: 'flux conserver machined' },
     { date: '2026.06.28', text: 'ETW modification simmed; helicity injection schedule drafted' },
   ],
-  heat: { seed: 29, ramp: 'down' },
   glyph: [
     { x: 8,  y: 8,  w: 40, h: 40, r: '50%', ring: 10 },
     { x: 24, y: 24, w: 8,  h: 8,  r: '50%' },
@@ -369,7 +351,6 @@ export default [
     { date: '2026.07.20', text: 'asymmetric capacitor thrust rig, v2' },
     { date: '2026.05.30', text: 'literature audit: most of it evaporates on contact' },
   ],
-  heat: { seed: 41, ramp: 'down' },
   glyph: [
     { x: 9,  y: 9,  w: 31, h: 31, r: '12% 88% 30% 70%', rot: 8 },
     { x: 11, y: 36, w: 31, h: 8,  r: 4 },
@@ -378,14 +359,13 @@ export default [
 },
 {
   slug: 'dream-glasses', name: 'DREAM GLASSES', genus: 'campi', status: 'SHIPPED', featured: true,
-  repo: 'MLTQ/dream-glasses',
+  repo: 'MLTQ/Dream-Glasses',
   summary: 'An open device for flicker potentials: LEDs flickering near brainwave frequencies induce photic entrainment — fantastical geometric closed-eye hallucinations within seconds. Like binaural beats, but much stronger.',
   log: [
     { text: 'a concentric + becomes an X becomes a diamond tunnel to the sky' },
     { text: '3D-printed frames, the cheapest arduino findable, a small battery' },
     { text: "descended from Gysin &amp; Sommerville's 1960s Dream Machine" },
   ],
-  heat: { seed: 137, ramp: 'down' },
   glyph: [
     { x: 4,  y: 18, w: 20, h: 20, r: '50%', ring: 5 },
     { x: 32, y: 18, w: 20, h: 20, r: '50%', ring: 5 },
@@ -401,7 +381,6 @@ export default [
     { text: 'winner: Best Use of Qualcomm Technologies with AI, MIT Reality Hack 2025' },
     { text: 'third place in the OpenBCI category' },
   ],
-  heat: { seed: 197, ramp: 'down' },
   glyph: [
     { x: 3,  y: 15, w: 26, h: 26, r: '50%', ring: 3 },
     { x: 27, y: 15, w: 26, h: 26, r: '50%', ring: 3 },
@@ -414,7 +393,6 @@ export default [
   repo: null,
   summary: '3D-printed apparatus for the experiments — jigs, mounts, chambers. Models released as they survive contact with reality.',
   log: [{ text: 'released only after the part has actually held' }],
-  heat: { seed: 199, ramp: 'up' },
   glyph: [
     { x: 12, y: 34, w: 32, h: 6, r: 1 },
     { x: 14, y: 26, w: 28, h: 6, r: 1 },
@@ -425,10 +403,9 @@ export default [
 },
 {
   slug: 'eedsolver', name: 'EEDSOLVER', short: 'EEDSOLV', genus: 'campi', status: 'SEED', featured: false,
-  repo: null,
+  repo: 'MLTQ/EEDSolver',
   summary: 'A solver, gestating.',
   log: [{ text: 'not yet' }],
-  heat: { seed: 211, ramp: 'seed' },
   glyph: [
     { x: 17, y: 8,  w: 22, h: 34, r: '50% 50% 50% 50%', rot: 12 },
     { x: 25, y: 44, w: 7,  h: 7,  r: '50%' },
@@ -445,7 +422,6 @@ export default [
     { date: '2026.08.17', text: 'one-shot encoder passes first gate: 23.4 dB on held-out clips' },
     { date: '2026.07.31', text: 'voronoi arm buried; additive renderer stands alone' },
   ],
-  heat: { seed: 7, ramp: 'up' },
   glyph: [
     { x: 4,  y: 10, w: 35, h: 35, r: '38% 62% 55% 45%', rot: 24 },
     { x: 23, y: 6,  w: 28, h: 40, r: '60% 40% 45% 55%', rot: -18 },
@@ -456,10 +432,9 @@ export default [
 },
 {
   slug: 'bobsphog', name: 'BOBSPHOG', genus: 'strata', status: 'ACTIVE', featured: false,
-  repo: null,
+  repo: 'MLTQ/bobsphog',
   summary: 'A spongiform network: a resident skeleton plus demand-paged exact weights, answer quality under a fixed memory budget. A 1.5 TB checkpoint ran in a 38.5 GB peak.',
   log: [{ text: '1.5 TB checkpoint, 38.5 GB peak — exact weights, demand-paged' }],
-  heat: { seed: 223, ramp: 'up' },
   glyph: [
     { x: 6,  y: 9,  w: 13, h: 13, r: '50%' },
     { x: 25, y: 4,  w: 9,  h: 9,  r: '50%' },

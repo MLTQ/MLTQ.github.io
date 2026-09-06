@@ -79,14 +79,15 @@ img{max-width:100%;height:auto;display:block}
 .crow.bridges .d{color:var(--peri-dk)}
 
 /* ------------------------------------------------------------ commit field */
+.commit-field{width:min(100%,var(--history-width));margin:0}
 .hm{display:grid;grid-template-rows:repeat(7,7px);grid-auto-flow:column;
-  grid-auto-columns:7px;gap:2px;
-  /* the 40-week field on project pages is wider than a phone: let it scroll
-     inside its own box rather than pushing the page sideways */
-  max-width:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:2px}
-.hm-lg{grid-template-rows:repeat(7,9px);grid-auto-columns:9px;gap:2.5px}
+  grid-template-columns:repeat(var(--history-columns),minmax(0,1fr));gap:2px;
+  /* All columns stay visible on phones, including the last commit. */
+  max-width:100%;padding-bottom:2px}
+.hm-lg{grid-template-rows:repeat(7,9px);gap:2.5px}
 .hm div{border-radius:1.5px}
 .hmcap{font-size:9px;letter-spacing:.14em;color:var(--faint);margin:8px 0 0}
+.hmcap span{display:block;overflow-wrap:anywhere;line-height:1.6}
 
 /* ------------------------------------------------------------ project page */
 .crumb{display:flex;justify-content:space-between;align-items:baseline;gap:16px;

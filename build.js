@@ -19,6 +19,8 @@ import projects from './content/projects.js'
 import { projectLeniaMarkup } from './project-lenia.js'
 import specimens from './content/lenia.js'
 import { footprintSVG } from './lenia-footprint.js'
+import { validateSnapshot } from './commit-history.js'
+import { renderCommitField } from './commit-field.js'
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url))
 const DIST = path.join(ROOT, 'dist')
@@ -78,41 +80,8 @@ const dotted = d => d.replace(/-/g, '.')
 
 /* ------------------------------------------------------- commit heat field */
 
-const PAL = ['#dfe0e3', '#c9cce9', '#a3a8de', '#8f93d9', '#5f64b4']
-const WEEKS = 26
-
-function levels(heat, weeks) {
-  if (heat.counts) {
-    const max = Math.max(1, ...heat.counts)
-    return heat.counts.map(c => (c === 0 ? 0 : Math.min(4, Math.ceil((c / max) * 4))))
-  }
-  let s = heat.seed || 1
-  const ramp = heat.ramp || 'flat'
-  const rnd = () => (s = (s * 1103515245 + 12345) % 2147483648) / 2147483648
-  const out = []
-  for (let w = 0; w < weeks; w++) {
-    for (let d = 0; d < 7; d++) {
-      const bias = ramp === 'up' ? w / weeks
-        : ramp === 'down' ? 1 - w / weeks
-          : ramp === 'seed' ? 0.08 : 0.55
-      const r = rnd() * (0.3 + bias * 0.9)
-      out.push(r < 0.3 ? 0 : r < 0.5 ? 1 : r < 0.68 ? 2 : r < 0.86 ? 3 : 4)
-    }
-  }
-  return out
-}
-
-function heatField(p, { weeks = WEEKS, large = false } = {}) {
-  if (!p.heat) return ''
-  const cells = levels(p.heat, weeks)
-    .map(l => `<div style="background:${PAL[l]}"></div>`).join('')
-  const window = p.heat.counts ? `TRAILING ${weeks} WEEKS` : 'STYLIZED'
-  const cap = p.repo
-    ? `${p.repo.toUpperCase()} — COMMIT FIELD, ${window}`
-    : `COMMIT FIELD — ${window}`
-  return `<div class="hm${large ? ' hm-lg' : ''}" role="img" aria-label="${esc(cap)}">${cells}</div>
-<p class="hmcap">${esc(cap)}</p>`
-}
+let commitSnapshot
+const heatField = (p, options) => renderCommitField(commitSnapshot.projects[p.slug], options)
 
 /* ------------------------------------------------------------- footprints */
 
@@ -737,6 +706,7 @@ function buildProject(p, posts, pages) {
   const next = sibs[i + 1]
   const related = posts.filter(x => x.project === p.slug)
   const page = pages[p.slug] || { stats: [], media: [], links: [], html: '' }
+  const history = heatField(p, { columns: 40, large: true })
 
   const filed = [
     `<a href="${u(1, `index.html#${p.genus}`)}">${esc(genusOf(p.genus).label)}</a>`,
@@ -761,7 +731,7 @@ ${projectLeniaMarkup(p.slug)}
 </div>
 </header>
 <main id="main">
-${p.heat ? `<div class="pad">${heatField(p, { weeks: 40, large: true })}</div>` : ''}
+${history ? `<div class="pad">${history}</div>` : ''}
 ${page.stats.length ? `<div class="stats">${page.stats.map(s =>
     `<div class="stat"><div class="v">${esc(s.v)}</div><div class="k">${esc(s.k)}</div></div>`).join('')}</div>` : ''}
 ${page.media.length ? `<div class="media">${page.media.map(m =>
@@ -990,6 +960,8 @@ function scaffold() {
 function build() {
   const t0 = Date.now()
   validate()
+  commitSnapshot = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/commit-history.json'), 'utf8'))
+  validateSnapshot(commitSnapshot, projects)
   const spectra = ensureSpectra(MEDIA_DIR, m => console.log(m))
   if (spectra.missingFfmpeg) {
     console.log(`  · ${spectra.skipped} audio file(s) have no waterfall — ffmpeg not found`)
@@ -1096,7 +1068,7 @@ async function serve() {
      would otherwise leave the server rebuilding with stale code — and quietly
      overwriting correct output from a build you ran by hand. Re-exec instead. */
   let restarting = false
-  for (const f of ['build.js', 'spectrogram.js']) {
+  for (const f of ['build.js', 'spectrogram.js', 'commit-history.js', 'commit-field.js']) {
     const p = path.join(ROOT, f)
     if (!fs.existsSync(p)) continue
     fs.watch(p, () => {

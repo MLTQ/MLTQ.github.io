@@ -23,3 +23,6 @@ Never edit generated `dist` files. Project detail headers call `projectLeniaMark
 
 ## Archive footprints
 `footprintSVG` generates one static asset per project from its assigned Lenia seed during the build. `footprint` inserts decorative image tags in featured and compact project links. Assets are registered through `write` so output cleanup preserves them. No additional live surfaces are added.
+
+## Commit history
+Every build reloads and validates `content/commit-history.json` before writing output. `commit-field.js` renders full first-to-last-commit histories, with 26 columns on featured index rows and 40 on project pages. No repository data means no field. The dev server restarts when either commit-history module changes and reloads saved counts when content changes.
