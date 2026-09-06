@@ -20,21 +20,21 @@ export function renderCommitField(record, account, { columns = 26, large = false
   const scale = `${daysPerCell} day${daysPerCell === 1 ? '' : 's'} per pixel, using GitHub contribution dates`;
   const dates = range(cells[0].start, cells.at(-1).end);
   const sources = record.repositories.map(source => source.repo).join(' + ');
-  const label = `${account.login}'s public GitHub commit activity, ${dates}. `
-    + `${number(record.totalCommits)} of ${number(total)} commits went to this project. ${scale}. `
-    + 'Read top to bottom, then left to right. Green shows other activity; purple highlights days with project commits. '
+  const label = `${account.login}'s GitHub contribution calendar, including anonymized private activity, ${dates}. `
+    + `${number(record.totalCommits)} project commits within ${number(total)} total contributions. ${scale}. `
+    + 'Read top to bottom, then left to right. Green shows overall activity; purple highlights days with project commits. '
     + `Darker colors mean more commits. Project: ${sources}.`;
   const pixels = cells.map(cell => {
     const color = cell.count ? shade(cell.count, projectMaximum, PROJECT) : cell.total ? shade(cell.total, maximum, OVERALL) : EMPTY;
-    const title = `${range(cell.start, cell.end)}: ${number(cell.count)} of ${number(cell.total)} commits to this project; ${number(cell.total - cell.count)} elsewhere`;
+    const title = `${range(cell.start, cell.end)}: ${number(cell.count)} project commits; ${number(cell.total)} total contributions; ${number(cell.total - cell.count)} other contributions`;
     return `<div style="background:${color}" title="${esc(title)}" data-start="${cell.start}" data-end="${cell.end}" data-count="${cell.count}" data-total="${cell.total}"></div>`;
   }).join('');
   const width = columns * (large ? 9 : 7) + (columns - 1) * (large ? 2.5 : 2);
   return `<figure class="commit-field" style="--history-columns:${columns};--history-width:${width}px">
 <div class="hm${large ? ' hm-lg' : ''}" role="img" aria-label="${esc(label)}">${pixels}</div>
 <figcaption class="hmcap">
-<span class="hmlegend"><a class="hmkey hmkey-github" href="https://github.com/${esc(account.login)}" title="${esc(account.login)}'s public commit contributions">GitHub</a><span class="hmkey hmkey-project" title="${esc(sources)}">This project</span></span>
-<span>${number(record.totalCommits)} of ${number(total)} commits</span>
+<span class="hmlegend"><a class="hmkey hmkey-github" href="https://github.com/${esc(account.login)}" title="${esc(account.login)}'s full contribution calendar, including anonymized private activity">GitHub</a><span class="hmkey hmkey-project" title="Commits to ${esc(sources)}">This project</span></span>
+<span>${number(record.totalCommits)} commits · ${number(total)} contributions</span>
 <span title="${esc(scale)}">${dates}</span>
 </figcaption>
 </figure>`;

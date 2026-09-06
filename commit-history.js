@@ -9,6 +9,10 @@ export function dayNumber(value) {
 }
 
 const dateAt = day => new Date(day * DAY).toISOString().slice(0, 10);
+const RECORD_KEYS = {
+  commits: ['totalCommits', 'firstCommit', 'lastCommit'],
+  contributions: ['totalContributions', 'firstContribution', 'lastContribution'],
+};
 
 export function historyRepos(project) {
   const repos = project.historyRepos ?? (project.repo ? [project.repo] : []);
@@ -19,25 +23,27 @@ export function historyRepos(project) {
   return repos;
 }
 
-/** Sum GitHub's own per-repository contribution counts on its calendar days. */
-export function sumHistory(sources) {
+/** Aggregate calendar contributions or project commits with explicit metric names. */
+export function sumHistory(sources, metric = 'commits') {
+  const [totalKey, firstKey, lastKey] = RECORD_KEYS[metric];
   const days = new Map();
   for (const source of sources) {
     for (const [date, count] of source.daily) days.set(date, (days.get(date) || 0) + count);
   }
   const daily = [...days].sort(([a], [b]) => a.localeCompare(b));
   const result = {
-    totalCommits: daily.reduce((sum, [, count]) => sum + count, 0),
-    firstCommit: daily[0]?.[0] ?? null,
-    lastCommit: daily.at(-1)?.[0] ?? null,
+    [totalKey]: daily.reduce((sum, [, count]) => sum + count, 0),
+    [firstKey]: daily[0]?.[0] ?? null,
+    [lastKey]: daily.at(-1)?.[0] ?? null,
     daily,
   };
-  validateRecord(result);
+  validateRecord(result, metric);
   return result;
 }
 
-export function validateRecord(record) {
-  if (!record || !Array.isArray(record.daily) || !Number.isSafeInteger(record.totalCommits) || record.totalCommits < 0) throw new Error('Invalid commit history');
+export function validateRecord(record, metric = 'commits') {
+  const [totalKey, firstKey, lastKey] = RECORD_KEYS[metric];
+  if (!record || !Array.isArray(record.daily) || !Number.isSafeInteger(record[totalKey]) || record[totalKey] < 0) throw new Error('Invalid activity history');
   let previous = -Infinity, sum = 0;
   for (const pair of record.daily) {
     if (!Array.isArray(pair) || pair.length !== 2) throw new Error('Invalid daily count');
@@ -46,14 +52,14 @@ export function validateRecord(record) {
     previous = day;
     sum += count;
   }
-  if (sum !== record.totalCommits || (record.daily[0]?.[0] ?? null) !== record.firstCommit || (record.daily.at(-1)?.[0] ?? null) !== record.lastCommit) {
-    throw new Error('Commit totals or date range do not match daily history');
+  if (sum !== record[totalKey] || (record.daily[0]?.[0] ?? null) !== record[firstKey] || (record.daily.at(-1)?.[0] ?? null) !== record[lastKey]) {
+    throw new Error('Activity totals or date range do not match daily history');
   }
 }
 
 export function validateSnapshot(snapshot, projects) {
-  if (snapshot?.version !== 2 || snapshot.calendar !== 'GitHub contribution days' || snapshot.scope !== 'public commit contributions' || !snapshot.projects || !/^[\w-]+$/.test(snapshot.account?.login ?? '') || !Number.isFinite(Date.parse(snapshot.refreshedAt))) throw new Error('Invalid commit activity snapshot; run npm run history:refresh');
-  validateRecord(snapshot.account);
+  if (snapshot?.version !== 3 || snapshot.calendar !== 'GitHub contribution days' || snapshot.scope !== 'GitHub profile contributions' || !snapshot.projects || !/^[\w-]+$/.test(snapshot.account?.login ?? '') || !Number.isFinite(Date.parse(snapshot.refreshedAt))) throw new Error('Invalid activity snapshot; run npm run history:refresh');
+  validateRecord(snapshot.account, 'contributions');
   const overall = new Map(snapshot.account.daily);
   for (const project of projects) {
     const expected = historyRepos(project).map(r => r.toLowerCase()).sort();
@@ -75,7 +81,7 @@ export function validateSnapshot(snapshot, projects) {
 /** Full project history plus surrounding activity, always ending at its last contribution. */
 export function historyCells(record, account, slots) {
   validateRecord(record);
-  validateRecord(account);
+  validateRecord(account, 'contributions');
   if (!Number.isSafeInteger(slots) || slots < 1) throw new Error('Invalid field size');
   if (!record.totalCommits) return { cells: [], daysPerCell: 1 };
   const first = dayNumber(record.firstCommit), last = dayNumber(record.lastCommit);

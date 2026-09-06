@@ -16,7 +16,24 @@ export function request(query, variables) {
   });
 }
 
-const QUERY = `query($login:String!,$from:DateTime!,$to:DateTime!){user(login:$login){contributionsCollection(from:$from,to:$to){totalCommitContributions commitContributionsByRepository(maxRepositories:100){repository{nameWithOwner isPrivate} contributions(first:100){totalCount nodes{occurredAt commitCount} pageInfo{hasNextPage}}}}}}`;
+const QUERY = `query($login:String!,$from:DateTime!,$to:DateTime!){user(login:$login){contributionsCollection(from:$from,to:$to){contributionCalendar{totalContributions weeks{contributionDays{date contributionCount}}} totalCommitContributions commitContributionsByRepository(maxRepositories:100){repository{nameWithOwner isPrivate} contributions(first:100){totalCount nodes{occurredAt commitCount} pageInfo{hasNextPage}}}}}}`;
+
+/** The profile calendar includes anonymized private activity and non-commit contributions. */
+export function readCalendar(calendar, from, to) {
+  if (!Array.isArray(calendar?.weeks) || !Number.isSafeInteger(calendar.totalContributions)) throw new Error('Missing contribution calendar');
+  const daily = [];
+  let expected = dayNumber(from), total = 0;
+  for (const week of calendar.weeks) {
+    if (!Array.isArray(week.contributionDays)) throw new Error('Missing calendar days');
+    for (const { date, contributionCount } of week.contributionDays) {
+      if (dayNumber(date) !== expected++ || !Number.isSafeInteger(contributionCount) || contributionCount < 0) throw new Error('Invalid calendar day');
+      total += contributionCount;
+      if (contributionCount) daily.push([date, contributionCount]);
+    }
+  }
+  if (expected !== dayNumber(to) + 1 || total !== calendar.totalContributions) throw new Error('Incomplete contribution calendar');
+  return { daily };
+}
 
 /** A month has at most 31 daily nodes. Check totals to detect repository truncation. */
 export function readContributions(collection, from, to) {
@@ -60,19 +77,22 @@ export async function collectContributions(login) {
     }
   }
   const sources = new Map();
+  const activity = [];
   for (let i = 0; i < months.length; i += 4) {
     const results = await Promise.all(months.slice(i, i + 4).map(async ({ from, to }) => {
       const response = await request(QUERY, { login, from: `${from}T00:00:00Z`, to: `${to}T23:59:59Z` });
-      return readContributions(response?.user?.contributionsCollection, from, to);
+      const collection = response?.user?.contributionsCollection;
+      return { repos: readContributions(collection, from, to), calendar: readCalendar(collection?.contributionCalendar, from, to) };
     }));
-    for (const entries of results) {
-      for (const entry of entries) {
+    for (const result of results) {
+      activity.push(result.calendar);
+      for (const entry of result.repos) {
         const key = entry.repo.toLowerCase();
         if (!sources.has(key)) sources.set(key, { repo: entry.repo, daily: [] });
         sources.get(key).daily.push(...entry.daily);
       }
     }
-    if (i % 12 === 0) console.log(`Collecting public commit activity: ${months[i].from.slice(0, 7)}`);
+    if (i % 12 === 0) console.log(`Collecting GitHub calendar: ${months[i].from.slice(0, 7)}`);
   }
-  return { account: { login: user.login, ...sumHistory([...sources.values()]) }, sources };
+  return { account: { login: user.login, ...sumHistory(activity, 'contributions') }, sources };
 }

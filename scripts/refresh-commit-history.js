@@ -24,7 +24,7 @@ async function refresh() {
   }
   const { account, sources } = await collectContributions(login);
   const snapshot = {
-    version: 2, calendar: 'GitHub contribution days', scope: 'public commit contributions',
+    version: 3, calendar: 'GitHub contribution days', scope: 'GitHub profile contributions',
     refreshedAt: new Date().toISOString(), account, projects: {},
   };
   for (const project of projects) {
@@ -41,7 +41,7 @@ async function refresh() {
     await fs.writeFile(temporary, JSON.stringify(snapshot, null, 2) + '\n');
     await fs.rename(temporary, destination);
   } finally { await fs.rm(temporary, { force: true }); }
-  console.log(`Saved ${account.totalCommits} public commit contributions and ${Object.keys(snapshot.projects).length} project highlights for ${account.login}.`);
+  console.log(`Saved ${account.totalContributions} profile contributions, including private activity counts, and ${Object.keys(snapshot.projects).length} project highlights for ${account.login}.`);
 }
 
 refresh().catch(error => { console.error(error.message); process.exitCode = 1; });

@@ -3,11 +3,11 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { sumHistory, dayNumber, historyCells, historyRepos, validateRecord, validateSnapshot } from '../commit-history.js';
 import { renderCommitField } from '../commit-field.js';
-import { readContributions } from '../scripts/github-contributions.js';
+import { readContributions, readCalendar } from '../scripts/github-contributions.js';
 import projects from '../content/projects.js';
 
 const record = daily => ({ ...sumHistory([{ daily }]), repositories: [{ repo: 'Owner/project' }] });
-const account = daily => ({ ...sumHistory([{ daily }]), login: 'Owner' });
+const account = daily => ({ ...sumHistory([{ daily }], 'contributions'), login: 'Owner' });
 const fixture = () => ({ totalCommitContributions: 9, commitContributionsByRepository: [
   { repository: { nameWithOwner: 'Owner/project', isPrivate: false }, contributions: {
     totalCount: 7, nodes: [{ occurredAt: '2024-02-28T08:00:00Z', commitCount: 3 }, { occurredAt: '2024-02-29T08:00:00Z', commitCount: 4 }], pageInfo: { hasNextPage: false },
@@ -86,14 +86,14 @@ test('combined projects use the same contribution accounting as the overall hist
   const c = { daily: [['2024-02-29', 5]] };
   const combined = sumHistory([a, b]);
   assert.deepEqual(combined.daily, [['2024-02-28', 2], ['2024-02-29', 7]]);
-  const { cells } = historyCells(combined, sumHistory([a, b, c]), 7);
+  const { cells } = historyCells(combined, sumHistory([a, b, c], 'contributions'), 7);
   assert.equal(cells.at(-1).count, 7);
   assert.equal(cells.at(-1).total, 12);
 });
 
 test('invalid totals, changed mappings, and project counts exceeding overall activity are rejected', () => {
   const history = record([['2020-01-01', 2]]);
-  const snapshot = { version: 2, calendar: 'GitHub contribution days', scope: 'public commit contributions', refreshedAt: '2026-09-05T00:00:00Z', account: account([['2020-01-01', 3]]), projects: { sample: history } };
+  const snapshot = { version: 3, calendar: 'GitHub contribution days', scope: 'GitHub profile contributions', refreshedAt: '2026-09-05T00:00:00Z', account: account([['2020-01-01', 3]]), projects: { sample: history } };
   const project = { slug: 'sample', repo: 'Owner/project' };
   validateSnapshot(snapshot, [project]);
   assert.throws(() => validateSnapshot(snapshot, [{ ...project, repo: 'Owner/different' }]), /mapping/);
@@ -117,8 +117,8 @@ test('rendered colors distinguish context and project activity with exact toolti
     assert.equal(pixels.at(-1)[6], '9');
     assert.notEqual(pixels.at(-1)[1], pixels.at(-2)[1]);
     assert.notEqual(pixels.at(-2)[1], pixels.at(-3)[1]);
-    assert.match(pixels.at(-1)[2], /3 of 9 commits to this project; 6 elsewhere/);
-    assert.match(html, /3 of 14 commits/);
+    assert.match(pixels.at(-1)[2], /3 project commits; 9 total contributions; 6 other contributions/);
+    assert.match(html, /3 commits · 14 contributions/);
     assert.match(html, /GitHub<\/a>/);
     assert.match(html, /This project/);
     assert.doesNotMatch(html, /hm-padding|STYLIZED|canvas|script/i);
@@ -139,4 +139,41 @@ test('every saved project is a subset of account activity in both layouts', () =
       }
     }
   }
+});
+
+const calendarFixture = () => ({ totalContributions: 20, weeks: [{ contributionDays: [
+  { date: '2024-02-27', contributionCount: 9 },
+  { date: '2024-02-28', contributionCount: 3 },
+  { date: '2024-02-29', contributionCount: 8 },
+] }] });
+
+test('private-only activity fills the background without persisting private repository details', () => {
+  const publicRepos = readContributions(fixture(), '2024-02-01', '2024-02-29');
+  const calendar = readCalendar(calendarFixture(), '2024-02-27', '2024-02-29');
+  const overall = { login: 'Owner', ...sumHistory([calendar], 'contributions') };
+  const project = { repositories: [{ repo: publicRepos[0].repo }], ...sumHistory(publicRepos) };
+  const { cells } = historyCells(project, overall, 7);
+  assert.equal(overall.totalContributions, 20);
+  assert.equal(project.totalCommits, 7);
+  assert.deepEqual(cells.at(-3), { start: '2024-02-27', end: '2024-02-27', count: 0, total: 9 });
+  assert.doesNotMatch(JSON.stringify({ overall, project }), /Owner\/private/);
+  const html = renderCommitField(project, overall);
+  assert.match(html, /7 commits · 20 contributions/);
+  assert.match(html, /including anonymized private activity/);
+  assert.match(html, /0 project commits; 9 total contributions; 9 other contributions/);
+  assert.doesNotMatch(html, /7 of 20 commits|public GitHub commit activity/);
+});
+
+test('calendar ingestion rejects missing, duplicate, negative, and miscounted days', () => {
+  const mutations = [
+    f => f.totalContributions++,
+    f => f.weeks[0].contributionDays.pop(),
+    f => f.weeks[0].contributionDays[1].date = '2024-02-27',
+    f => f.weeks[0].contributionDays[0].contributionCount = -1,
+  ];
+  for (const mutate of mutations) {
+    const f = calendarFixture(); mutate(f);
+    assert.throws(() => readCalendar(f, '2024-02-27', '2024-02-29'));
+  }
+  assert.throws(() => validateRecord({ ...account([['2024-02-29', 4]]), totalContributions: 3 }, 'contributions'), /totals/);
 });

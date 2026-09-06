@@ -139,17 +139,17 @@ ledger records are no longer rendered.
 
 ### Commit fields
 
-Each field shows the owner's **public GitHub commit activity**, with the current
-project's contribution days highlighted in purple. Other activity is muted
-green; grey cells have no contributions. Purple bins may also contain other
-work: hover for exact project, total, and elsewhere counts. The caption shows
-how many commits went to this project out of all commits in the displayed period.
+Each field shows the owner's **full GitHub contribution calendar**, with public
+project commit days highlighted in purple. The green background includes the
+anonymized private activity and other contribution types that GitHub shows on
+the profile. Grey cells have no contributions. Private repo identities and
+contents are never stored or displayed.
 
-Both layers come from GitHub's own commit contribution records for the account
-in `site.github`, using GitHub's calendar dates and attribution rules. This
-includes work in public repositories outside the portfolio and excludes issues,
-pull requests, reviews, private entries, and collaborators' commits. Counts may
-differ from raw all-author Git history; the two chart layers use the same units.
+GitHub's profile calendar includes more than commits, so captions and tooltips
+keep the units explicit: **100 project commits · 2,262 total contributions**.
+Purple days can include private work and other activity too. Both layers use
+GitHub's own contribution dates; project commits remain a subset of each day's
+calendar total. The account comes from `site.github`.
 
 Read down each column, then left to right. The bottom-right pixel ends at the
 owner's last GitHub contribution to that project. Short projects show 182 days
@@ -171,7 +171,7 @@ npm run build
 ```
 
 The collector queries all contribution years in monthly intervals, validates
-per-repository and overall totals, then atomically saves aggregate daily counts
+per-repository counts and complete profile-calendar coverage and totals, then atomically saves aggregate daily counts
 to `content/commit-history.json`. Failed or incomplete queries preserve the prior
 snapshot. The Pages workflow refreshes before deployment; local builds use the
 checked-in snapshot offline. Visitors make no GitHub requests.
