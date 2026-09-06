@@ -1,22 +1,21 @@
 ---
-# Page-only fields for LENIA-3D. Uncomment what you need; delete the rest.
-# Everything else about this system lives in content/projects.js.
-# stats:
-#   23.4 dB | WHAT IT MEASURES
-#   ~600 KB | ON DISK
-# media:
-#   something.gif | alt text        (file goes in static/media/)
-#   slot | drop: a placeholder caption
-# links:
-#   Design notes | https://example.com
+links:
+  Lenia-Rust source | https://github.com/MLTQ/Lenia-Rust
+  Lenia-3D source | https://github.com/MLTQ/Lenia-3d
 ---
 
-<!-- Write the page here, in Markdown. A heading like
+## LENIA-RUST — 2D
 
-         ## 2026.09.01 — WHAT HAPPENED
+A two-dimensional Lenia playground in Rust, with a species library, simulation parameters, food and drawing controls, and a kernel heatmap alongside its radial profile.
 
-     becomes a dated section, newest at the top.
+[Source: MLTQ/Lenia-Rust](https://github.com/MLTQ/Lenia-Rust)
 
-     While this body is empty, the page falls back to the `log` lines from
-     content/projects.js, rendered as FIELD NOTES. Write anything real here
-     and it takes over. -->
+![Lenia-Rust: a grayscale cellular field beside simulation controls and a kernel preview.](media/lenia-rust/simulation-controls.png)
+
+## LENIA-3D — VOLUME
+
+A 3D-first Lenia workspace. Official 3D species are loaded and raymarched in wgpu, with reference and FFT stepping paths. The kernel preview shows a central slice and a radial profile of the three-dimensional kernel.
+
+[Source: MLTQ/Lenia-3d](https://github.com/MLTQ/Lenia-3d)
+
+![Lenia-3D: a blue-and-gold volume beside species, world, simulation, and kernel controls.](media/lenia-3d/volume-controls.png)

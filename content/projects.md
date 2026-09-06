@@ -13,3 +13,5 @@ The archive's project ledger. Supplies the index, project routes, section member
 
 ## Content notes
 Physical Gong Sim is filed under PHONICA with a compact row and an initial CYCLING status. The owner supplied its name; its description and field notes come from the owner's screenshot. No source repository or activity history was supplied. Its stable slug is `gong`, and its image is preserved in `static/media/gong/`.
+
+The LENIA entry combines the distinct Lenia-Rust and Lenia-3D repositories on one page, at the existing `lenia-3d` URL. Its page Markdown separates their descriptions, original screenshots, and source links. It keeps the existing single live creature and index footprint.

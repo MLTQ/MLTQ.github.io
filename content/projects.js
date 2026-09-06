@@ -127,17 +127,20 @@ export default [
   tags: ['Crawlers', 'Novelty search'],
 },
 {
-  slug: 'lenia-3d', name: 'LENIA-3D', short: 'LENIA', genus: 'biota', status: 'CYCLING', featured: false,
+  slug: 'lenia-3d', name: 'LENIA', short: 'LENIA', genus: 'biota', status: 'CYCLING', featured: false,
   repo: null,
-  summary: 'A 3D-first Lenia workspace: official 3D species loaded and raymarched in wgpu; reference and FFT stepping paths.',
-  log: [{ text: 'reference and FFT steppers agree; wgpu raymarch for the view' }],
+  summary: 'Two Rust workspaces for Lenia: a 2D cellular field with a species library and kernel preview, and a 3D volume with official species, FFT stepping, and wgpu raymarching.',
+  log: [
+    { text: 'Lenia-Rust: 2D fields, simulation controls, and a live kernel preview' },
+    { text: 'Lenia-3D: reference and FFT steppers agree; wgpu raymarch for the view' },
+  ],
   heat: { seed: 151, ramp: 'flat' },
   glyph: [
     { x: 6,  y: 6,  w: 44, h: 44, r: '50%', ring: 3 },
     { x: 15, y: 15, w: 26, h: 26, r: '50%', ring: 3 },
     { x: 24, y: 24, w: 8,  h: 8,  r: '50%' },
   ],
-  tags: ['Lenia', 'wgpu', 'Continuous CA'],
+  tags: ['Lenia', 'Rust', 'wgpu', 'Continuous CA'],
 },
 
 /* ============ OPTICA — things that watch ============ */
