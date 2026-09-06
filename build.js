@@ -81,7 +81,7 @@ const dotted = d => d.replace(/-/g, '.')
 /* ------------------------------------------------------- commit heat field */
 
 let commitSnapshot
-const heatField = (p, options) => renderCommitField(commitSnapshot.projects[p.slug], options)
+const heatField = (p, options) => renderCommitField(commitSnapshot.projects[p.slug], commitSnapshot.account, options)
 
 /* ------------------------------------------------------------- footprints */
 

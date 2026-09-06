@@ -87,7 +87,12 @@ img{max-width:100%;height:auto;display:block}
 .hm-lg{grid-template-rows:repeat(7,9px);gap:2.5px}
 .hm div{border-radius:1.5px}
 .hmcap{font-size:9px;letter-spacing:.14em;color:var(--faint);margin:8px 0 0}
-.hmcap span{display:block;overflow-wrap:anywhere;line-height:1.6}
+.hmcap > span{display:block;overflow-wrap:anywhere;line-height:1.6}
+.hmcap .hmlegend{display:flex;gap:14px;align-items:center;margin-bottom:3px}
+.hmkey{display:inline-flex;align-items:center;gap:5px}
+.hmkey::before{content:"";width:7px;height:7px;flex:none;border-radius:1.5px}
+.hmkey-github::before{background:#6d977c}
+.hmkey-project::before{background:#8364b6}
 
 /* ------------------------------------------------------------ project page */
 .crumb{display:flex;justify-content:space-between;align-items:baseline;gap:16px;

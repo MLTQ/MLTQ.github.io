@@ -8,7 +8,7 @@ The archive's project ledger. Supplies the index, project routes, section member
 - `genus` matches an ID in `site.js`; ledger order determines order within a section.
 - `featured` chooses the full or compact index row. Both receive a complete project page.
 - `repo: null` omits the source repository link. `historyRepos` explicitly selects one or more public repositories for a combined history; otherwise history defaults to `repo`. No verified mapping means no field.
-- Counts come from `content/commit-history.json`, refreshed from every reachable default-branch commit. The build rejects missing snapshots or changed mappings until refreshed.
+- Counts come from `content/commit-history.json`, refreshed from the owner’s GitHub commit contributions. The build rejects missing snapshots or changed mappings until refreshed.
 - Each project needs a permanent, unique species in `lenia.js`, used for its live detail-page specimen and static index footprint.
 - Legacy `glyph` data remains for older consumers; the current index uses the species footprint.
 
@@ -19,4 +19,4 @@ The LENIA entry combines the distinct Lenia-Rust and Lenia-3D repositories on on
 
 NEUROVEIL is the public name of the Synchroflow project; its `synchroflow` URL and species assignment remain stable. Its page credits the team and Rui Ma's film, and uses the organizer's verified awards: the Qualcomm AI win and third place in the OpenBCI category. Team spelling follows the owner's supplied names.
 
-Bonsai combines the Neural-Cellular-Automatar and Bonsai histories because its gallery contains both projects. LENIA combines Lenia-Rust and Lenia-3d. Captions name both sources, and shared SHAs count once. Repository mappings were checked against the public MLTQ repository inventory; gong, modular, fusor, ttb, and prints remain unmapped.
+Bonsai combines the Neural-Cellular-Automatar and Bonsai histories because its gallery contains both projects. LENIA combines Lenia-Rust and Lenia-3d. The project legend identifies both sources on hover; their GitHub contribution counts are summed consistently with the overall account history. Repository mappings were checked against the public MLTQ repository inventory; gong, modular, fusor, ttb, and prints remain unmapped.

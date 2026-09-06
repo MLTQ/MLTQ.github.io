@@ -1,15 +1,15 @@
 # commit-history.js
 
 ## Purpose
-Pure counting and calendar rules for repository history. No network requests, local paths, or wall-clock date affect rendering.
+Pure aggregation, validation, and calendar rules for project contributions shown inside the owner's wider GitHub activity.
 
 ## Components
-- `historyRepos`: selects explicit grouped repositories, otherwise the project's source repo.
-- `aggregateHistory`: counts each reachable SHA once across a project's repositories, using its committer timestamp in UTC. Stores daily totals, date bounds, and source branch/head provenance; does not persist commit messages, authors, or email addresses.
-- `validateRecord` / `validateSnapshot`: reject inconsistent counts, dates, and stale repository mappings.
-- `historyCells`: fits the entire first-to-last-commit interval into a bounded grid. Bins end at the last commit; early unused slots are padding, not zero-commit dates. Empty days inside the interval remain real zeroes.
+- `historyRepos`: explicit grouped repositories, otherwise the project's source repo.
+- `sumHistory`: sum GitHub's per-repository daily contribution counts. The same accounting is used for the overall history and selected projects.
+- `validateRecord` / `validateSnapshot`: reject invalid totals, dates, changed mappings, or a project's daily count exceeding the overall count.
+- `historyCells`: include the project's entire contribution history, with at least one day per cell. Fill the rest of the fixed field with real surrounding activity; no transparent padding or invented counts.
 
 ## Contracts
-`scripts/refresh-commit-history.js` collects every commit reachable from each public repository's pinned default-branch head, including merges. `commit-field.js` renders those counts. Grouped repos deduplicate shared SHAs. The final cell always ends on the final commit date and contains at least one commit for a nonempty history.
+Snapshot version 2 uses the account's public GitHub commit contributions and GitHub's contribution dates, not raw committer timestamps or all-author repository totals. Overall and project layers use identical date bins. The final pixel ends at the owner's last contribution to that project. Short projects show 182 days on the index and 280 on detail pages; longer histories use uniform multi-day bins covering every project contribution.
 
-Long histories use uniform multi-day bins, except the possibly shorter first bin. All commits count exactly once. Short histories use one UTC day per cell. Empty repos have no date bounds.
+Each cell stores its date range, project count, and overall count. Background counts outside the visible interval are excluded. Empty project records render no field. No clock input affects rendering.

@@ -1,9 +1,9 @@
 # commit-history.test.js
 
 ## Purpose
-Check that displayed history preserves real commit counts and calendar intervals, including dormant projects and grouped repositories.
+Verify that project highlights are an accurate subset of the owner's overall public GitHub commit activity, across short and multi-year projects.
 
 ## Cases
-UTC conversion, leap days, shared SHA deduplication, quiet periods, single-day projects, multi-year compression, no overlapping or missing days, total conservation, exact final pixel, malformed snapshots, mapping changes, accessible source labels, and both rendered sizes against every saved project.
+Contribution-day parsing, private entry filtering, total and pagination failures, duplicate dates, leap days, complete contextual windows, exact project/background interval totals, grouped repositories, final pixel alignment, mapping changes, color separation, precise tooltip shares, and every saved project at both chart sizes.
 
-Run `npm run test:history`. Tests use deterministic fixtures plus the saved snapshot; they make no network requests and do not evolve the unrelated Lenia simulations.
+Run `npm run test:history`. Deterministic fixtures and the checked-in snapshot require no network access or Lenia evolution.

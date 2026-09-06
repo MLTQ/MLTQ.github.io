@@ -20,4 +20,4 @@ Shared archive typography, navigation, colored genus bands, project rows, and re
 `.footprint` is a static SVG image, replacing the former CSS rectangle glyphs. Featured marks remain 56px; compact links use 28px marks with a wrapping name beside them. Project-page live specimens and all navigation retain their existing layout.
 
 ## Commit fields
-`.commit-field` bounds the original compact chart width. The seven-row grid uses 26 or 40 columns, which compress on narrow screens so the latest commit remains visible. Unused leading cells are transparent. `.hmcap` stacks counts, dates, calendar scale, and source links; long repository names wrap within the field.
+`.commit-field` bounds the compact chart width. The seven-row grid uses 26 or 40 columns that compress on narrow screens. Every cell is a real calendar interval, including surrounding GitHub activity. `.hmcap` contains a compact green/purple legend, count comparison, and date range. `.hmkey` uses small colored squares as functional legend markers.

@@ -1,16 +1,12 @@
 # refresh-commit-history.js
 
 ## Purpose
-Refreshes the static commit-count snapshot from GitHub using the existing authenticated `gh` CLI. Run `npm run history:refresh` locally; the Pages workflow also runs it before building.
+Refresh the static account history and project highlight snapshot. Uses the account in `content/site.js` and verified public repository mappings from `content/projects.js`.
 
 ## Contracts
-- Only explicit project repo mappings are queried. Private or missing repositories fail closed.
-- Pin each repository's default-branch SHA before paging through its complete reachable history. Retrieve only SHA and committer timestamp, and validate the API's total count.
-- Include merge commits and all authors; shared SHAs in a combined project count once.
-- Write only aggregate UTC daily counts and public source provenance to `content/commit-history.json`.
-- Update atomically after every repository succeeds. API failures and incomplete pagination leave the previous snapshot intact and fail the command.
-- `GH_TOKEN` may be supplied by CI. Tokens remain in the CLI's existing credential handling or environment; none are written to source or output.
-- Normal `npm run build` is offline and reads the saved snapshot. No API calls or credentials reach visitors.
-
-## Sources
-GitHub GraphQL `Repository.defaultBranchRef`, pinned `Repository.object`, and `Commit.history`. Pagination has no date cutoff, so dormant projects retain their full history.
+- Confirm each selected project repository is public, then call `github-contributions.js` for the full account history.
+- Use GitHub's own commit contribution counts for both layers; exclude other activity types, private entries, and commits not credited to the account.
+- Combined projects sum their selected repositories using the same accounting as the overall GitHub history.
+- Atomically replace `content/commit-history.json` only after all queries, totals, dates, and project subsets validate. Failure leaves the prior snapshot intact.
+- GitHub CLI handles authentication. CI supplies ephemeral `GH_TOKEN`; credentials never reach site assets or logs.
+- `npm run history:refresh` runs manually and before Pages deployment. Ordinary builds remain offline, with no visitor API requests.

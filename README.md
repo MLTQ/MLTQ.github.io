@@ -139,26 +139,30 @@ ledger records are no longer rendered.
 
 ### Commit fields
 
-Every field comes from the full GitHub history of the project's public default
-branch, including merges and all authors. Dates use the committer timestamp in
-UTC. Nothing is simulated. The fixed grid ends on the last commit date, rather
-than today: read down each column, then left to right. The bottom-right pixel
-always includes the final commit.
+Each field shows the owner's **public GitHub commit activity**, with the current
+project's contribution days highlighted in purple. Other activity is muted
+green; grey cells have no contributions. Purple bins may also contain other
+work: hover for exact project, total, and elsewhere counts. The caption shows
+how many commits went to this project out of all commits in the displayed period.
 
-Short histories use one day per pixel. Long histories use equal multi-day bins
-(the first can be shorter), preserving every commit and quiet day between the
-first and last commit. Unused space on the left is transparent padding, not
-invented dates. Captions show the complete date range, total count, days per
-pixel, and source repos. Hover a pixel for its exact date range and count. Color
-intensity is relative to the busiest pixel in each field.
+Both layers come from GitHub's own commit contribution records for the account
+in `site.github`, using GitHub's calendar dates and attribution rules. This
+includes work in public repositories outside the portfolio and excludes issues,
+pull requests, reviews, private entries, and collaborators' commits. Counts may
+differ from raw all-author Git history; the two chart layers use the same units.
 
-`repo` supplies the history source by default. For a page covering multiple
-repos, set `historyRepos: ['MLTQ/first', 'MLTQ/second']`; shared SHAs count once.
-Bonsai combines Neural-Cellular-Automatar and Bonsai, and LENIA combines
-Lenia-Rust and Lenia-3d. Projects without a verified repo have no field.
+Read down each column, then left to right. The bottom-right pixel ends at the
+owner's last GitHub contribution to that project. Short projects show 182 days
+on the index or 280 days on detail pages, giving the project surrounding
+context. Longer histories use equal multi-day bins to include the complete
+project history. No cells are simulated and there is no blank padding.
 
-After adding or changing a repository mapping, refresh using the authenticated
-GitHub CLI, then build:
+`repo` selects the project's contributions by default. Use
+`historyRepos: ['MLTQ/first', 'MLTQ/second']` for a combined page. Bonsai combines
+Neural-Cellular-Automatar and Bonsai; LENIA combines Lenia-Rust and Lenia-3d.
+Projects without a verified repository or attributed contributions have no field.
+
+After changing a repository mapping, use the authenticated GitHub CLI to refresh:
 
 ```sh
 npm run history:refresh
@@ -166,12 +170,11 @@ npm run test:history
 npm run build
 ```
 
-The collector pins each default-branch head, retrieves all history pages, checks
-the reported total, and atomically saves aggregate daily counts and source
-provenance to `content/commit-history.json`. Failed or incomplete requests leave
-the previous snapshot intact. Commit messages and personal author information
-are not stored. The GitHub Pages workflow refreshes on each deployment; ordinary
-local builds use the checked-in snapshot offline. Visitors make no GitHub calls.
+The collector queries all contribution years in monthly intervals, validates
+per-repository and overall totals, then atomically saves aggregate daily counts
+to `content/commit-history.json`. Failed or incomplete queries preserve the prior
+snapshot. The Pages workflow refreshes before deployment; local builds use the
+checked-in snapshot offline. Visitors make no GitHub requests.
 
 ## Writing a project page
 
