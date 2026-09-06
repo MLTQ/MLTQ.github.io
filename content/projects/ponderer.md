@@ -4,9 +4,8 @@
 # stats:
 #   23.4 dB | WHAT IT MEASURES
 #   ~600 KB | ON DISK
-# media:
-#   something.gif | alt text        (file goes in static/media/)
-#   slot | drop: a placeholder caption
+media:
+  ponderer/chat-and-mind.png | Ponderer's chat interface beside the Mind panel, activity trace, and run controls.
 # links:
 #   Design notes | https://example.com
 ---
