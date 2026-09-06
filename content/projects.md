@@ -15,3 +15,5 @@ The archive's project ledger. Supplies the index, project routes, section member
 Physical Gong Sim is filed under PHONICA with a compact row and an initial CYCLING status. The owner supplied its name; its description and field notes come from the owner's screenshot. No source repository or activity history was supplied. Its stable slug is `gong`, and its image is preserved in `static/media/gong/`.
 
 The LENIA entry combines the distinct Lenia-Rust and Lenia-3D repositories on one page, at the existing `lenia-3d` URL. Its page Markdown separates their descriptions, original screenshots, and source links. It keeps the existing single live creature and index footprint.
+
+NEUROVEIL is the public name of the Synchroflow project; its `synchroflow` URL and species assignment remain stable. Its page credits the team and Rui Ma's film, and uses the organizer's verified awards: the Qualcomm AI win and third place in the OpenBCI category. Team spelling follows the owner's supplied names.

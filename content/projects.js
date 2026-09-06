@@ -394,17 +394,20 @@ export default [
   tags: ['Open hardware', 'Photic entrainment', 'Wearables'],
 },
 {
-  slug: 'synchroflow', name: 'SYNCHROFLOW', short: 'SYNCHRO', genus: 'campi', status: 'SHIPPED', featured: false,
-  repo: null,
-  summary: 'Twin Mind: OpenBCI cap → wifi → LED glasses. Copy brainwaves from person A into person B and back, until they synchronize. MIT Reality Hack hardware build.',
-  log: [{ text: 'built at MIT Reality Hack' }],
+  slug: 'synchroflow', name: 'NEUROVEIL', short: 'NEUROVEIL', genus: 'campi', status: 'SHIPPED', featured: false,
+  repo: 'MLTQ/Synchroflow',
+  summary: 'The Twin Mind Interface, built as Synchroflow: a two-person experiment connecting OpenBCI EEG, LED glasses, on-device AI, and cymatic visualization. Built at MIT Reality Hack 2025.',
+  log: [
+    { text: 'winner: Best Use of Qualcomm Technologies with AI, MIT Reality Hack 2025' },
+    { text: 'third place in the OpenBCI category' },
+  ],
   heat: { seed: 197, ramp: 'down' },
   glyph: [
     { x: 3,  y: 15, w: 26, h: 26, r: '50%', ring: 3 },
     { x: 27, y: 15, w: 26, h: 26, r: '50%', ring: 3 },
     { x: 24, y: 24, w: 8,  h: 8,  r: '50%' },
   ],
-  tags: ['EEG', 'OpenBCI', 'Hardware'],
+  tags: ['EEG', 'OpenBCI', 'Hardware', 'On-device AI'],
 },
 {
   slug: 'prints', name: 'PRINTS', genus: 'campi', status: 'ACTIVE', featured: false,
