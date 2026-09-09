@@ -5,6 +5,7 @@ Shared archive typography, navigation, colored genus bands, project rows, and re
 
 ## Components
 - `.hdr`: introduction and a responsive Lenia specimen, replacing the old mesh graph.
+- `.identity` fits the homepage name, with `.sub` distributing the PROJECTS letters evenly beneath it. Responsive heading sizes fit narrow screens; `.sr-only` supplies the intact tagline to assistive technology.
 - `.gnav`: visible section navigation, including when graphics or JavaScript are unavailable.
 - `.band`, `.row`, `.crow`: existing archive content hierarchy.
 - Responsive rules retain readable project pages and avoid horizontal overflow.

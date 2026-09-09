@@ -29,12 +29,16 @@ img{max-width:100%;height:auto;display:block}
 .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--bg);
   font-size:11px;letter-spacing:.14em;padding:10px 14px;z-index:9}
 .skip:focus{left:0;color:var(--bg)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
 
 /* ------------------------------------------------------------- index header */
 .hdr{display:grid;grid-template-columns:minmax(300px, .9fr) minmax(0,1.4fr);align-items:center;
   padding:30px var(--pad) 34px;gap:24px;min-height:390px}
-.hdr h1{font-family:'Michroma',sans-serif;font-size:34px;margin:0}
-.hdr .sub{font-family:'Michroma',sans-serif;font-size:11px;letter-spacing:.26em;margin:8px 0 0}
+.hdr .identity{width:max-content;max-width:100%}
+.hdr h1{font-family:'Michroma',sans-serif;font-size:clamp(20px,3vw,34px);margin:0}
+.hdr .sub{display:flex;justify-content:space-between;font-family:'Michroma',sans-serif;
+  font-size:11px;margin:8px 0 0}
 .hdr .about{font-size:11.5px;line-height:1.75;color:#4a4a4a;margin:26px 0 0;max-width:380px}
 
 /* Plain section navigation remains available alongside the specimen. */
@@ -195,7 +199,6 @@ figure.au img{margin-bottom:0}
 /* ------------------------------------------------------------- responsive */
 @media (max-width:900px){
   .hdr{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:12px}
-  .hdr h1{font-size:26px}
 }
 @media (max-width:800px){
   :root{--pad:24px}
@@ -209,10 +212,10 @@ figure.au img{margin-bottom:0}
   .stats{grid-template-columns:1fr 1fr}
   .phdr{gap:24px;flex-wrap:wrap}
   .phdr h1{font-size:26px}
-  .hdr h1{font-size:26px}
 }
 @media (max-width:650px){
   .hdr{grid-template-columns:1fr;padding-top:36px;gap:6px}
+  .hdr h1{font-size:clamp(20px,6.4vw,26px)}
   .hdr .about{max-width:440px}
   .hdr .gnav{max-width:none}
 }

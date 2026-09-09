@@ -5,6 +5,7 @@ Builds the static archive from the structured ledger, Markdown content, and stat
 
 ## Components
 - `buildIndex` / `leniaMarkup`: assemble the homepage and its progressively enhanced Lenia colony with a green-to-purple density legend and a small reset button inside the stage's bottom-right corner. The canvas is hidden from assistive technology until it is interactive.
+- The homepage uses `site.homeTitle` above a justified tagline. Decorative letter spans are hidden from assistive technology, which receives the complete tagline once.
 - The invitation below the controls links “mathematical life forms” to the original Lenia paper on arXiv.
 - `shell`: shared metadata, styles, and document structure. The homepage and project detail pages each load one specimen module.
 - `genusNav`: section links on every screen size.

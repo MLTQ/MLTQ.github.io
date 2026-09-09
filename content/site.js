@@ -3,10 +3,11 @@
 
 export default {
   name: 'MLTQ Archive',
-  tagline: 'PARALLEL SYSTEMS / FIELD LOG',
+  homeTitle: 'Max Turnquist',
+  tagline: 'PROJECTS',
   about:
-    'A holding pen for systems grown in parallel. Nothing here is finished; ' +
-    'some of it is alive. Updates accrete where the work happens.',
+    'Parallel development of tricks and tools. Some things here are finished; ' +
+    'some are technically alive.',
   description:
     'Parallel systems and a field log: neural cellular automata, OSINT ' +
     'visualisation, audio-drama tooling, p2p meshes, and bench physics.',

@@ -641,8 +641,10 @@ function postRow(p, depth) {
 function buildIndex(posts) {
   const body = `<header class="hdr">
 <div>
-<h1>${esc(site.name)}</h1>
-<p class="sub">${esc(site.tagline)}</p>
+<div class="identity">
+<h1>${esc(site.homeTitle)}</h1>
+<p class="sub"><span class="sr-only">${esc(site.tagline)}</span>${[...site.tagline].map(letter => `<span aria-hidden="true">${esc(letter)}</span>`).join('')}</p>
+</div>
 <p class="about">${site.about}</p>
 ${genusNav(0)}
 </div>
