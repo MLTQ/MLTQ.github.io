@@ -13,6 +13,8 @@ The archive's project ledger. Supplies the index, project routes, section member
 - Legacy `glyph` data remains for older consumers; the current index uses the species footprint.
 
 ## Content notes
+Petridish is in STASIS as of the owner's 2026-09-09 update. Its page explains that work has moved to a private repository and places the supplied neural-network screenshot below that text.
+
 Physical Gong Sim is filed under PHONICA with a compact row and an initial CYCLING status. The owner supplied its name; its description and field notes come from the owner's screenshot. No source repository or activity history was supplied. Its stable slug is `gong`, and its image is preserved in `static/media/gong/`.
 
 The LENIA entry combines the distinct Lenia-Rust and Lenia-3D repositories on one page, at the existing `lenia-3d` URL. Its page Markdown separates their descriptions, original screenshots, and source links. It keeps the existing single live creature and index footprint.

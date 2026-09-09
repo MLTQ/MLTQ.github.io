@@ -9,7 +9,7 @@
    slug      required. url is projects/<slug>.html
    name      required. displayed in Michroma
    genus     required. one of the ids in content/site.js
-   status    ACTIVE | SHIPPED | CYCLING | DORMANT | SEED
+   status    ACTIVE | SHIPPED | CYCLING | STASIS | DORMANT | SEED
    featured  true  -> full row on the index (glyph, description, log, field)
              false -> compact one-line row. Both still get a full page.
    summary   one paragraph. index row + page hero + <meta description>
@@ -62,7 +62,7 @@ export default [
   tags: ['Cellular automata', 'Latent spaces', 'Raymarching'],
 },
 {
-  slug: 'petridish', name: 'PETRIDISH', short: 'PETRI', genus: 'biota', status: 'ACTIVE', featured: true,
+  slug: 'petridish', name: 'PETRIDISH', short: 'PETRI', genus: 'biota', status: 'STASIS', featured: true,
   repo: 'MLTQ/petridish',
   summary: 'A live laboratory for neural populations embedded in physical space. Neurons occupy sites, retain metabolic state, grow persistent dendrites, and undergo birth, death, and lesions — while learning MNIST, associative recall, and Tiny Shakespeare.',
   log: [

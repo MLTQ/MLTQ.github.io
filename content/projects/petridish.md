@@ -1,22 +1,7 @@
 ---
-# Page-only fields for PETRIDISH. Uncomment what you need; delete the rest.
-# Everything else about this system lives in content/projects.js.
-# stats:
-#   23.4 dB | WHAT IT MEASURES
-#   ~600 KB | ON DISK
-# media:
-#   something.gif | alt text        (file goes in static/media/)
-#   slot | drop: a placeholder caption
-# links:
-#   Design notes | https://example.com
+media_after_body: true
+media:
+  petridish/token-cellular-organism.png | Token cellular language organism: a neural network with excitatory and inhibitory connections, training controls, and live measurements.
 ---
 
-<!-- Write the page here, in Markdown. A heading like
-
-         ## 2026.09.01 — WHAT HAPPENED
-
-     becomes a dated section, newest at the top.
-
-     While this body is empty, the page falls back to the `log` lines from
-     content/projects.js, rendered as FIELD NOTES. Write anything real here
-     and it takes over. -->
+Petridish is a place to grow and test theories for neural cellular automata, and how they can adapt to different inputs and different outputs. This is mostly deprecated as I've recently made a breakthrough with it and have moved work to a private repo. Stay tuned!
