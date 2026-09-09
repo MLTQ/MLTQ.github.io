@@ -525,6 +525,7 @@ function loadProjectPages() {
       file: `content/projects/${f}`,
       stats: asList(data.stats).map(r => { const [v, k] = splitRow(r); return { v, k } }),
       links: asList(data.links).map(r => { const [label, href] = splitRow(r); return { label, href } }),
+      mediaAfterBody: data.media_after_body === true,
       media: asList(data.media).map(r => {
         const [lhs, caption] = splitRow(r)
         if (lhs === 'slot') return { placeholder: caption || 'drop media here' }
@@ -707,6 +708,8 @@ function buildProject(p, posts, pages) {
   const related = posts.filter(x => x.project === p.slug)
   const page = pages[p.slug] || { stats: [], media: [], links: [], html: '' }
   const history = heatField(p, { columns: 40, large: true })
+  const gallery = page.media.length ? `<div class="media">${page.media.map(m =>
+    mediaTag(m).replace(/(src|poster)="media\//g, `$1="${u(1, 'media/')}`)).join('')}</div>` : ''
 
   const filed = [
     `<a href="${u(1, `index.html#${p.genus}`)}">${esc(genusOf(p.genus).label)}</a>`,
@@ -734,14 +737,14 @@ ${projectLeniaMarkup(p.slug)}
 ${history ? `<div class="pad">${history}</div>` : ''}
 ${page.stats.length ? `<div class="stats">${page.stats.map(s =>
     `<div class="stat"><div class="v">${esc(s.v)}</div><div class="k">${esc(s.k)}</div></div>`).join('')}</div>` : ''}
-${page.media.length ? `<div class="media">${page.media.map(m =>
-    mediaTag(m).replace(/(src|poster)="media\//g, `$1="${u(1, 'media/')}`)).join('')}</div>` : ''}
+${page.mediaAfterBody ? '' : gallery}
 ${page.html
     ? `<article class="prose page">${page.html}</article>`
     : `<div class="entries"><section>
 <h2 class="mh eh">FIELD NOTES</h2>
 ${(p.log || []).map(e => `<p>${e.date ? `<b>${esc(e.date)}</b> — ` : ''}${e.text}</p>`).join('\n')}
 </section></div>`}
+${page.mediaAfterBody ? gallery : ''}
 ${related.length ? `<div class="entries"><section>
 <h2 class="mh eh">WRITTEN</h2>
 ${related.map(x => `<p><b>${esc(dotted(x.date))}</b> — <a href="${u(1, `writing/${x.slug}.html`)}">${esc(x.title)}</a></p>`).join('\n')}

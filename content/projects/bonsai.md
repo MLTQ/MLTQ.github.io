@@ -4,12 +4,13 @@
 # stats:
 #   23.4 dB | WHAT IT MEASURES
 #   ~600 KB | ON DISK
+media_after_body: true
 media:
-  bonsai/automatar-starfield.png | Flower-headed cellular avatar against a starfield.
-  bonsai/automatar-neutral.png | The same cellular avatar on a neutral background.
+  bonsai/automatar-starfield.png | Claudeguy cellular avatar against a starfield.
+  bonsai/automatar-neutral.png | Claudeguy cellular avatar on a neutral background.
   bonsai/rounded-form.png | A dark rounded form with pale nodules and hanging limbs.
   bonsai/tentacled-form.png | A tentacled form with bright circular markings.
-  bonsai/flower-form.png | A flower-like form with orange petals and a pale face.
+  bonsai/flower-form.png | Claudeguy form with orange petals and a pale face.
 # links:
 #   Design notes | https://example.com
 ---
@@ -21,3 +22,5 @@ Bonsai is an approach that is 2020s-native, that is to say, my focus is on *emer
 The Bonsai character is defined as a volume of neural cellular automata within a bounded rendering volume, that has a pose/body control vector derived from an intent-space, which itself is derived from embedding whatever some token predictor has said (not necessarily an LLM, but practically I mean an LLM). This project is not complete, though it is on the right track I think- the NCAs must be trained, and right now I'm bootstrapping their training off of 3D models in different poses. The intent vector then moves the pose control vector through the pose space to generate animations. It looks pretty wild.
 
 In an ideal world, that pose vector would also have greater definitional control over the self-expression of the NCA field, that is to say, the NCAs wouldn't be trained on a single model, they would be trained on many many forms, and could generate their own self-representation based on how the LLM was acting. Like I said, *emergent behavior*.
+
+The Claudeguys pictured below use an original 3D model from [anima-research/eidoverse-worlds](https://github.com/anima-research/eidoverse-worlds).

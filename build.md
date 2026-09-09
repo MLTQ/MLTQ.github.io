@@ -8,6 +8,7 @@ Builds the static archive from the structured ledger, Markdown content, and stat
 - The invitation below the controls links “mathematical life forms” to the original Lenia paper on arXiv.
 - `shell`: shared metadata, styles, and document structure. The homepage and project detail pages each load one specimen module.
 - `genusNav`: section links on every screen size.
+- `loadProjectPages` / `buildProject`: read page content and assemble project details. Optional `media_after_body: true` places the gallery after the prose; the default keeps the gallery first.
 - `build`: validates content, emits pages and discovery files, copies assets, and reconciles output.
 - `serve`: serves `dist` and watches source; JavaScript modules need a JavaScript MIME type.
 
