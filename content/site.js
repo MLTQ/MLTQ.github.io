@@ -28,12 +28,12 @@ export default {
   /* Genera, in the order they appear down the page.
      `band` picks the colour: gray | lilac | green. */
   genera: [
+    { id: 'strata',  label: 'STRATA',  band: 'lilac', blurb: 'representations underneath' },
     { id: 'biota',   label: 'BIOTA',   band: 'green', blurb: 'things that live' },
     { id: 'optica',  label: 'OPTICA',  band: 'gray',  blurb: 'things that watch' },
     { id: 'phonica', label: 'PHONICA', band: 'lilac', blurb: 'things that speak and sound' },
     { id: 'retia',   label: 'RETIA',   band: 'gray',  blurb: 'things that connect' },
     { id: 'campi',   label: 'CAMPI',   band: 'green', blurb: 'matter on the bench' },
-    { id: 'strata',  label: 'STRATA',  band: 'lilac', blurb: 'representations underneath' },
   ],
 
   /* CHRONICA — the interleaved log. Newest first.

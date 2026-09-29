@@ -8,6 +8,6 @@ Site-level identity, introduction, section names, activity notes, domain, and fo
 - `tagline` is displayed below the homepage heading with evenly spaced letters, plus an intact accessible label.
 - `about` supplies the homepage introduction.
 - `domain` is a bare hostname used for canonical URLs and discovery files.
-- `genera` IDs must match the project ledger; their order controls homepage sections.
+- `genera` IDs must match the project ledger; their order controls homepage sections. STRATA (with LENS) comes first, above BIOTA, at the owner's request.
 - `chronica` entries optionally reference stable project slugs.
 - `elsewhere` links with no URL are omitted.
