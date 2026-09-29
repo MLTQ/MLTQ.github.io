@@ -446,5 +446,22 @@ export default [
   ],
   tags: ['Sparsity', 'Memory budgets', 'Inference'],
 },
+{
+  slug: 'lens', name: 'LENS', genus: 'strata', status: 'ACTIVE', featured: true,
+  repo: 'MLTQ/Lens',
+  summary: 'A Jacobian-lens viewer for a 27B ternary language model: what it is poised to say at every layer and position, where each position reads from, what the prediction actually relies on, and what its 26.9B weights are. Five sentences, pre-rendered.',
+  log: [
+    { date: '2026.09.28', text: 'anatomy: every block a disc; about half its neurons carry 90% of a token' },
+    { date: '2026.09.26', text: 'removing “Italy” from “boot” costs 5.9 log-prob; nothing else moves “euro” past 0.1' },
+    { date: '2026.09.24', text: '39 non-verbal atoms the model cannot describe in its own words' },
+  ],
+  glyph: [
+    { x: 6,  y: 6,  w: 44, h: 44, r: '50%', ring: 3 },
+    { x: 18, y: 18, w: 20, h: 20, r: '50%' },
+  ],
+  tags: ['Interpretability', 'Jacobian lens', 'Attention', 'Ternary models'],
+
+  // Long-form page content, stats and media: content/projects/lens.md
+},
 
 ]

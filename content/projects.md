@@ -22,3 +22,5 @@ The LENIA entry combines the distinct Lenia-Rust and Lenia-3D repositories on on
 NEUROVEIL is the public name of the Synchroflow project; its `synchroflow` URL and species assignment remain stable. Its page credits the team and Rui Ma's film, and uses the organizer's verified awards: the Qualcomm AI win and third place in the OpenBCI category. Team spelling follows the owner's supplied names.
 
 Bonsai combines the Neural-Cellular-Automatar and Bonsai histories because its gallery contains both projects. LENIA combines Lenia-Rust and Lenia-3d. The project legend identifies both sources on hover; their GitHub contribution counts are summed consistently with the overall account history. Repository mappings were checked against the public MLTQ repository inventory; gong, modular, fusor, ttb, and prints remain unmapped.
+
+LENS is filed under STRATA with a featured row. Its page links to the interactive viewer in `static/lens/`, a static export of the MLTQ/Lens viewer with five pre-rendered sentences (see `static/lens/lens.md`). Its history maps to the public MLTQ/Lens repository.

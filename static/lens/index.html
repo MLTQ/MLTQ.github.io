@@ -1,0 +1,1077 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bonsai J-Lens</title>
+<script src="static-api.js"></script>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<style>
+:root {
+  --bg: #fbfaf7; --panel: #ffffff; --ink: #1d1b16; --muted: #6f6a5f; --line: #e4e0d6;
+  --accent: 214 80% 45%; --heat: 24 90% 50%; --sel: #1d1b16;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141412; --panel: #1c1c19; --ink: #ece8dd; --muted: #9a9486; --line: #2f2e29;
+    --accent: 210 85% 62%; --heat: 28 95% 58%; --sel: #ece8dd;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); height: 100vh; display: flex; flex-direction: column;
+  font: 14px/1.4 -apple-system, system-ui, sans-serif; }
+header { display: flex; gap: 12px; align-items: flex-start; padding: 12px 16px;
+  border-bottom: 1px solid var(--line); background: var(--panel); flex-wrap: wrap; }
+h1 { font-size: 15px; margin: 6px 12px 0 0; font-weight: 650; letter-spacing: .01em; }
+textarea { flex: 1 1 420px; min-height: 58px; font: 13px/1.4 var(--mono); padding: 8px;
+  border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); resize: vertical; }
+.controls { display: flex; flex-direction: column; gap: 6px; }
+button, select, input[type=text] { font: inherit; padding: 5px 10px; border-radius: 6px;
+  border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+button.primary { background: hsl(var(--accent)); color: white; border-color: transparent; font-weight: 600; }
+button:disabled { opacity: .5; }
+.status { color: var(--muted); font-size: 12px; min-height: 16px; }
+main { display: grid; grid-template-columns: 1fr 400px; flex: 1; min-height: 0; }
+#left { position: relative; min-height: 0; min-width: 0; }
+#gridwrap { overflow: auto; position: absolute; inset: 0; }
+#volwrap { position: absolute; inset: 0; display: none; overflow: hidden; }
+#volwrap canvas { display: block; cursor: grab; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.seg button { border: 0; border-radius: 0; padding: 5px 10px; }
+.seg button.on { background: var(--ink); color: var(--bg); }
+.vctl { position: absolute; top: 10px; left: 10px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  background: color-mix(in srgb, var(--panel) 88%, transparent); border: 1px solid var(--line); border-radius: 8px;
+  padding: 6px 10px; font-size: 12px; z-index: 2; max-width: calc(100% - 20px); }
+.vctl label { display: flex; gap: 6px; align-items: center; color: var(--muted); }
+.vctl select, .vctl button { padding: 2px 6px; font-size: 12px; }
+.vhelp { position: absolute; bottom: 8px; left: 10px; font-size: 11px; color: var(--muted); z-index: 2; pointer-events: none; }
+#spacewrap { position: absolute; inset: 0; display: none; overflow: hidden; }
+#spacewrap canvas { display: block; cursor: grab; }
+#splegend { position: absolute; right: 10px; bottom: 30px; z-index: 2; display: flex; flex-direction: column; gap: 2px;
+  background: color-mix(in srgb, var(--panel) 88%, transparent); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; font-size: 11px; }
+#splegend .lg { cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; }
+#splegend .lg i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+#splegend .lg em { font-style: normal; color: var(--muted); margin-left: auto; padding-left: 8px; }
+#trlegend { position: absolute; left: 10px; bottom: 30px; z-index: 2; font-size: 11px; color: var(--muted); display: none;
+  background: color-mix(in srgb, var(--panel) 88%, transparent); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; }
+#trlegend .gr { height: 8px; width: 180px; border-radius: 4px; margin: 3px 0 1px; }
+#trlegend .ends { display: flex; justify-content: space-between; font: 10px var(--mono); gap: 8px; }
+#pbstrip { position: absolute; left: 10px; right: 10px; bottom: 22px; z-index: 2; display: none; flex-wrap: wrap; gap: 3px 2px;
+  max-height: 30%; overflow: auto; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px;
+  background: color-mix(in srgb, var(--panel) 90%, transparent); font: 12px/1.2 var(--mono); }
+#pbstrip .pbt { display: inline-flex; flex-direction: column; align-items: flex-start; padding: 2px 3px; border-radius: 4px;
+  cursor: pointer; transition: opacity .15s; white-space: pre; }
+#pbstrip .pbt b { font-weight: 600; }
+#pbstrip .pbt i { font-style: normal; font-size: 10px; margin-top: 2px; padding: 0 3px; border-radius: 3px; color: var(--ink); }
+#pbstrip .pbt.gen b { font-style: italic; }
+#pbstrip .pbt.future { opacity: 0.12; }
+#pbstrip .pbt.nopred i { visibility: hidden; }
+#pbstrip .pbt.cur { outline: 1.5px solid var(--ink); background: color-mix(in srgb, var(--ink) 10%, transparent); }
+#kobox { border: 1px solid hsl(var(--heat) / .6); border-radius: 8px; padding: 8px 10px; margin: 10px 0; font-size: 12px; }
+#kobox h2 { margin-top: 0; color: hsl(var(--heat)); }
+#kobox .korow { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 5px 0; color: var(--muted); }
+#kobox input[type=number] { width: 52px; padding: 2px 4px; }
+#kobox .tok { font-family: var(--mono); color: var(--ink); background: hsl(var(--heat) / .2); padding: 1px 5px; border-radius: 3px; white-space: pre; }
+#kobox .cont { font: 12px/1.45 var(--mono); white-space: pre-wrap; word-break: break-word; margin: 3px 0; }
+#kobox .cont b { color: var(--muted); font-weight: 400; display: inline-block; width: 64px; }
+#kobox .cont mark { background: hsl(var(--heat) / .35); color: var(--ink); border-radius: 2px; }
+#kobox table { width: 100%; border-collapse: collapse; font: 11px var(--mono); margin-top: 4px; }
+#kobox td, #kobox th { padding: 2px 4px; border-bottom: 1px solid var(--line); text-align: left; white-space: pre; width: auto; max-width: none; height: auto; cursor: default; position: static; background: none; }
+#kobox .up { color: #4caf7d; } #kobox .down { color: hsl(var(--heat)); }
+.pin.ko { font-size: 13px; }
+.kobanner { color: hsl(var(--heat)); font-weight: 600; }
+#cands summary { cursor: pointer; }
+#cands summary h2 { margin: 14px 0 6px; }
+.cand { padding: 5px 6px; border-radius: 6px; cursor: pointer; border: 1px solid transparent; margin-bottom: 3px; font-size: 12px; }
+.cand:hover { border-color: var(--line); background: color-mix(in srgb, var(--ink) 5%, transparent); }
+.cand .id { font: 600 12px var(--mono); color: #b6d800; }
+.cand .sc { float: right; font: 11px var(--mono); color: var(--muted); }
+.cand .d { font-style: italic; margin: 2px 0; }
+.cand .ctx { font: 11px/1.35 var(--mono); color: var(--muted); white-space: pre-wrap; word-break: break-word; }
+.cand .ctx mark { background: #d4ff0055; color: var(--ink); border-radius: 2px; }
+#attnbox { margin: 10px 0; }
+#usebox { margin: 10px 0; border-top: 1px solid var(--line); padding-top: 4px; }
+.usectl { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px; margin: 4px 0; }
+.usectl select { max-width: 150px; }
+.stream { font: 11px var(--mono); margin-top: 6px; }
+.srow { display: grid; grid-template-columns: 86px 1fr; gap: 6px; align-items: baseline; padding: 2px 0; border-top: 1px solid var(--line); }
+.srow .src { white-space: pre; overflow: hidden; text-overflow: ellipsis; color: var(--ink); }
+.srow.faint { opacity: .45; }
+.srow .src i { color: var(--muted); font-style: normal; }
+.cpt { display: inline-block; margin: 1px 3px 1px 0; padding: 0 4px; border-radius: 3px; white-space: pre; }
+.cpt small { color: var(--muted); font-size: 9px; margin-left: 3px; }
+.cpt.neg { outline: 1px solid #ff5555aa; }
+.cpt.atom { border-left: 3px solid #b6d800; font-style: italic; cursor: help; }
+.cpt.atom.xeno { box-shadow: inset 0 0 0 1px #b6d800; }
+.urow .atomtk { color: #b6d800; font-style: italic; }
+.urow { display: grid; grid-template-columns: 100px 1fr 58px; gap: 6px; align-items: center; margin: 2px 0; font: 11px var(--mono); }
+.urow .tk { white-space: pre; overflow: hidden; text-overflow: ellipsis; }
+.ubar { position: relative; height: 10px; background: color-mix(in srgb, var(--line) 50%, transparent); }
+.ubar span { position: absolute; top: 0; bottom: 0; }
+.ubar .mid { position: absolute; left: 50%; top: -2px; bottom: -2px; width: 1px; background: var(--muted); }
+.urow .v { text-align: right; color: var(--muted); }
+.chk { font: 11px var(--mono); border-collapse: collapse; margin-top: 4px; }
+.chk td, .chk th { padding: 1px 6px; text-align: right; border-bottom: 1px solid var(--line); }
+#grid td.usecell { font-weight: 600; }
+#grid td.usefuture { opacity: .25; }
+.attnhead { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.attnhead h2 { margin: 6px 0 !important; }
+.attnseg button { font-size: 11px; padding: 2px 7px; }
+#attncell .src { color: var(--muted); font-size: 11px; }
+.arow { display: grid; grid-template-columns: 92px 1fr 44px; gap: 6px; align-items: center; margin: 2px 0; font: 11px var(--mono); }
+.arow .tk { white-space: pre; overflow: hidden; text-overflow: ellipsis; }
+.arow .bar { height: 12px; }
+.arow .w { color: var(--muted); font-size: 10px; white-space: pre; overflow: hidden; text-overflow: ellipsis; }
+.ahead { border-top: 1px solid var(--line); padding: 3px 0; }
+.ahead .hid { font: 600 11px var(--mono); }
+.ahead .hsrc { font: 11px var(--mono); color: var(--muted); margin-left: 8px; white-space: pre-wrap; }
+.kindtag { font: 600 10px var(--mono); padding: 1px 5px; border-radius: 3px; }
+.kindtag.attn { background: #ff8c3a33; color: #ff9d57; }
+.kindtag.gdn { background: #3ac8ff33; color: #57d0ff; }
+#attnsvg { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; z-index: 1; }
+#attnsvg text { font: 10px ui-monospace, monospace; fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; }
+.pbctl { display: inline-flex; gap: 4px; align-items: center; }
+.splab.cur { background: #fff; color: #111; font-weight: 700; }
+.reglab { font: 600 11px -apple-system, system-ui, sans-serif; color: var(--ink); white-space: nowrap; pointer-events: none;
+  text-shadow: 0 0 3px var(--bg), 0 0 6px var(--bg); letter-spacing: .02em; }
+.infobtn .pop h4 { margin: 8px 0 2px; font-size: 11px; color: var(--ink); }
+.infobtn .pop h4:first-child { margin-top: 0; }
+.infobtn .pop table { border-collapse: collapse; margin: 2px 0; }
+.infobtn .pop td { padding: 0 8px 0 0; }
+.splab.main { border: 1px solid currentColor; font-weight: 600; }
+.infobtn { position: relative; cursor: help; color: var(--muted); font-size: 12px; border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; user-select: none; }
+.infobtn:hover, .infobtn:focus { color: var(--ink); outline: none; }
+.infobtn .pop { display: none; position: fixed; z-index: 20; width: 380px; max-height: 70vh; overflow: auto; font-size: 11px; line-height: 1.45;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; color: var(--muted); box-shadow: 0 6px 20px rgb(0 0 0 / .3); cursor: default; }
+.infobtn:hover .pop, .infobtn:focus .pop { display: block; }
+.infobtn .pop b { color: var(--ink); font-weight: 600; }
+#atomcard { position: absolute; top: 96px; left: 10px; z-index: 3; display: none; width: min(420px, 60%); max-height: 60%; overflow: auto;
+  background: var(--panel); border: 1px solid #d4ff00; border-radius: 8px; padding: 8px 10px; font-size: 12px; }
+#atomcard h3 { margin: 0 0 4px; font: 600 13px var(--mono); color: #b6d800; }
+#atomcard .ex { font: 11px/1.4 var(--mono); white-space: pre-wrap; word-break: break-word; margin: 3px 0; color: var(--muted); }
+#atomcard .ex mark { background: #d4ff0055; color: var(--ink); border-radius: 2px; }
+#atomcard .spark { font: 14px var(--mono); letter-spacing: 1px; color: #b6d800; }
+#atomcard button { float: right; font-size: 11px; padding: 1px 6px; }
+#splegend .lg.off { opacity: .35; text-decoration: line-through; }
+.splab { font: 11px var(--mono); color: var(--ink); background: color-mix(in srgb, var(--panel) 80%, transparent);
+  padding: 1px 4px; border-radius: 3px; white-space: pre; pointer-events: none; transform: translateY(-12px); }
+.splab.foc { background: var(--ink); color: var(--bg); font-weight: 700; }
+.vlab { font: 10px var(--mono); color: var(--muted); white-space: pre; pointer-events: none; }
+.vlab.tok { transform: rotate(-50deg); transform-origin: right center; margin-left: -100%; color: var(--ink); }
+.vlab.tok.gen { color: hsl(var(--heat)); font-style: italic; }
+.vlab.rank { font-size: 9px; }
+.vlab.kvtok { color: var(--muted); font-size: 10px; white-space: nowrap; }
+.vlab.kvtok.strong { color: var(--ink); font-weight: 600; background: color-mix(in srgb, var(--panel) 70%, transparent); padding: 0 3px; border-radius: 3px; }
+.vlab .kvw { color: #b6d800; font-weight: 400; }
+.vlab.kvq { color: var(--ink); font-size: 11px; }
+#kvwrap canvas { display: block; cursor: grab; }
+.kvhelp { position: absolute; left: 10px; bottom: 8px; z-index: 2; max-width: min(460px, 70%); font-size: 11px; line-height: 1.4;
+  background: color-mix(in srgb, var(--panel) 90%, transparent); border: 1px solid var(--line); border-radius: 8px; padding: 5px 9px; color: var(--ink); }
+.kvhelp summary { cursor: pointer; color: var(--muted); }
+.kvhelp div { margin-top: 3px; }
+.vlab.kvtick { color: var(--muted); font-size: 10px; margin-top: 12px; }
+.vlab.kvtick.up { margin-top: -12px; }
+.vlab.kvzero { color: var(--muted); font-size: 10px; }
+#kvdisks { position: absolute; left: 0; right: 0; bottom: 0; overflow: auto; display: none; z-index: 1; padding: 6px 10px 140px;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px; background: var(--bg); }
+.kvdisk { border: 1px solid var(--line); border-radius: 8px; padding: 4px; cursor: pointer; font: 10px var(--mono); color: var(--muted); }
+.kvdisk:hover { border-color: var(--ink); }
+.kvdisk g.k { transition: transform var(--kvdur, .55s) ease, opacity var(--kvdur, .55s); }
+.kvdisk g.k circle, .kvdisk circle.zero { transition: r var(--kvdur, .55s) ease; }
+.kvdisk .hd { display: flex; justify-content: space-between; gap: 6px; color: var(--ink); }
+.kvdisk .hd b { font-weight: 600; }
+.kvdisk svg { display: block; width: 100%; height: auto; overflow: visible; }
+.kvdisk svg text { font: 9px var(--mono); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; }
+.kvdisk .top { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#anatwrap { position: absolute; inset: 0; display: none; flex-direction: column; overflow: hidden; }
+#anatwrap .vctl { position: static; margin: 8px; }
+#anatscroll { flex: 1; overflow: auto; min-height: 0; padding: 0 8px; }
+#anatcanvas { display: block; cursor: crosshair; }
+#anat3d { flex: 1; min-height: 0; position: relative; display: none; }
+#anat3d canvas { display: block; cursor: grab; }
+#anatripple { position: absolute; left: 0; top: 0; pointer-events: none; }
+#anattip { position: absolute; display: none; z-index: 5; max-width: 330px; font-size: 12px; line-height: 1.4; pointer-events: none;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 9px; box-shadow: 0 4px 16px #0004; }
+#anattip .anrow { font: 11px var(--mono); margin-top: 2px; }
+#riverwrap { position: absolute; inset: 0; display: none; flex-direction: column; overflow: hidden; }
+#riverwrap .vctl { position: static; margin: 8px; }
+#riverscroll { flex: 1; overflow: auto; min-height: 0; }
+#riversvg { display: block; }
+.rvlab { font: 10px var(--mono); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; pointer-events: none; }
+.rvtok { font: 12px var(--mono); cursor: pointer; }
+.rvpred { font: 10px var(--mono); fill: var(--muted); }
+.rvnode, .rvrib { cursor: pointer; }
+#rvtip { position: absolute; display: none; z-index: 5; max-width: 300px; font-size: 12px; line-height: 1.4; pointer-events: none;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 9px; box-shadow: 0 4px 16px #0004; }
+#racewrap { position: absolute; inset: 0; display: none; flex-direction: column; overflow: hidden; }
+#racewrap .vctl { position: static; }
+.racebody { flex: 1; display: flex; min-height: 0; gap: 6px; padding: 0 8px; }
+#racemain { flex: 1.4; min-width: 0; height: 100%; }
+.raceside { flex: 1; min-width: 260px; display: flex; flex-direction: column; min-height: 0; }
+#racedetail { height: 45%; min-height: 160px; width: 100%; border: 1px solid var(--line); border-radius: 6px; }
+#racelist { flex: 1; overflow: auto; font: 11px var(--mono); margin-top: 4px; }
+#racestrip { height: 90px; width: 100%; flex: none; cursor: pointer; }
+.rlab { font: 11px var(--mono); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; }
+.rlab.muted { fill: var(--muted); }
+.rrow { display: grid; grid-template-columns: 1fr 64px 64px; gap: 6px; padding: 2px 0; border-top: 1px solid var(--line); }
+.rrow.hdr { color: var(--muted); border-top: none; }
+.rrow .rv { text-align: right; }
+.rrow.attn .rl { color: #ff9d57; } .rrow.mlp .rl { color: #57d0ff; } .rrow.rest { color: var(--muted); }
+.rrow.tot { background: color-mix(in srgb, var(--line) 40%, transparent); }
+.rrow .rx { grid-column: 1 / -1; color: var(--muted); padding-left: 10px; }
+.rrow [data-src] { cursor: pointer; text-decoration: underline dotted; }
+.rrow:hover { background: color-mix(in srgb, var(--line) 60%, transparent); }
+.racehelp { position: absolute; right: 10px; bottom: 96px; z-index: 2; max-width: min(460px, 60%); font-size: 11px; line-height: 1.4;
+  background: color-mix(in srgb, var(--panel) 92%, transparent); border: 1px solid var(--line); border-radius: 8px; padding: 5px 9px; }
+.racehelp summary { cursor: pointer; color: var(--muted); }
+.racehelp div { margin-top: 3px; }
+.kvstatus { position: absolute; inset: 0; display: none; flex-direction: column; gap: 6px; align-items: center; justify-content: center;
+  text-align: center; font-size: 13px; color: var(--ink); pointer-events: none; z-index: 2; padding: 0 20px; }
+.vlab.flowlab { color: var(--ink); font-size: 10px; background: color-mix(in srgb, var(--panel) 75%, transparent); padding: 0 4px; border-radius: 3px; }
+table { border-collapse: separate; border-spacing: 0; font: 11px/1 var(--mono); }
+th, td { white-space: nowrap; }
+thead th { position: sticky; top: 0; z-index: 2; background: var(--panel); padding: 6px 4px;
+  border-bottom: 1px solid var(--line); font-weight: 600; max-width: 84px; overflow: hidden; text-overflow: ellipsis; }
+tbody th { position: sticky; left: 0; z-index: 1; background: var(--panel); color: var(--muted);
+  padding: 0 8px; text-align: right; font-weight: 400; border-right: 1px solid var(--line); }
+thead th.corner { left: 0; z-index: 3; }
+td { width: 84px; max-width: 84px; height: 19px; padding: 0 4px; overflow: hidden; text-overflow: ellipsis;
+  cursor: pointer; border-right: 1px solid color-mix(in srgb, var(--line) 50%, transparent); }
+td.sel { outline: 2px solid var(--sel); outline-offset: -2px; }
+tr.out th, tr.out td { border-top: 2px solid var(--muted); }
+aside { border-left: 1px solid var(--line); background: var(--panel); overflow: auto; padding: 12px 14px; }
+aside h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 14px 0 6px; }
+.row { display: grid; grid-template-columns: 1fr 52px 18px 18px; gap: 6px; align-items: center; margin: 2px 0; font: 12px var(--mono); }
+.bar { height: 14px; border-radius: 3px; background: hsl(var(--accent) / .18); position: relative; overflow: hidden; }
+.bar span { position: absolute; inset: 0 auto 0 0; background: hsl(var(--accent) / .55); }
+.bar b { position: relative; padding-left: 4px; font-weight: 500; white-space: pre; }
+.pin { cursor: pointer; border: 0; background: none; color: var(--muted); padding: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 12px var(--mono); padding: 3px 8px; border-radius: 999px; border: 1px solid var(--line); cursor: pointer; white-space: pre; }
+.chip.on { background: hsl(var(--heat)); color: white; border-color: transparent; }
+.chip i { font-style: normal; margin-left: 6px; opacity: .6; }
+.muted { color: var(--muted); font-size: 12px; }
+.legend { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); margin-top: 6px; }
+.xl { text-decoration: underline dotted color-mix(in srgb, var(--ink) 45%, transparent); text-underline-offset: 2px; }
+#tip { position: fixed; z-index: 10; pointer-events: none; display: none; max-width: 280px;
+  background: var(--ink); color: var(--bg); padding: 6px 9px; border-radius: 6px; font: 12px/1.35 -apple-system, system-ui, sans-serif;
+  box-shadow: 0 4px 16px rgb(0 0 0 / .25); }
+#tip .src { opacity: .6; font-size: 11px; }
+#tip .tok { font-family: var(--mono); }
+.gl { color: var(--muted); font: 11px -apple-system, system-ui, sans-serif; margin-left: 6px; }
+#colmap table { width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 0 1px; font: 10px/1 var(--mono); }
+#colmap th { width: 30px; text-align: right; padding-right: 5px; color: var(--muted); font-weight: 400; position: static; background: none; }
+#colmap td { height: 12px; padding: 0 2px; max-width: none; width: auto; overflow: hidden; text-overflow: ellipsis;
+  border-right: 1px solid var(--panel); cursor: pointer; }
+#colmap tr.cur td { outline: 1.5px solid var(--sel); outline-offset: -1px; }
+#colmap tr.cur th { color: var(--ink); font-weight: 700; }
+#colmap tr.out th, #colmap tr.out td { border-top: 1.5px solid var(--muted); }
+#colmap td.same { box-shadow: inset 0 0 0 1.5px hsl(var(--heat)); }
+#colmap .ranks { display: grid; grid-template-columns: 30px repeat(10, 1fr); font: 10px var(--mono); color: var(--muted); text-align: center; }
+thead th.gen { color: hsl(var(--heat)); font-style: italic; }
+th.gen0, td.gen0 { border-left: 2px solid hsl(var(--heat)) !important; }
+.gencontrols { display: flex; gap: 6px; align-items: center; }
+.gencontrols input { width: 64px; padding: 5px 6px; }
+#cont { flex-basis: 100%; display: none; font: 13px/1.5 var(--mono); padding: 8px 10px; border-radius: 6px;
+  background: var(--bg); border: 1px solid var(--line); white-space: pre-wrap; word-break: break-word; }
+#cont .p { color: var(--muted); }
+#cont .g { color: var(--ink); background: hsl(var(--heat) / .18); border-radius: 3px; }
+#cont button { margin-left: 10px; font-size: 12px; padding: 2px 8px; vertical-align: baseline; }
+.legend .ramp { width: 120px; height: 8px; border-radius: 4px; }
+@media (max-width: 800px) { body { height: auto; } main { grid-template-columns: 1fr; } #left { height: 70vh; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Bonsai J-Lens</h1>
+  <textarea id="prompt">Fact: The currency used in the country shaped like a boot is</textarea>
+  <div class="controls">
+    <button class="primary" id="run">Run ⌘↵</button>
+    <select id="lens"><option value="jacobian">Jacobian lens</option><option value="logit">Logit lens</option></select>
+    <div class="gencontrols" title="Greedy next-token prediction: append the single most likely token, N times, then run the lens on everything">
+      <input type="number" id="ntok" min="1" max="200" value="20" aria-label="tokens to generate">
+      <button id="gen">Continue</button>
+      <button id="genEnd" title="Keep taking the most likely token until the model emits an end-of-text token (capped at 256 tokens in total)">Until end</button>
+    </div>
+  </div>
+  <div class="seg" role="tablist" aria-label="View">
+    <button id="vGrid" class="on">Grid</button><button id="vVol">J-Volume</button><button id="vSpace">Space</button><button id="vKV" title="One head's keys seen from the selected cell's query">KV</button><button id="vRace" title="How every layer's writes add up to the final choice at the selected position">Race</button><button id="vRiver" title="Time runs left to right: what each token reads from earlier positions, sorted">River</button><button id="vAnat" title="Every block as a disc: parameters, real ternary weights, meaning and use">Anatomy</button>
+  </div>
+  <div id="cont"></div>
+  <div class="status" id="status" style="flex-basis:100%"></div>
+</header>
+<main>
+  <div id="left">
+    <div id="gridwrap"><table id="grid"></table><svg id="attnsvg"></svg></div>
+    <div id="volwrap">
+      <div class="vctl">
+        <label>color <select id="vcolor"><option value="prob">probability</option><option value="token">token identity</option></select></label>
+        <label>show <input type="range" id="vthr" min="0" max="100" value="33" style="width:110px"> <span id="vthrv"></span></label>
+        <label><input type="checkbox" id="vactual"> highlight actual tokens</label>
+        <label title="Draw each layer's strongest cross-position contributions (attention and DeltaNet memory) as arcs; the total is split equally across layers"><input type="checkbox" id="vflow"> attention flow: strongest
+          <input type="number" id="vflowmin" min="10" max="3000" step="10" value="250" style="width:56px"> arcs</label>
+        <button id="vreset">reset view</button>
+      </div>
+      <div class="vhelp" id="volhelp">x = position · y = layer (L0 bottom → output top) · z = rank (1 in front) · drag to orbit, scroll to zoom, click a voxel to select</div>
+    </div>
+    <div id="kvwrap" style="position:absolute; inset:0; display:none; overflow:hidden;">
+      <div class="vctl">
+        <select id="kvhead" title="Heads for the selected cell, strongest first"></select>
+        <select id="kvcam" title="All heads: one disk per head, seen down the query. Number line: one head, the query axis left to right, nearly to scale. 3D: orbit freely."><option value="disks">all heads (disks)</option><option value="front">one head: number line</option><option value="3d">one head: 3D orbit</option></select>
+        <button id="kvplay" title="Play: step the query through every token of the prompt at this layer">▶</button>
+        <input type="range" id="kvt" min="0" max="0" value="0" step="1" title="Query position (scrub)" style="width:160px">
+        <span id="kvtlab" style="font-size:12px; min-width:70px"></span>
+        <select id="kvspeed" title="Playback speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select>
+        <label title="Keep the chosen head when you select another cell"><input type="checkbox" id="kvkeep"> keep head</label>
+        <button id="kvreset">reset view</button>
+        <span id="kvtitle" style="flex-basis:100%; font-size:12px"></span>
+      </div>
+      <div id="kvdisks"></div>
+      <details class="kvhelp" id="kvhelpdisk"><summary>how to read the disks</summary>
+        <div>One disk per head, strongest first. You are looking <b>down the query</b>: the centre is its tip.</div>
+        <div><b>Distance from the centre</b> = attention the key gets, on a hyperbolic scale: the centre would take all of it, every e-fold less is an equal step outward, and the rim is none.
+          Rings: 50 / 10 / 1 / 0.1%. Dashed ring (softmax heads) = zero match; keys outside it are anti-matched.</div>
+        <div><b>Angle</b> = which way a key deviates from the query (its two main directions of variation), so keys that miss in the same way sit together. It doesn't affect attention.</div>
+        <div><b>Colour</b> = position in the prompt · <b>click a disk</b> for that head's number line.</div>
+        <div class="muted">Memory (DeltaNet) heads: distance uses each source's share of the head's effective weight (after decay and overwriting), not the raw match; hollow red = net negative.</div>
+      </details>
+      <details class="kvhelp" id="kvhelpone" open><summary>how to read this</summary>
+        <div><b>The arrow</b> is the query of the selected token: what this head is looking for.</div>
+        <div><b>Left → right along the arrow</b> = how well each earlier token's key matches that query (the only axis to scale).
+          Ticks mark the attention weight a key would get at that point (softmax heads).</div>
+        <div><b>The line at 0</b> is zero match: keys near it are ignored by this query.</div>
+        <div><b>Up/down (and depth in 3D)</b> only spreads tokens by how similar their keys are; it doesn't affect attention.</div>
+        <div><b>Size</b> = weight actually used · <b>colour</b> = position in the prompt · labels give what the strongest sources carried.</div>
+        <div class="muted">Memory (DeltaNet) heads: the weight used also depends on decay and overwriting since the key was written, so a key can match and still be small; red ring = net negative.</div>
+      </details>
+    </div>
+    <div id="anatwrap">
+      <div class="vctl">
+        <button id="anatPlay" title="Stream the tokens: each one sends a ripple down the stack">▶</button>
+        <input type="range" id="anatT" min="0" max="0" value="0" style="width:180px" title="Token">
+        <span id="anatTok" style="font-size:12px;min-width:80px"></span>
+        <select id="anatSpeed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select>
+        <label title="Light = how active each neuron / head is for the selected token"><input type="checkbox" id="anatAct" checked> activity</label>
+        <select id="anatShape" title="Flat: discs on a stalk. Cylinder: the same discs stacked in order along one axis (drag to orbit, double-click a disc to open it)"><option value="flat">flat</option><option value="cylinder">cylinder</option></select>
+      </div>
+      <div id="anatscroll"><div style="position:relative"><canvas id="anatcanvas"></canvas><canvas id="anatripple"></canvas></div></div>
+      <div id="anat3d"></div>
+      <div id="anattip"></div>
+      <div class="kvstatus" id="anatstatus"></div>
+    </div>
+    <div id="riverwrap">
+      <div class="vctl">
+        <select id="rvMode" title="Sources: ribbons follow earlier tokens. Concepts: ribbons follow the meaning of what is read (J-lens words of the messages)"><option value="source">sources</option><option value="concept">concepts</option></select>
+        <label>layers <select id="rvBand"><option value="0-20">early 0–20</option><option value="21-42" selected>middle 21–42</option><option value="43-63">late 43–63</option><option value="0-63">all</option><option value="custom">custom…</option></select></label>
+        <span id="rvCustom" style="display:none"><input type="number" id="rvLo" min="0" max="63" value="30" style="width:44px">–<input type="number" id="rvHi" min="0" max="63" value="45" style="width:44px"></span>
+        <label title="The previous token dominates most layers (it is how words are assembled); hide it to see longer-range reading"><input type="checkbox" id="rvPrev"> hide previous token</label>
+        <label>show <select id="rvN"><option>5</option><option selected>8</option><option>12</option><option>20</option></select></label>
+        <button id="rvPlay" title="Stream the tokens in, one at a time">▶</button>
+        <select id="rvSpeed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select>
+        <span id="rvtitle" style="flex-basis:100%;font-size:12px"></span>
+      </div>
+      <div id="riverscroll"><svg id="riversvg"></svg></div>
+      <div id="rvtip"></div>
+      <div class="kvstatus" id="riverstatus"></div>
+    </div>
+    <div id="racewrap">
+      <div class="vctl">
+        <span class="muted">why</span><select id="raceC0" title="The candidate whose margins are tracked"></select>
+        <span class="muted">rather than</span><select id="raceC1"></select><span class="muted">or</span><select id="raceC2"></select>
+        <button id="racePlay" title="Step through the layers">▶</button>
+        <input type="range" id="raceStep" min="0" max="63" value="63" style="width:170px" title="Layer">
+        <span id="raceLab" style="font-size:12px;min-width:110px"></span>
+        <select id="raceSpeed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select>
+        <span id="racetitle" style="flex-basis:100%;font-size:12px"></span>
+      </div>
+      <div class="racebody">
+        <svg id="racemain"></svg>
+        <div class="raceside"><svg id="racedetail"></svg><div id="racelist"></div></div>
+      </div>
+      <svg id="racestrip"></svg>
+      <details class="racehelp"><summary>how to read this</summary>
+        <div>Everything the model writes into this position's residual stream adds up, exactly, to its final logits (the final norm is a single scale, held at its actual value).</div>
+        <div><b>Big plot</b>: the race between the chosen token and two rivals. x = how far it leads the first rival, y = the second, in logits. Each layer adds two arrows, tip to tail: its attention/memory write (solid) and its MLP write (dashed); colour = layer. Shading = who is ahead.</div>
+        <div><b>Right</b>: the current layer's arrows split into their largest pieces: a head reading one earlier position (orange; ties into the KV tab), or one MLP neuron (blue) with the words its write points to. Grey = everything else.</div>
+        <div><b>Strip</b>: both margins over the layers (click to jump).</div>
+        <div class="muted">Direct attribution: each write's own path to the output. A write that later layers read and act on is credited only for its direct part; mid-layer pieces are often small here even when they matter downstream.</div>
+      </details>
+      <div class="kvstatus" id="racestatus"></div>
+    </div>
+    <div id="spacewrap">
+      <div class="vctl">
+        <select id="spdim" title="A: words only · B: words + non-verbal atoms, one joint projection · C: B's floor, height = distance to the nearest word">
+          <option value="A3">A · words 3D</option><option value="A3L">A · words 3D, local-faithful</option><option value="A2">A · words 2D</option>
+          <option value="B" disabled>B · words + atoms (UMAP)</option><option value="D" disabled>B · words + atoms (densMAP)</option>
+          <option value="C" disabled>C · height = distance to nearest word</option></select>
+        <label>color <select id="spcolor"><option value="cat">token type</option><option value="norm">readout norm</option>
+          <option value="fid" title="How many of each point's true nearest neighbours are also near it in this picture">layout fidelity (this view)</option>
+          <option value="desc" title="How well Bonsai's own description of each atom predicts where it fires">atom describability</option>
+          <option value="iso" title="Distance from each point to its nearest other point, measured in the full space (independent of the layout)">isolation (full space)</option></select></label>
+        <input type="text" id="spsearch" placeholder="find token… ↵" title="Enter: highlight matching tokens. Click any point: show its 30 nearest neighbours." style="width:130px; padding:2px 6px; font-size:12px">
+        <button id="spclear">clear</button>
+        <label title="Names for vocabulary regions; shown only where the region is compact in this view"><input type="checkbox" id="spRegions" checked> regions</label>
+        <span id="spinfo" class="infobtn" tabindex="0">ⓘ about this map<span class="pop" id="spstats"></span></span>
+        <span id="spcount"></span>
+        <span style="flex-basis:100%; height:0"></span>
+        <label title="Trace the current run through the space"><input type="checkbox" id="trOn" checked> trace run</label>
+        <label title="Readouts per cell to branch to">top-k <input type="number" id="trK" min="1" max="10" value="3" style="width:44px"></label>
+        <label title="Hide branches weaker than this">min p <input type="range" id="trP" min="0" max="100" value="30" style="width:90px"> <span id="trPv"></span></label>
+        <label title="Only branch to readouts from these layers (63 = model output)">layers <input type="number" id="trLo" min="0" max="63" value="20" style="width:48px">–<input type="number" id="trHi" min="0" max="63" value="63" style="width:48px"></label>
+        <label><input type="checkbox" id="trLab" checked> labels</label>
+        <label title="Non-verbal atoms: the parts of each activation the lens cannot read (views B / densMAP / C only)"><input type="checkbox" id="trAtoms"> atoms ≥
+          <input type="number" id="trAthr" min="0.1" max="50" step="0.1" value="1" style="width:46px">% of activation</label>
+        <span class="pbctl">
+          <button id="pbPlay" title="Replay token by token: layers pop in, rays converge on the output">▶ play</button>
+          <button id="pbStep" title="Play just the next token">⏭</button>
+          <button id="pbReset" title="Back to the static trace">⟲</button>
+          <select id="pbSpeed" title="Playback speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select>
+          <span id="pbStatus" style="font:11px var(--mono); color:var(--muted)"></span>
+        </span>
+      </div>
+      <div id="trlegend"></div>
+      <div id="pbstrip"></div>
+      <div id="splegend"></div>
+      <div id="atomcard"></div>
+      <div class="vhelp" id="spstatus"></div>
+    </div>
+  </div>
+  <aside>
+    <div id="detail" class="muted">Run a prompt, then click a cell to see the lens readout at that layer and position.</div>
+    <div id="attnbox">
+      <div class="attnhead"><h2 style="display:inline">Reads from earlier positions</h2>
+        <span class="seg attnseg"><button id="atHeads" class="on" title="One arc per head (colour = head)">per head</button><button id="atMerged" title="Heads summed">merged</button></span>
+        <label class="muted" title="Draw attention/memory arcs on the grid and J-Volume"><input type="checkbox" id="atOn" checked> arcs</label>
+        <label class="muted" title="Hide arcs carrying less than this share of the cell's incoming contribution">≥ <input type="number" id="atMin" min="0" max="50" step="0.5" value="3" style="width:42px">%</label>
+      </div>
+      <div id="attncell" class="muted">Select a cell to see where its layer pulled information from.</div>
+    </div>
+    <div id="usebox">
+      <div class="attnhead"><h2 style="display:inline">What the prediction uses</h2>
+        <label class="muted" title="Grid cells show the concept the chosen prediction relies on most there, instead of the lens readout"><input type="checkbox" id="useGrid"> in grid</label>
+      </div>
+      <div class="usectl">
+        <span class="muted">why does position <b id="usePos">–</b> predict</span>
+        <select id="useTok" title="The model's top next tokens at this position (output row)"></select>
+        <button id="useGo">explain</button>
+        <button id="useCheck" title="Also knock out the strongest single cells' concepts and compare with their first-order estimates">+ cell checks</button>
+      </div>
+      <div id="useRes" class="muted">Select a column, choose a predicted token, then “explain”: one backward pass scores every concept in every cell by how much this prediction depends on it.</div>
+    </div>
+    <div id="kobox" style="display:none"></div>
+    <div id="colmap"></div>
+    <details id="cands" style="display:none">
+      <summary><h2 style="display:inline">Atoms Bonsai can't describe <span id="candN"></span></h2></summary>
+      <div class="muted" style="margin:4px 0 6px">Non-verbal atoms whose own description predicts where they fire no better than chance,
+        re-tested on 15 fresh firing vs 15 silent contexts and no better than a random other atom's description.
+        Candidates for the xeno hunt — or for a better describer. Click one to open it.</div>
+      <div id="candlist"></div>
+      <details id="candMore" style="margin-top:6px"><summary class="muted">At or below chance in the first pass, not re-tested (<span id="candMoreN"></span>) — noisy</summary>
+        <div id="candmorelist"></div></details>
+    </details>
+    <h2>Pinned tokens</h2>
+    <div style="display:flex; gap:6px; margin-bottom:8px">
+      <input type="text" id="pinText" placeholder="word to pin…" style="flex:1">
+      <button id="pinBtn">Pin</button>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="muted" style="margin-top:6px">Click a pinned token to color the grid by its rank (log scale) in every cell.</div>
+    <div class="legend" id="legend"></div>
+  </aside>
+</main>
+<div id="tip"></div>
+<script>
+const $ = (id) => document.getElementById(id);
+const UNTIL_END = 100000;  // "as many as fit": the server caps generation at MAX_TOKENS minus the prompt
+let data = null, sel = null, pins = [], rankOf = null, heatToken = null;
+const gloss = {};                       // token id -> {en, src}, merged across runs
+// Non-English = contains a non-ASCII *letter* (so curly quotes/dashes on English words don't count).
+const foreign = (s) => [...s].some((c) => c > "\x7F" && /\p{L}/u.test(c));
+
+const show = (s) => s.replace(/ /g, "␣").replace(/\n/g, "↵").replace(/\t/g, "⇥");
+const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+async function api(path, body) {
+  const r = await fetch(path, body ? { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) } : {});
+  return r.json();
+}
+
+async function info() {
+  const i = await api("/api/info");
+  const L = i.lens || {};
+  $("status").textContent = L.n_prompts
+    ? `Lens fitted on ${L.n_prompts} prompts · ${i.fitted_layers.length} layers · d=${i.d_model}`
+    : "No Jacobian lens loaded yet: use the logit lens, or restart with --lens";
+  if (!L.n_prompts) $("lens").value = "logit";
+}
+
+async function run(generate = 0, reuse = {}) {
+  $("run").disabled = $("gen").disabled = $("genEnd").disabled = true;
+  $("status").textContent = generate === UNTIL_END ? "Generating until an end token (or the 256-token cap), then running the lens…"
+    : generate ? `Generating ${generate} tokens, then running the lens…` : "Running…";
+  try {
+    data = await api("/api/run", { prompt: $("prompt").value, lens: $("lens").value, k: 10, generate, ...reuse });
+    koOrig = null; $("kobox").style.display = "none";
+    renderContinuation();
+    rankOf = null;
+    Object.assign(gloss, data.gloss || {});
+    if (heatToken !== null) await loadRanks();
+    if (sel && (sel[0] >= data.layers.length || sel[1] >= data.tokens.length)) sel = null;
+    render();
+    if (sel) { renderDetail(); renderColmap(); } else { $("detail").innerHTML = ""; renderColmap(); }
+    renderUse();
+    window.dispatchEvent(new Event("lens:data"));
+    const nGen = data.ids.length - data.n_prompt;
+    $("status").textContent = `${data.ids.length} tokens × ${data.layers.length} layers · ${$("lens").selectedOptions[0].text} · ${data.ms} ms` +
+      (nGen || generate ? ` · ${nGen} generated greedily in ${data.gen_ms} ms${data.stopped_early ? " (stopped at end-of-text)"
+        : generate === UNTIL_END ? " (hit the 256-token cap without an end token)" : ""}` : "");
+  } catch (e) { $("status").textContent = "Error: " + e; }
+  $("run").disabled = $("gen").disabled = $("genEnd").disabled = false;
+}
+
+// The prompt as the model tokenized it, followed by the greedy continuation.
+function renderContinuation() {
+  const el = $("cont");
+  if (!data || !data.continuation) { el.style.display = "none"; return; }
+  const prompt = data.tokens.slice(0, data.n_prompt).join("");
+  el.innerHTML = `<span class="p">${esc(prompt)}</span><span class="g">${esc(data.continuation)}</span><button id="append" title="Make the continuation part of the prompt, so Continue extends it further">Append to prompt</button>`;
+  el.style.display = "block";
+}
+
+async function loadRanks() {
+  if (!data || !pins.length) return;
+  const r = await api("/api/ranks", { token_ids: pins.map((p) => p.id), lens: $("lens").value });
+  rankOf = r.ranks;
+}
+
+function cellColor(li, t) {
+  const accent = css("--accent"), heat = css("--heat");
+  if (heatToken !== null && rankOf) {
+    const rank = rankOf[heatToken][li][t];
+    const a = Math.max(0, 1 - Math.log10(rank + 1) / 4); // rank 0 -> 1, rank 10^4 -> 0
+    return `hsl(${heat} / ${(a * 0.85).toFixed(3)})`;
+  }
+  const u = useCell(li, t);
+  if (u) return u.v > 0 ? `hsl(${USE_HUE} / ${(Math.sqrt(u.v / useRes.max) * 0.8).toFixed(3)})` : "transparent";
+  const p = data.cells[li][t].p[0];
+  return `hsl(${accent} / ${(Math.sqrt(p) * 0.6).toFixed(3)})`;
+}
+
+function render() {
+  const g = $("grid");
+  if (!data) { g.innerHTML = ""; return; }
+  let h = `<thead><tr><th class="corner">layer</th>` +
+    data.tokens.map((s, t) => {
+      const g = t >= data.n_prompt;
+      const cls = [foreign(s) ? "xl" : "", g ? "gen" : "", t === data.n_prompt ? "gen0" : ""].join(" ");
+      return `<th data-tid="${data.ids[t]}" data-note="position ${t}${g ? " · generated" : ""}" class="${cls}">${esc(show(s))}</th>`;
+    }).join("") + `</tr></thead><tbody>`;
+  const last = data.layers.length - 1;
+  data.layers.forEach((l, li) => {
+    h += `<tr class="${li === last ? "out" : ""}"><th>${li === last ? "out" : "L" + l}</th>`;
+    for (let t = 0; t < data.tokens.length; t++) {
+      const c = data.cells[li][t];
+      const u = useCell(li, t), fut = useOn() && t > useRes.t;
+      const tid = u ? u.id : c.ids[0], tok = u ? useRes.vocab[u.id] : fut ? "" : data.vocab[c.ids[0]];
+      const isSel = sel && sel[0] === li && sel[1] === t;
+      const cls = [isSel ? "sel" : "", foreign(tok) ? "xl" : "", t === data.n_prompt ? "gen0" : "", u ? "usecell" : "", fut ? "usefuture" : ""].join(" ");
+      const note = u ? `most used here by “${useRes.u_str}” (position ${useRes.t}): knocking it out of this one cell ≈ ${u.v > 0 ? "−" : "+"}${Math.abs(u.v).toFixed(3)} log p (first order) · lens top here: ${data.vocab[c.ids[0]]}` : `p = ${c.p[0]}`;
+      h += `<td data-li="${li}" data-t="${t}" data-tid="${tid}" data-note="${esc(note)}" class="${cls}" style="background:${cellColor(li, t)}">${esc(show(tok))}</td>`;
+    }
+    h += `</tr>`;
+  });
+  g.innerHTML = h + `</tbody>`;
+  setTimeout(drawGridArcs, 0);
+  renderLegend();
+}
+
+let colmapKey = null;   // (data, column) the column map was built for
+
+function selectCell(li, t, { scroll = false } = {}) {
+  sel = [li, t];
+  document.querySelectorAll("#grid td.sel").forEach((x) => x.classList.remove("sel"));
+  const td = document.querySelector(`#grid td[data-li="${li}"][data-t="${t}"]`);
+  if (td) { td.classList.add("sel"); if (scroll) td.scrollIntoView({ block: "nearest", inline: "nearest" }); }
+  renderDetail(); renderColmap(); renderUse();
+  window.dispatchEvent(new Event("lens:select"));
+}
+
+// All top-10 histograms for the selected column, stacked by layer. Rebuilt only
+// when the column (or the run / lens) changes; otherwise just move the highlight.
+function renderColmap() {
+  const el = $("colmap");
+  if (!sel || !data) { el.innerHTML = ""; colmapKey = null; return; }
+  const [li, t] = sel;
+  if (!colmapKey || colmapKey.data !== data || colmapKey.t !== t) {
+    const last = data.layers.length - 1, accent = css("--accent");
+    let h = `<h2>Column · position ${t} <span style="text-transform:none">(${esc(show(data.tokens[t]))})${t >= data.n_prompt ? " · generated" : ""}</span></h2>
+      <div class="ranks"><span></span>${[...Array(10)].map((_, k) => `<span>${k + 1}</span>`).join("")}</div><table>`;
+    data.layers.forEach((l, i) => {
+      const c = data.cells[i][t];
+      h += `<tr data-li="${i}" class="${i === last ? "out" : ""}"><th>${i === last ? "out" : "L" + l}</th>` +
+        c.ids.map((id, k) => {
+          const tok = data.vocab[id];
+          return `<td data-tid="${id}" data-note="${i === last ? "output" : "L" + l} · rank ${k + 1} · p = ${c.p[k]}" class="${foreign(tok) ? "xl" : ""}" style="background:hsl(${accent} / ${(Math.sqrt(c.p[k]) * 0.85).toFixed(3)})">${esc(show(tok.replace(/^ /, "")))}</td>`;  // leading-space marker dropped to save width; tooltip shows the exact token
+        }).join("") + `</tr>`;
+    });
+    el.innerHTML = h + `</table>`;
+    colmapKey = { data, t };
+  }
+  el.querySelectorAll("tr.cur").forEach((r) => r.classList.remove("cur"));
+  const row = el.querySelector(`tr[data-li="${li}"]`);
+  if (row) row.classList.add("cur");
+}
+
+function renderDetail() {
+  if (!sel || !data) return;
+  const [li, t] = sel, c = data.cells[li][t], l = data.layers[li];
+  const rows = c.ids.map((id, k) => `<div class="row"><div class="bar"><span style="width:${(c.p[k] * 100).toFixed(1)}%"></span><b data-tid="${id}" class="${foreign(data.vocab[id]) ? "xl" : ""}">${esc(show(data.vocab[id]))}</b>${gloss[id] && foreign(data.vocab[id]) ? `<span class="gl">${esc(gloss[id].en)}</span>` : ""}</div><span>${(c.p[k] * 100).toFixed(1)}%</span><button class="pin" data-id="${id}" title="pin">📌</button><button class="pin ko" data-ko="${id}" title="knock out this concept">⊘</button></div>`).join("");
+  $("detail").innerHTML = `<div><b>${l === data.layers[data.layers.length - 1] && li === data.layers.length - 1 ? "Model output" : "Layer " + l}</b> · position ${t} <span class="muted">(${esc(show(data.tokens[t]))})</span></div>
+    <div class="muted">entropy ${c.H.toFixed(2)} nats</div><h2>Top readout</h2>${rows}`;
+}
+
+function renderChips() {
+  $("chips").innerHTML = pins.map((p) => `<span class="chip ${heatToken === p.id ? "on" : ""}" data-id="${p.id}">${esc(show(p.text))}<i data-x="${p.id}">✕</i></span>`).join("");
+}
+function renderLegend() {
+  if (heatToken === null) { $("legend").innerHTML = ""; return; }
+  $("legend").innerHTML = `rank 1 <span class="ramp" style="background:linear-gradient(90deg,hsl(${css("--heat")} / .85),hsl(${css("--heat")} / 0))"></span> ≥10⁴`;
+}
+
+async function addPin(id, text) {
+  if (pins.some((p) => p.id === id)) return;
+  pins.push({ id, text }); renderChips();
+}
+
+$("grid").addEventListener("click", (e) => {
+  const td = e.target.closest("td"); if (!td) return;
+  selectCell(+td.dataset.li, +td.dataset.t);
+});
+$("colmap").addEventListener("click", (e) => {
+  const tr = e.target.closest("tr[data-li]"); if (!tr || !sel) return;
+  selectCell(+tr.dataset.li, sel[1], { scroll: true });
+});
+// Hovering a word in the column map outlines every occurrence of it in that column.
+$("colmap").addEventListener("mouseover", (e) => {
+  const td = e.target.closest("td[data-tid]"); if (!td) return;
+  $("colmap").querySelectorAll("td.same").forEach((x) => x.classList.remove("same"));
+  $("colmap").querySelectorAll(`td[data-tid="${td.dataset.tid}"]`).forEach((x) => x.classList.add("same"));
+});
+$("colmap").addEventListener("mouseleave", () => $("colmap").querySelectorAll("td.same").forEach((x) => x.classList.remove("same")));
+// Arrow keys move the selection (up/down = layer, left/right = position) when not typing.
+document.addEventListener("keydown", (e) => {
+  if (!sel || !data || /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) return;
+  const d = { ArrowUp: [-1, 0], ArrowDown: [1, 0], ArrowLeft: [0, -1], ArrowRight: [0, 1] }[e.key];
+  if (!d) return;
+  e.preventDefault();
+  const li = Math.min(Math.max(sel[0] + d[0], 0), data.layers.length - 1);
+  const t = Math.min(Math.max(sel[1] + d[1], 0), data.tokens.length - 1);
+  selectCell(li, t, { scroll: true });
+});
+$("detail").addEventListener("click", (e) => {
+  const kb = e.target.closest("[data-ko]"); if (kb) { openKnockout(+kb.dataset.ko); return; }
+  const b = e.target.closest(".pin"); if (!b) return;
+  const id = +b.dataset.id; addPin(id, data.vocab[id]);
+});
+$("chips").addEventListener("click", async (e) => {
+  const x = e.target.dataset.x;
+  if (x !== undefined) { pins = pins.filter((p) => p.id !== +x); if (heatToken === +x) heatToken = null; renderChips(); render(); return; }
+  const chip = e.target.closest(".chip"); if (!chip) return;
+  const id = +chip.dataset.id;
+  heatToken = heatToken === id ? null : id;
+  if (heatToken !== null) { $("status").textContent = "Computing ranks…"; await loadRanks(); $("status").textContent = ""; }
+  renderChips(); render();
+});
+$("pinBtn").addEventListener("click", async () => {
+  const text = $("pinText").value; if (!text.trim()) return;
+  const r = await api("/api/tokenize", { text });
+  for (const c of r.candidates) if (c.n_pieces === 1) await addPin(c.id, c.text);
+  if (!r.candidates.some((c) => c.n_pieces === 1) && r.candidates[0]) await addPin(r.candidates[0].id, r.candidates[0].text);
+  $("pinText").value = "";
+});
+$("pinText").addEventListener("keydown", (e) => { if (e.key === "Enter") $("pinBtn").click(); });
+$("run").addEventListener("click", () => run());
+$("gen").addEventListener("click", () => run(Math.max(1, Math.min(200, +$("ntok").value || 20))));
+$("genEnd").addEventListener("click", () => run(UNTIL_END));
+$("ntok").addEventListener("keydown", (e) => { if (e.key === "Enter") $("gen").click(); });
+$("cont").addEventListener("click", (e) => {
+  if (e.target.id !== "append" || !data) return;
+  $("prompt").value = data.tokens.join("");
+  run();
+});
+// Re-reading with the other lens keeps the same token sequence (prompt + any continuation).
+$("lens").addEventListener("change", () => { if (data) run(0, { ids: data.ids, n_prompt: data.n_prompt }); });
+$("prompt").addEventListener("keydown", (e) => { if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) run(); });
+// ---- hover tooltip with translation for non-English tokens ----
+const tip = $("tip");
+let tipTarget = null, pending = null;
+function tipHtml(el) {
+  const id = +el.dataset.tid, tok = data.vocab[id] ?? el.textContent;
+  let h = `<span class="tok">${esc(show(tok))}</span>`;
+  if (foreign(tok)) {
+    const g = gloss[id];
+    h += g ? ` → <b>${esc(g.en)}</b> <span class="src">· ${esc(g.src)}</span>` : ` → <span class="src">translating…</span>`;
+  }
+  if (el.dataset.note) h += `<div class="src">${esc(el.dataset.note)}</div>`;
+  return h;
+}
+function placeTip(e) {
+  const pad = 14, r = tip.getBoundingClientRect();
+  let x = e.clientX + pad, y = e.clientY + pad;
+  if (x + r.width > innerWidth - 8) x = e.clientX - r.width - pad;
+  if (y + r.height > innerHeight - 8) y = e.clientY - r.height - pad;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+}
+document.addEventListener("mouseover", (e) => {
+  const el = e.target.closest("[data-tid]");
+  if (!el || !data) { tip.style.display = "none"; tipTarget = null; return; }
+  if (el === tipTarget) return;
+  tipTarget = el;
+  tip.innerHTML = tipHtml(el); tip.style.display = "block"; placeTip(e);
+  const id = +el.dataset.tid, tok = data.vocab[id] ?? "";
+  if (foreign(tok) && !gloss[id]) {
+    clearTimeout(pending);
+    pending = setTimeout(async () => {
+      const r = await api("/api/translate", { ids: [id] });
+      Object.assign(gloss, r);
+      if (tipTarget === el) tip.innerHTML = tipHtml(el);
+      if (sel) renderDetail();
+    }, 250);
+  }
+});
+document.addEventListener("mousemove", (e) => { if (tipTarget) placeTip(e); });
+document.addEventListener("mouseleave", () => { tip.style.display = "none"; tipTarget = null; });
+// ---- knockout: remove a concept's J-lens direction from the residual stream ----
+let koOrig = null;   // the unedited run while a knocked-out run is being viewed
+function openKnockout(id) {
+  if (!data || !sel) return;
+  const [, t] = sel, last = data.layers.length - 1;
+  // default layer range: where this token shows up in this column's top-10
+  const hits = data.layers.map((l, li) => (li < last && data.cells[li][t].ids.includes(id) ? l : null)).filter((x) => x !== null);
+  const lo = hits.length ? Math.min(...hits) : 20, hi = hits.length ? Math.min(62, Math.max(...hits)) : 62;
+  const nGen = Math.max(data.ids.length - data.n_prompt, 12);
+  $("kobox").innerHTML = `<h2>Knock out</h2>
+    <div class="korow">remove <span class="tok">${esc(show(data.vocab[id]))}</span> from the residual stream</div>
+    <div class="korow"><label><input type="radio" name="kopos" value="all" checked> all positions</label>
+      <label><input type="radio" name="kopos" value="${t}"> only pos ${t} <span class="tok">${esc(show(data.tokens[t]))}</span></label></div>
+    <div class="korow">layers <input type="number" id="koLo" min="0" max="62" value="${lo}">–<input type="number" id="koHi" min="0" max="62" value="${hi}">
+      continue <input type="number" id="koN" min="1" max="200" value="${nGen}"> tokens</div>
+    <div class="korow"><button class="primary" id="koRun">Run knockout</button><button id="koClose">close</button>
+      <span class="muted">default layers = where it appears in this column</span></div>
+    <div id="koRes"></div>`;
+  $("kobox").dataset.id = id;
+  $("kobox").style.display = "block";
+  $("kobox").scrollIntoView({ block: "nearest" });
+}
+function diffMark(base, other) {  // highlight only the span where ``other`` departs from ``base``
+  let i = 0; while (i < base.length && i < other.length && base[i] === other[i]) i++;
+  let j = 0; while (j < base.length - i && j < other.length - i && base[base.length - 1 - j] === other[other.length - 1 - j]) j++;
+  const mid = other.slice(i, other.length - j);
+  return esc(other.slice(0, i)) + (mid ? `<mark>${esc(mid)}</mark>` : "") + esc(other.slice(other.length - j));
+}
+async function runKnockout() {
+  const id = +$("kobox").dataset.id;
+  const pos = document.querySelector('input[name="kopos"]:checked').value;
+  const body = { token_id: id, positions: pos === "all" ? null : [+pos], layers: [+$("koLo").value, +$("koHi").value], generate: +$("koN").value };
+  $("koRun").disabled = true; $("koRes").innerHTML = `<div class="muted">Running edited forward passes + continuations (and a random-direction control)…</div>`;
+  const r = await api("/api/knockout", body);
+  $("koRun").disabled = false;
+  if (r.error || r.detail) { $("koRes").textContent = "Error: " + (r.error || JSON.stringify(r.detail)); return; }
+  const V = (i) => show(r.vocab[i] ?? data.vocab[i] ?? "?");
+  const moved = r.rows.filter((x) => x.ko[0][0] !== x.base[0][0] || Math.abs(x.p_orig_ko - x.base[0][1]) > 0.05);
+  const rowHtml = (x) => {
+    const b = x.base[0], d = x.p_orig_ko - b[1];
+    return `<tr><td>${x.t}</td><td>${esc(show(data.tokens[x.t]))}</td><td>${esc(V(b[0]))} ${b[1].toFixed(2)}</td>` +
+      `<td class="${d < 0 ? "down" : "up"}">${x.ko[0][0] === b[0] ? "" : esc(V(x.ko[0][0])) + " "}${x.p_orig_ko.toFixed(2)}</td><td>${x.p_orig_ctrl?.toFixed(2) ?? ""}</td></tr>`;
+  };
+  $("koRes").innerHTML = `
+    <div class="korow">removed ${(r.removed_share * 100).toFixed(2)}% of ‖h‖² at edited cells · random control ${(r.removed_share_ctrl * 100).toFixed(3)}% · ${(r.ms / 1000).toFixed(1)} s</div>
+    <div class="cont"><b>original</b>${esc(r.continuation.base)}</div>
+    <div class="cont"><b>knocked out</b>${diffMark(r.continuation.base, r.continuation.ko)}</div>
+    <div class="cont"><b>control</b>${diffMark(r.continuation.base, r.continuation.ctrl)}</div>
+    ${moved.length ? `<table><tr><th>pos</th><th>reads</th><th>predicted</th><th>after KO</th><th>ctrl</th></tr>${moved.map(rowHtml).join("")}</table>`
+      : `<div class="muted">No next-token prediction moved by more than 0.05.</div>`}
+    <div class="korow"><button id="koView">view knocked-out run</button><span class="muted">lens readouts of the edited pass over the same tokens</span></div>`;
+  $("koView").onclick = () => {
+    if (!koOrig) koOrig = data;
+    data = { ...r.run, knockout: { token: r.token, layers: r.layers, positions: r.positions } };
+    rankOf = null; render(); if (sel) { renderDetail(); renderColmap(); } renderUse();
+    window.dispatchEvent(new Event("lens:data"));
+    $("status").innerHTML = `<span class="kobanner">KNOCKOUT VIEW</span> · ${esc(show(r.token))} removed at layers ${r.layers[0]}–${r.layers[1]}, ${r.positions ? "pos " + r.positions.join(",") : "all positions"} · <button id="koRestore">restore original</button>`;
+    $("koRestore").onclick = restoreOriginal;
+  };
+}
+function restoreOriginal() {
+  if (!koOrig) return;
+  data = koOrig; koOrig = null; rankOf = null; render(); if (sel) { renderDetail(); renderColmap(); } renderUse();
+  window.dispatchEvent(new Event("lens:data"));
+  $("status").textContent = `${data.ids.length} tokens × ${data.layers.length} layers · original run restored`;
+}
+$("kobox").addEventListener("click", (e) => {
+  if (e.target.id === "koRun") runKnockout();
+  if (e.target.id === "koClose") $("kobox").style.display = "none";
+});
+
+// ---- attention / memory: what each cell's layer read from earlier positions ----
+// /api/attention decomposes every layer's token mixer exactly into per-(head, source) contributions
+// (softmax attention in 16 layers, Gated DeltaNet memory in 48); /api/attn_cell decodes one cell.
+let attn = null, attnPending = null;
+const atState = { on: true, merged: false, min: 0.03 };
+const unb64 = (str, T) => { const b = atob(str), u = new Uint8Array(b.length); for (let i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return new T(u.buffer); };
+async function ensureAttn() {
+  if (!data || data.knockout) return null;
+  if (attn && attn._data === data) return attn;
+  if (attnPending && attnPending._data === data) return attnPending;
+  const p = (async () => {
+    $("attncell").innerHTML = `<span class="muted">Decomposing every layer's attention and memory into per-source contributions…</span>`;
+    const r = await api("/api/attention", {});
+    if (r.error || r.detail) { $("attncell").textContent = r.error || JSON.stringify(r.detail); return null; }
+    for (const L of r.layers) {
+      L.srcA = unb64(L.src, Uint16Array); L.shareA = unb64(L.share, Float32Array); L.signA = unb64(L.sign, Int8Array);
+      L.msrcA = unb64(L.msrc, Uint16Array); L.mshareA = unb64(L.mshare, Float32Array); L.selfA = unb64(L.self, Float32Array);
+    }
+    r._data = data; attn = r;
+    window.dispatchEvent(new Event("lens:attn"));
+    return r;
+  })();
+  p._data = data; attnPending = p;
+  return p;
+}
+const headHue = (h, H) => Math.round((h / H) * 330);
+// Size of a layer's write relative to the residual it reads: "19%" when small, "8.8×" when larger
+// (early layers write into a residual that is still just the token embedding).
+const ratio = (x) => (x < 1.5 ? `${(x * 100).toFixed(0)}%` : `${x.toFixed(1)}×`);
+// Arcs into (layer li, position t): per head (top sources above threshold) or merged.
+function attnArcs(li, t) {
+  if (!attn || attn._data !== data) return [];
+  const l = data.layers[li], L = attn.layers[l], T = attn.T, K = attn.K, KM = attn.KM, arcs = [];
+  if (!L || t >= T) return [];
+  if (atState.merged) {
+    for (let k = 0; k < KM; k++) {
+      const s = L.msrcA[t * KM + k], sh = L.mshareA[t * KM + k];
+      if (sh >= atState.min) arcs.push({ s, t, share: sh, hue: null, sign: 1, merged: true });
+    }
+  } else {
+    for (let h = 0; h < L.heads; h++) for (let k = 0; k < K; k++) {
+      const j = (h * T + t) * K + k, s = L.srcA[j], sh = L.shareA[j];
+      if (sh >= atState.min) arcs.push({ s, t, share: sh, hue: headHue(h, L.heads), h, sign: L.signA[j] });
+    }
+  }
+  return arcs;
+}
+function drawGridArcs() {
+  const svg = $("attnsvg"), tbl = $("grid");
+  svg.innerHTML = "";
+  if (!atState.on || !sel || !data || $("gridwrap").style.display === "none") return;
+  const [li, t] = sel;
+  const arcs = attnArcs(li, t);
+  svg.setAttribute("width", tbl.scrollWidth); svg.setAttribute("height", tbl.scrollHeight);
+  svg.style.left = tbl.offsetLeft + "px"; svg.style.top = tbl.offsetTop + "px";
+  const tr = tbl.getBoundingClientRect();
+  const cell = (tt) => { const td = tbl.querySelector(`td[data-li="${li}"][data-t="${tt}"]`); if (!td) return null; const r = td.getBoundingClientRect(); return [r.left - tr.left + r.width / 2, r.top - tr.top + r.height / 2]; };
+  const dst = cell(t); if (!dst) return;
+  let html = "";
+  const accent = css("--accent");
+  for (const a of arcs.sort((x, y) => x.share - y.share)) {
+    const col = a.hue === null ? `hsl(${accent})` : `hsl(${a.hue} 85% 60%)`;
+    const w = (a.merged ? 1.5 + 14 * a.share : 1 + 10 * a.share).toFixed(1), op = Math.min(0.95, 0.35 + a.share * 2).toFixed(2);
+    const dash = a.sign < 0 ? ` stroke-dasharray="4 3"` : "";
+    if (a.s === t) {  // reads its own position: a small loop
+      html += `<circle cx="${dst[0]}" cy="${dst[1] - 11}" r="${4 + 10 * a.share}" fill="none" stroke="${col}" stroke-width="${w}" opacity="${op}"${dash}/>`;
+      continue;
+    }
+    const src = cell(a.s); if (!src) continue;
+    const mx = (src[0] + dst[0]) / 2, hgt = Math.min(140, 14 + Math.abs(dst[0] - src[0]) * 0.33);
+    html += `<path d="M${src[0]},${src[1]} Q${mx},${src[1] - 2 * hgt} ${dst[0]},${dst[1]}" fill="none" stroke="${col}" stroke-width="${w}" opacity="${op}" stroke-linecap="round"${dash}/>`;
+  }
+  svg.innerHTML = html;
+}
+let cellReq = 0;
+async function renderAttnCell() {
+  const box = $("attncell");
+  if (!sel || !data) return;
+  if (data.knockout) { box.innerHTML = `<span class="muted">Attention is shown for the original run, not the knockout view.</span>`; return; }
+  const a = await ensureAttn();
+  drawGridArcs();
+  if (!a) return;
+  const [li, t] = sel, l = data.layers[li], my = ++cellReq;
+  const L = a.layers[l];
+  box.innerHTML = `<div><span class="kindtag ${L.kind}">${L.kind === "gdn" ? "DeltaNet memory" : "softmax attention"}</span>
+    <b> L${l}</b> into position ${t} <span class="muted">(${esc(show(data.tokens[t]))})</span></div>
+    <div class="src">${L.kind === "gdn" ? `${L.heads} memory heads (each a 128×128 memory written by every earlier token, with decay and overwriting; weights are exact effective contributions, dashed = negative)` : `${L.heads} query heads sharing ${L.kv_heads} key/value heads`} ·
+      this layer's write here is ${ratio(L.strength[t])} the size of the residual it reads</div>
+    <div class="muted" style="margin-top:4px">decoding what each source carried…</div>`;
+  const r = await api(`/api/attn_cell?l=${l}&t=${t}&heads=16`);
+  if (my !== cellReq || r.error || r.detail) return;
+  const bar = (sh) => `<div class="bar"><span style="width:${Math.min(100, sh * 100).toFixed(1)}%"></span></div>`;
+  const tokAt = (s) => esc(show(data.tokens[s]));
+  const wordsOf = (ws) => esc(ws.map((w) => show(w)).join(" · "));
+  box.innerHTML = box.innerHTML.replace(/<div class="muted" style="margin-top:4px">decoding[^<]*<\/div>/, "") +
+    `<h2>Merged over heads</h2>` + r.merged.map((m) => `<div class="arow"><span class="tk">${m.s === t ? "(itself)" : `${m.s}: ${tokAt(m.s)}`}</span>${bar(m.share)}<span>${(m.share * 100).toFixed(0)}%</span></div>
+      <div class="arow" style="margin-top:-2px"><span></span><span class="w">carries: ${wordsOf(m.words)}</span><span></span></div>`).join("") +
+    `<h2>Strongest heads <span class="muted" style="text-transform:none;font-weight:400">(click to see its KV space)</span></h2>` + r.heads.map((h) => `<div class="ahead" data-head="${h.h}" style="cursor:pointer"><span class="hid" style="color:hsl(${headHue(h.h, L.heads)} 85% 60%)">head ${h.h}</span>
+      <span class="muted"> ${(h.share * 100).toFixed(0)}% of the incoming contribution</span>
+      ${h.sources.map((s) => `<div class="hsrc">${s.sign < 0 ? "−" : "←"} ${s.s === t ? "(itself)" : `${s.s} ${tokAt(s.s)}`}  ${(s.share * 100).toFixed(1)}%  ${wordsOf(s.words)}</div>`).join("")}</div>`).join("");
+}
+$("atHeads").onclick = () => { atState.merged = false; $("atHeads").classList.add("on"); $("atMerged").classList.remove("on"); drawGridArcs(); window.dispatchEvent(new Event("lens:attn")); };
+$("atMerged").onclick = () => { atState.merged = true; $("atMerged").classList.add("on"); $("atHeads").classList.remove("on"); drawGridArcs(); window.dispatchEvent(new Event("lens:attn")); };
+$("atOn").onchange = (e) => { atState.on = e.target.checked; drawGridArcs(); window.dispatchEvent(new Event("lens:attn")); };
+$("atMin").onchange = (e) => { atState.min = Math.max(0, +e.target.value || 0) / 100; drawGridArcs(); window.dispatchEvent(new Event("lens:attn")); };
+window.addEventListener("lens:select", () => { if (atState.on) renderAttnCell(); });
+$("attncell").addEventListener("click", (e) => {
+  const el = e.target.closest(".ahead[data-head]"); if (!el) return;
+  setView("kv");
+  window.dispatchEvent(new CustomEvent("lens:kvhead", { detail: +el.dataset.head }));
+});
+
+// ---- view switch + bridge for the J-Volume module ----
+window.lensUI = {
+  get attn() { return attn && attn._data === data ? attn : null; }, get atState() { return atState; }, attnArcs, ensureAttn, headHue, ratio,
+  get data() { return data; }, get sel() { return sel; }, get gloss() { return gloss; },
+  selectCell, foreign, show, esc, css,
+};
+// ---------------------------------------------------------------- use-weighted lens
+// /api/use: one backward pass from log p(token | prefix) at position t; every concept v in every
+// cell (l, s <= t) gets use = present_v * (gradient . a_v/|a_v|), the first-order change in that
+// log-prob if v were knocked out of that one cell (positive = the prediction relies on it).
+const USE_HUE = "150 70% 42%";
+let useRes = null, useBusy = false;
+const useOn = () => useRes && useRes._data === data && $("useGrid").checked;
+function useCell(li, t) {
+  if (!useOn() || t > useRes.t) return null;
+  const c = useRes.cells[data.layers[li]][t], [id, v] = c.sup[0];
+  return { id, v };
+}
+const conceptKey = (s) => s.trim().toLowerCase();
+
+function useBar(v, max) {
+  const w = Math.min(50, (Math.abs(v) / max) * 50);
+  return `<div class="ubar"><span style="${v >= 0 ? `left:50%;width:${w}%` : `left:${50 - w}%;width:${w}%`};background:${v >= 0 ? `hsl(${USE_HUE})` : "#ff5555"}"></span><i class="mid"></i></div>`;
+}
+
+function renderUse() {
+  if (!data) return;
+  const last = data.layers.length - 1;
+  const t = sel ? sel[1] : data.tokens.length - 1;
+  if ($("usePos").dataset.t !== String(t) || $("useTok").dataset.run !== String(data.ids.length) + data.tokens[t]) {
+    $("usePos").textContent = `${t} (${show(data.tokens[t])})`; $("usePos").dataset.t = t;
+    $("useTok").dataset.run = String(data.ids.length) + data.tokens[t];
+    const c = data.cells[last][t];
+    $("useTok").innerHTML = c.ids.map((id, k) => `<option value="${id}">${esc(show(data.vocab[id]))} · ${(c.p[k] * 100).toFixed(1)}%</option>`).join("");
+  }
+  if (data.knockout) { $("useRes").innerHTML = `<span class="muted">Use-weighting is computed for the original run, not the knockout view.</span>`; return; }
+  if (!useRes || useRes._data !== data) return;
+  const r = useRes, max = r.max, fmt = (v) => (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(3);
+  let h = `<div>Prediction <b>${esc(show(r.u_str))}</b> after position ${r.t} <span class="muted">(${esc(show(data.tokens[r.t]))}) · log p = ${r.logp} · ${r.timing.total_s}s</span></div>
+    <div class="muted" style="font-size:11px">Cell numbers (grid and below) = first-order change in log p if that concept were knocked out of that one cell: accurate for small concepts in a single cell, not for dominant ones or for many cells at once.</div>`;
+  if (r.check) h += `<div class="muted" style="font-size:11px;margin-top:4px">Single-cell checks${r.check_rel_err !== undefined ? ` · median error away from the answer itself ${(r.check_rel_err * 100).toFixed(0)}%` : ""}</div><table class="chk"><tr><th>cell</th><th>concept</th><th>predicted Δ</th><th>actual Δ</th></tr>` +
+    r.check.map((c) => `<tr><td>L${c.l} · ${c.s}</td><td>${esc(show(c.v))}</td><td>${c.pred.toFixed(3)}</td><td>${c.actual.toFixed(3)}</td></tr>`).join("") + `</table>`;
+  // selected cell: what's present vs what's used
+  if (sel && sel[1] <= r.t) {
+    const [li, s_] = sel, l = data.layers[li], c = r.cells[l][s_];
+    const rowsOf = (list) => list.map(([id, v]) => `<div class="urow"><span class="tk" data-tid="${id}">${esc(show(r.vocab[id]))}</span>${useBar(v, max)}<span class="v" title="first-order change in log p if knocked out of this cell">${fmt(-v)}</span></div>`).join("");
+    h += `<h2>${li === last ? "Output layer" : "L" + l} · position ${s_} (${esc(show(data.tokens[s_]))})</h2>
+      <div class="muted">present (lens top) → used?</div>${rowsOf(c.pres)}
+      <div class="muted" style="margin-top:4px">used most</div>${rowsOf(c.sup)}
+      <div class="muted" style="margin-top:4px">argues against</div>${rowsOf(c.opp)}` +
+      (c.asup ? `<div class="muted" style="margin-top:4px">non-verbal atoms used most</div>` +
+        c.asup.concat(c.aopp).map(([j, v]) => { const a = r.atoms?.[j] || {};
+          return `<div class="urow" title="${esc(`“${a.desc || "?"}” · describability ${a.auroc ?? "?"}`)}"><span class="tk atomtk">ξ${j}${a.cand ? " ✱" : ""}</span>${useBar(v, max)}<span class="v">${fmt(-v)}</span></div>`; }).join("") : "");
+  }
+  if (r.stream) {
+    // Measured: each chip = the real change in log p when that concept is knocked out of that
+    // position at every layer. Green = the prediction relied on it; red = it argued against.
+    const smax = Math.max(1e-9, ...r.stream.flatMap((row) => row.items.map((i) => Math.abs(i.actual))));
+    const WHY = { used: "nominated by per-cell use", readout: "the lens's persistent readout here", against: "per-cell use says it argues against" };
+    h += `<h2>Stream <span class="muted" style="text-transform:none">· measured</span></h2>
+      <div class="muted" style="font-size:11px">Per position: the change in log p(${esc(show(r.u_str))}) when a concept is knocked out of that position at every layer (real forward passes). Green = relied on, red = argued against. <span style="color:#b6d800">ξ</span> = non-verbal atom (hover for Bonsai's description; outlined = robust undescribable candidate). Hover for the linear estimate; they often disagree because the model rebuilds a concept removed at a single layer.</div><div class="stream">` +
+      r.stream.map((row) => {
+        const best = Math.max(...row.items.map((i) => Math.abs(i.actual)), 0);
+        return `<div class="srow ${best < 0.05 * smax ? "faint" : ""}" data-s="${row.s}"><span class="src">${row.s} <i>${esc(show(data.tokens[row.s]))}</i></span><span>` +
+          row.items.filter((i) => Math.abs(i.actual) >= 0.002).map((i) => {
+            const neg = i.actual > 0, bg = `background:hsl(${neg ? "0 80% 60%" : USE_HUE} / ${(0.1 + 0.65 * Math.sqrt(Math.abs(i.actual) / smax)).toFixed(2)})`;
+            if (i.atom !== undefined) {
+              const a = r.atoms?.[i.atom] || {};
+              const tip = `non-verbal atom ξ${i.atom}${a.cand ? " · one of the robust undescribable candidates" : ""} · Bonsai's description: “${a.desc || "?"}” (describability ${a.auroc ?? "?"}) · fires on ${a.freq != null ? (a.freq * 100).toFixed(2) + "%" : "?"} of activations · knocked out at layers 16–62 · measured ${fmt(i.actual)} · linear estimate ${fmt(i.est)}`;
+              return `<span class="cpt atom ${neg ? "neg" : ""} ${a.cand ? "xeno" : ""}" data-atom="${i.atom}" title="${esc(tip)}" style="${bg}">ξ${i.atom}<small>${fmt(i.actual)}</small></span>`;
+            }
+            return `<span class="cpt ${neg ? "neg" : ""}" data-tid="${i.id}" title="${esc(`${WHY[i.why]} · measured ${fmt(i.actual)} · linear estimate ${fmt(i.est)}`)}" style="${bg}">${esc(show(r.vocab[i.id]))}<small>${fmt(i.actual)}</small></span>`;
+          }).join("") + `</span></div>`;
+      }).join("") + `</div>`;
+  }
+  $("useRes").innerHTML = h;
+}
+
+async function runUse(check = 0) {
+  if (!data || useBusy || data.knockout) return;
+  const t = sel ? sel[1] : data.tokens.length - 1, u = +$("useTok").value;
+  useBusy = true; $("useGo").disabled = $("useCheck").disabled = true;
+  const t0 = performance.now(), d0 = data;
+  const tick = () => { $("useRes").innerHTML = `<span class="muted">Backward pass from “${esc(show(data.vocab[u] || ""))}” at position ${t}, then real knockouts for the stream${check ? ` and ${check} single-cell checks` : ""}… ${((performance.now() - t0) / 1000).toFixed(0)} s (about two minutes for a short prompt: every stream candidate is a real forward pass; the first call after a new lens also measures every lens direction, ~4 min)</span>`; };
+  tick(); const iv = setInterval(tick, 1000);
+  try {
+    const r = await api(`/api/use?t=${t}&u=${u}${check ? `&check=${check}` : ""}`);
+    if (r.error || r.detail) { $("useRes").textContent = r.error || JSON.stringify(r.detail); return; }
+    if (d0 !== data) return;
+    r._data = data;
+    r.max = Math.max(1e-9, ...r.cells.flatMap((row) => row.map((c) => Math.max(c.sup[0][1], -c.opp[0][1]))));
+    useRes = r;
+    render(); renderUse();
+  } finally { clearInterval(iv); useBusy = false; $("useGo").disabled = $("useCheck").disabled = false; }
+}
+$("useGo").addEventListener("click", () => runUse(0));
+$("useCheck").addEventListener("click", () => runUse(6));
+$("useGrid").addEventListener("change", render);
+$("useRes").addEventListener("click", (e) => {  // click a stream chip: select that cell (strongest layer)
+  const el = e.target.closest(".cpt"); if (!el || !useRes) return;
+  const s_ = +el.closest(".srow").dataset.s, isAtom = el.dataset.atom !== undefined, id = +(isAtom ? el.dataset.atom : el.dataset.tid);
+  let best = -1, bl = 0;
+  useRes.cells.forEach((row, l) => {
+    const c = row[s_], list = isAtom ? (c.asup || []).concat(c.aopp || []) : c.sup.concat(c.opp, c.pres);
+    for (const [i, v] of list) if (i === id && Math.abs(v) > best) { best = Math.abs(v); bl = l; }
+  });
+  if (best < 0) bl = data.layers[Math.floor(data.layers.length / 2)];  // concept not in any cell's lists
+  const li = data.layers.indexOf(bl);
+  if (li >= 0) selectCell(li, s_, { scroll: true });
+});
+
+function setView(v) {
+  $("gridwrap").style.display = v === "grid" ? "" : "none";
+  $("volwrap").style.display = v === "volume" ? "block" : "none";
+  $("spacewrap").style.display = v === "space" ? "block" : "none";
+  $("kvwrap").style.display = v === "kv" ? "block" : "none";
+  $("racewrap").style.display = v === "race" ? "flex" : "none";
+  $("riverwrap").style.display = v === "river" ? "flex" : "none";
+  $("anatwrap").style.display = v === "anatomy" ? "flex" : "none";
+  $("vAnat").classList.toggle("on", v === "anatomy");
+  $("vRiver").classList.toggle("on", v === "river");
+  $("vRace").classList.toggle("on", v === "race");
+  $("vKV").classList.toggle("on", v === "kv");
+  $("vSpace").classList.toggle("on", v === "space");
+  $("vGrid").classList.toggle("on", v === "grid"); $("vVol").classList.toggle("on", v === "volume");
+  window.dispatchEvent(new CustomEvent("lens:view", { detail: v }));
+}
+$("vGrid").addEventListener("click", () => { setView("grid"); setTimeout(drawGridArcs, 0); });
+$("vVol").addEventListener("click", () => setView("volume"));
+$("vSpace").addEventListener("click", () => setView("space"));
+$("vKV").addEventListener("click", () => setView("kv"));
+$("vRace").addEventListener("click", () => setView("race"));
+$("vRiver").addEventListener("click", () => setView("river"));
+$("vAnat").addEventListener("click", () => setView("anatomy"));
+info();
+</script>
+<script type="module" src="volume.js"></script>
+<script type="module" src="space.js"></script>
+<script type="module" src="kv.js"></script>
+<script type="module" src="race.js"></script>
+<script type="module" src="river.js"></script>
+<script type="module" src="anatomy.js"></script>
+</body>
+</html>

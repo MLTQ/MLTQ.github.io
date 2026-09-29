@@ -1,0 +1,1689 @@
+{
+ "218": {
+  "group": "lowest",
+  "desc": "They are all function words or punctuation marks.",
+  "first_auroc": 0.06,
+  "auroc15": 0.5088888888888888,
+  "shuffled15": 0.47555555555555556,
+  "pos": [
+   " surprise and dazzle—juggling hats, balancing cups, spinning plates, and diving through hoops. Cirque Zíva is the latest project[[ from]] seasoned director Danny Chang",
+   " instruments, both acoustic and electronic, to create an ecstatic dance party that transcends time, space, and earthly boundaries. ⏎ Crussia is[[ an]] emerging jazz/funk",
+   " plates, and diving through hoops. Cirque Zíva is the latest project from seasoned director Danny Chang. His eye-catching, breath-taking,[[ and]] fast-paced show will",
+   " Brown yesterday evening. If you didn’t see it, you can find it here. ⏎ Darren Brown is a popular illusionist and entert[[ainer]], but some of"
+  ],
+  "neg": [
+   "ousedecorates.com) that we believe as “public domain”. Published in this web by Orville J. Taylor in 20[[1]]8-06",
+   " 4 years you’ll recognize Matt. Play by play for the football team is what most listeners will remember. After doing a Vanier Cup[[ victory]] that is as high"
+  ]
+ },
+ "265": {
+  "group": "lowest",
+  "desc": "All are punctuation marks or function words.",
+  "first_auroc": 0.06,
+  "auroc15": 0.41333333333333333,
+  "shuffled15": 0.3466666666666667,
+  "pos": [
+   ". ⏎ Last week it was announced the network provider, NBN Co, had blamed a “typo” for changing who will receive fibre[[ connection]] in regional Australia.",
+   " has hit back at claims a typo would have cost Bombala access to the National Broadband Network. ⏎ Last week it was announced the network[[ provider]], NBN Co",
+   " the NIH-funded EHRA (U01 HL117721), and directs the Translational Research Skills Development Core of[[ that]] grant, devoted to",
+   "ham, Beauty Point & Australian National Maritime Museum, Sydney| ⏎ |Affiliations||International Association of Maritime Universities (IAMU) and[[ the]] University of Tasmania|"
+  ],
+  "neg": [
+   " bhava in Jyotisa. The lord of the 8th house represents that which we astrologers call “the hand of[[ destiny]],” in a most",
+   "I'll Get Along ⏎ Label: Polydor Records ⏎ Michael Kiwanuka is a folk[[ie]] whose Home Again recalls"
+  ]
+ },
+ "2013": {
+  "group": "lowest",
+  "desc": "They are all tokens that are not part of the main text.",
+  "first_auroc": 0.06,
+  "auroc15": 0.17555555555555555,
+  "shuffled15": 0.39555555555555555,
+  "pos": [
+   "Before taking a look at various configuration mechanisms for X servers and clients, it should be noted that[[ the]] advent of Desktop En",
+   ", broader support for heterogeneous IT environments, as well as enhancements designed to enable easier implementation and administration. ⏎ Version 5.6 introduces multi[[-site]] management capabilities for building",
+   "'s own GUI configuration methods. So, for instance, gtop, a GNOME client application, is best configured via GNOME or gtop's[[ own]] menus. But this",
+   " best configured through the Desktop's configuration tools, or the application's own GUI configuration methods. So, for instance, gtop, a GNOME[[ client]] application, is best"
+  ],
+  "neg": [
+   " a dynamics for the guidance of the people of the vast empire, which is today known as ‘Chanakya Neeti’. Even though Chan[[ak]]ya Neeti was",
+   " but MLS still can’t win in Mexican territory. ⏎ D.C. United traveled to Guadalajara with a 2-1 advantage in a two[[-leg]], round-of-"
+  ]
+ },
+ "771": {
+  "group": "lowest",
+  "desc": "They are all common, low-information words that are easily predicted from context.",
+  "first_auroc": 0.08,
+  "auroc15": 0.5155555555555555,
+  "shuffled15": 0.36666666666666664,
+  "pos": [
+   " before losing 66-58 at Hanford this past Saturday. ⏎ The game was tight early on, as the hosts could muster[[ just]] a 15",
+   "One of the best shooters to wear a Duke uniform ... a very creative scorer, terrific both in[[ the]] paint and off the",
+   " in the second quarter of the Warriors' game Wednesday night against the Trail Blazers. ⏎ The shot with 6:49 left in the[[ half]] put Curry in front",
+   " contest 3-1.\"I think we skated with them for two, two and a quarter periods, but we just did not finish[[ our]] chances early,\" said"
+  ],
+  "neg": [
+   " A footnote said that the nickname was a biblical allusion. I had to look it up, but English writers back then assumed that their educated[[ readers]]hip would understand.",
+   " It offers free WiFi and rooms with a TV. The rooms at Karslioglu Hotel come with simple furnishings. Some rooms offer private[[ bathroom]], and some offer"
+  ]
+ },
+ "1107": {
+  "group": "lowest",
+  "desc": "All are common, low-information function words or prepositions.",
+  "first_auroc": 0.08,
+  "auroc15": 0.4022222222222222,
+  "shuffled15": 0.18666666666666668,
+  "pos": [
+   " Perceptronix will be showcasing OralAdvance™, an innovative quantitative cytology test for the early detection of oral cancer, and demonstrating its[[ use]] at booth 3",
+   " to meet all your masonry needs. ⏎ T&T Construction has raised the bar for our clients by incorporating state-of-the-art non-stop scaff[[olding]] systems. More importantly",
+   " March 5 - 6, 2009 at the Vancouver Convention and Exhibition Centre. Perceptronix will be showcasing Oral[[Advance]]™, an innovative",
+   "asonry, and are ready to meet all your masonry needs. ⏎ T&T Construction has raised the bar for our clients by incorporating state-of[[-the]]-art non-stop scaff"
+  ],
+  "neg": [
+   " in Albany, New York, today to advocate for the Child Victims Act (CVA), the long overdue bill to extend New York’s st[[unted]] child sex abuse statutes",
+   " search experience of our shoppers. And the improved product discovery better enables the businesses on our platform. ⏎ Tip #1: Like a look?[[ Find]] where you can buy"
+  ]
+ },
+ "1280": {
+  "group": "lowest",
+  "desc": "They are all function words or punctuation marks.",
+  "first_auroc": 0.08,
+  "auroc15": 0.3,
+  "shuffled15": 0.2866666666666667,
+  "pos": [
+   " for the collector. Other than DVD movies, the company has also released products and computer programs for collectors of music, books, comic books,[[ video]] games, mp3",
+   "A Technologies is equipped with a powerful ARM-based processor that allows you to play 720p videos, pictures, text, and music[[ directly]] from a USB or",
+   ". And this is a real estate example. And so the media player, I described it quickly before, but it's a way to combine[[ multiple]] forms of",
+   "5GHz concurrent dual-band transmissions, the RT-N66U is perfect for bandwidth demanding tasks like 3D HD video streaming and multiplayer[[ gaming]]. ⏎ Share This"
+  ],
+  "neg": [
+   " the rules that effect locked-in accounts will not change the rules for unlocking your locked-in account due to financial hardship or shortened life expectancy. However[[,]] there is one exception",
+   "#382 Patrick McGovernAge: 68 ⏎ Fortune: self made ⏎ Net Worth: 2.0 ⏎ Country[[ Of]] Citizenship: United States"
+  ]
+ },
+ "1759": {
+  "group": "lowest",
+  "desc": "They are all function words or punctuation marks.",
+  "first_auroc": 0.1,
+  "auroc15": 0.38222222222222224,
+  "shuffled15": 0.45111111111111113,
+  "pos": [
+   " and durability that only porcelain restorations can create. ⏎ Smile concepts, with over 40 years combined experience, has built a[[ strong]] reputation in Sydney of",
+   " with over 40 years combined experience, has built a strong reputation in Sydney of providing a full range of dental services from a?high[[ly]] qualified and dedicated team",
+   " Center at SNI consists of spine surgeons, physiatrists, interventional pain specialists, neuroradiologists, and physical therapists. All[[ these]] spine specialists can provide",
+   "1 HL117721), and directs the Translational Research Skills Development Core of that grant, devoted to training junior faculty[[.]] With nearly continuous funding"
+  ],
+  "neg": [
+   "ented Samsung’s Galaxy S arrangement. The organization has dependably been among the most loved of its line in the clients. Individuals have constantly favoured[[ the]] new gimmicks being",
+   "Thanks to SWLing Post reader, Tim, we know how to display (what we believe is) the date of manufacture for your Tec[[sun]] PL-88"
+  ]
+ },
+ "1512": {
+  "group": "lowest",
+  "desc": "They are all nouns or verbs that can be hyphenated with preceding words.",
+  "first_auroc": 0.12,
+  "auroc15": 0.5088888888888888,
+  "shuffled15": 0.44222222222222224,
+  "pos": [
+   "idium difficile infection (RCDI), an investigational new drug (IND) permit is not required, but is strongly encouraged and may ultimately[[ be]] required. ⏎ To",
+   " ⏎ To use FMT to treat recurrent Clostridium difficile infection (RCDI), an investigational new drug (IND) permit is[[ not]] required, but is",
+   " can be found in our Town. We are going to be collecting photos that are submitted digitally to the town along with the signed permission that can[[ be]] found below. These",
+   " of color unprecedented freedom to travel on the open road. ⏎ Aired: 07/10/18Video has closed caption[[ing]]. ⏎ Problems"
+  ],
+  "neg": [
+   ") ⏎ Pic 5: A Tadao Marq Ryujin board ⏎ Pic 6: I really want to say it's[[ a]] stock 20",
+   " baby instead of directly to me about how I shouldn't leave her alone in the car. Then he lightly slapped me back and forth on my[[ arm]]. ⏎ I of"
+  ]
+ },
+ "1906": {
+  "group": "lowest",
+  "desc": "All are function words or short phrases that are easily replaced by synonyms.",
+  "first_auroc": 0.12,
+  "auroc15": 0.7088888888888889,
+  "shuffled15": 0.6622222222222223,
+  "pos": [
+   " being asked to allow Las Vegas-style table games such as blackjack, poker and roulette in casinos that are now limited to video slot machines. The[[ measure]] also would increase the",
+   " in states like Pennsylvania, New Jersey, New York and Connecticut. But House Speaker John Boehner’s decision Tuesday to cancel an expected House vote on[[ a]] Hurricane Sandy relief bill",
+   "itions against sexual harassment and extend the statute of limitations for filing a complaint. After making a further amendment, the bill was voted out of committee[[ but]] put on a slow",
+   "Sen. Tom Lee of Tampa and Rep. Erin Grall of Vero Beach have filed legislation[[ to]] have Florida join "
+  ],
+  "neg": [
+   " the button repeatedly. ⏎ Posted on Oct 02, 2009 ⏎ a 6ya expert can help you resolve that[[ issue]] over the phone in",
+   " agent this summer. The Pittsburgh Post-Gazette reported that the Arizona Cardinals were set to make him a proposal earlier this week. ⏎ The[[ Post]]-Gazette reported"
+  ]
+ },
+ "367": {
+  "group": "lowest",
+  "desc": "They are all common function words or conjunctions.",
+  "first_auroc": 0.12,
+  "auroc15": 0.6577777777777778,
+  "shuffled15": 0.5911111111111111,
+  "pos": [
+   "3 years old at the time of the ALJ decision (T-19). ⏎ I.C. resides with her biological mother, Von[[etta]] Conner (T",
+   " Vince Jacob, Ben Cortina and Ben Reuscher all singled. ⏎ Quinn Luhr led Wilcox with a double and a single[[ while]] Mitchell Holmberg",
+   "s had 10 hits led by Dan Singer's four singles. Jack Herzing doubled while Ivan Wortman had two singles. Vince Jacob[[,]] Ben Cortina and",
+   "1-2012 Editorial Assistant for HOPOS: The Journal of the International Society for the History of Philosophy of Science. ⏎ Congratulations[[ Laura]]! | May "
+  ],
+  "neg": [
+   " put on by Young Entertainment Activists at Netflix's L.A. headquarters, featured stand-up comedian Margaret Cho, Arrested Development's Alia[[ Sh]]awkat, The",
+   " one, but two 5-star reviews and to celebrate Christine’s release, we are doing an exclusive giveaway! ⏎ Carin Frost doesn’t[[ understand]] what’s happening to"
+  ]
+ },
+ "239": {
+  "group": "lowest",
+  "desc": "They are all common, high-frequency English words.",
+  "first_auroc": 0.12,
+  "auroc15": 0.5511111111111111,
+  "shuffled15": 0.6,
+  "pos": [
+   " country and its citizens will become more like us, the Americans, writes Fortune. Wrong, says China watcher Tom Doctoroff in his latest book[[ What]] Chinese Want: Culture",
+   " and social focus of the distillery—and the Curiously Small Stills that, as some of the smallest in Scotland, contribute greatly to the[[ whisk]]ies’ unique character",
+   ", famous for its fried hamburgers, eggs and pigs in a blanket, and affectionately known to Yalies past and present as “[[the]] Doodle,” will",
+   "Home Decor for sale and my own personal projects! ⏎ PRAYING TO THE VIRGIN MARY? BY STEVE FINNELL[[Is]] praying to the Virgin"
+  ],
+  "neg": [
+   ": photojournalists, traditional photographers, and those with a balanced bag of tricks. Seasoned Rockford wedding photographers will show you their \"[[book]],\" or portfolio of",
+   "8%), and immigration (50%). Even better, a solid majority (55%) are optimistic about the United States for the next four[[ years]], a plurality ("
+  ]
+ },
+ "1567": {
+  "group": "lowest",
+  "desc": "All are prepositions or prepositional phrases introducing conditional or dependent clauses.",
+  "first_auroc": 0.14,
+  "auroc15": 0.6488888888888888,
+  "shuffled15": 0.3022222222222222,
+  "pos": [
+   ", adding value, and preserving cultures and traditions. We offer professional advisory services, along with access to family office investment capital, depending on our[[ clients]]’ goals and objectives",
+   " in your body ⏎ - Driving impaired to any degree as a result of the use of a substance ⏎ Consequences of a DUI conviction vary depending[[ on]] how many times a",
+   "Funding is obtained through membership fees, and is supplemented by Granting Agencies fostering international exchanges and synergies – to implement FIRE’s activities,[[ based]] on five University’s",
+   " granted by U.S. Citizenship and Immigration Service (USCIS) to F-1 students for the purpose of gaining practical experience directly related[[ to]] their program of study"
+  ],
+  "neg": [
+   ". The apartment includes a kitchenette fully equipped, large wardrobe, bathroom with shower, balcony. The apartment has high speed Internet and TV.[[ Bed]] linen, towels,",
+   "的目的，软件小巧且操作方法极为简单。 ⏎ Microsoft Toolkit 激活工具使用说明： ⏎ 注意：Microsoft Toolkit 需要Microsoft .NET Framework[[ ]]4.0以上"
+  ]
+ },
+ "1732": {
+  "group": "lowest",
+  "desc": "They are all common, low-information words or tokens.",
+  "first_auroc": 0.14,
+  "auroc15": 0.3977777777777778,
+  "shuffled15": 0.41333333333333333,
+  "pos": [
+   "hythmyx 5.6 is tailored for organizations that require support for multiple Web properties, with a strong emphasis on reusing content and[[ building]] engaging Web sites.",
+   " will be dead in the water if by this time next year, they aren't equalling or surpassing the Wintel boxes of the time[[ in]] performance. ⏎ Make",
+   " Technologies' Nano CPUs the chipmaker has already started shipping. However, it is currently unknown whether HP will use the CPUs in its mainstream notebooks[[ or]] netbook series,",
+   "ADXL335 - 5V ready triple-axis accelerometer (+-3g analog out) ⏎ We've updated our favorite triple-axis[[ accelerometer]] to now have an"
+  ],
+  "neg": [
+   " Big Year. This is how we rang it in (above), far away, deep in snowy mountains with family, while also quietly celebrating our[[ own]] fifth wedding anniversary.",
+   "/oh_burgers ⏎ Blu Olive Mediterranean Food Truck.http://www.facebook.com/BluOlivehttp://twitter.com/blu_olive[[⏎]]Ajumama Korean"
+  ]
+ },
+ "1126": {
+  "group": "lowest",
+  "desc": "All are common function words or short content words.",
+  "first_auroc": 0.14,
+  "auroc15": 0.76,
+  "shuffled15": 0.29777777777777775,
+  "pos": [
+   " report argued that oil and gas are a waiting answer to some of the nation’s worst problems. ⏎ Ordinarily such a report wouldn’t[[ attract]] much attention given its",
+   " prices, contact details & telephone numbers. Find amazing deals & great offers. Advanced nutritional products are substances that have been shown by clinical studies to[[ provide]] important health benefits.",
+   " recruit at least hundreds of inspectors, including hospital patients and their carers, so that future inspections have a wider range of perspectives, and give[[ a]] voice to those who",
+   "HOW IT WORKS ⏎ Subscriber since: December 2013 ⏎ I live a simple life. Hunger for knowledge being my[[ greatest]] asset. I enjoy"
+  ],
+  "neg": [
+   " going ahead with its first real estate venture in India. ⏎ The Jumabhoy siblings Iqbal, Asad and Mimi Nassem[[ are]] developing a 1",
+   " world that is wild + fast we can all use some help from plant allies known as adaptogens, plants that might help our bodies respond to[[ stress]] + movement + change"
+  ]
+ },
+ "549": {
+  "group": "lowest",
+  "desc": "They are all tokens that are frequently mispredicted or hallucinated by language models.",
+  "first_auroc": 0.14,
+  "auroc15": 0.58,
+  "shuffled15": 0.5866666666666667,
+  "pos": [
+   " ⏎ ”, we continue to see more shoppers search for products on our platform to get the best price, across sellers. In this update, we[[ are]] excited to introduce new",
+   " support the health of the heart, eyes, brain, immune system, joints and so on are being proven by studies on an ongoing basis.[[ We]] are living longer,",
+   " on the decline. ⏎ If you’re looking to increase workplace morale or boost the energy in your office, this article is for you. Let[[’s]] get into the top",
+   "So, why Chariots of Fire? ⏎ Why is that what I chose for tonight’s movie? Netflix[[ is]] recommending all kinds of"
+  ],
+  "neg": [
+   "? ⏎ Yes, marinating, or letting sit with a rub (which is what you're doing) does help fish flavor. ⏎ However[[,]] for most fish,",
+   " much less! A huge selection of gear from Burton, Ride, The North Face, Marmot, Columbia, Kelty, Mountain Hard[[wear]], Patagonia"
+  ]
+ },
+ "339": {
+  "group": "lowest",
+  "desc": "They are all function words or punctuation marks.",
+  "first_auroc": 0.14,
+  "auroc15": 0.3977777777777778,
+  "shuffled15": 0.035555555555555556,
+  "pos": [
+   "/Conditioner 12 oz — $2.99 ea ⏎ - Use (2) $3/2 Dove Hair Care Products[[ from]] 7/2",
+   " Pay $5.96 out of pocket, get $5 Target Gift Card ⏎ - $.24 each after the coupon and Target Gift[[ Card]]! ⏎ I just",
+   " Shipping on Orders of $200 or More! Use Coupon Code: FREESHIP17 ⏎ This offer for free shipping and handling[[ applies]] to ground ship orders",
+   " on ornate Gothic tables, stunning resin garden statues, and anything else on our site that already happens to be on sale. Take advantage of[[ this]] sale to enjoy a"
+  ],
+  "neg": [
+   ", 2010 in Montreal. The Washington Capitals are convinced that it was only a super-human effort from Montreal goaltender Jaroslav[[ Hal]]ak that ended their",
+   "42 AM ET ⏎ If you're traveling to Hollis, Queens anytime soon, make sure you check out the new \"Run DMC[[ J]]MJ Way,\" a"
+  ]
+ },
+ "1376": {
+  "group": "lowest",
+  "desc": "They are all function words or small tokens with low semantic weight.",
+  "first_auroc": 0.16,
+  "auroc15": 0.5911111111111111,
+  "shuffled15": 0.3088888888888889,
+  "pos": [
+   " the Employment Application and Background Check Authorization forms below, then mail or fax to us. ⏎ *** Current Job Openings*** ⏎ DFW Pipe[[ &]] Plumbing & Plumbing Services",
+   " up with Spendacoin you can browse the listing and make purchases on any item. ⏎ Is it true that anybody can list items for sale[[ on]] Spendacoin?",
+   "||J.M. Lyngdoh| ⏎ |Born||14 June 1936| ⏎ Dr. M. S[[.]] Gill (born ",
+   "igator Bag ⏎ Ashley Olsen looked simply chic on a day out with her doggie, rockin’ her new The Row Day Luxe[[ All]]igator Bag, Pr"
+  ],
+  "neg": [
+   " cinema. I just wanted to share a little bit about my thoughts for these movies :) I wish to start by saying that I loved the books[[ a]] lot. Like a",
+   " pipes were set up. Myself and one other guy skated across the stage all night like it was a mini ramp while Shawn had surf[[ movies]] playing on a drop"
+  ]
+ },
+ "1211": {
+  "group": "lowest",
+  "desc": "They are all function words or punctuation preceding a new list item or sentence.",
+  "first_auroc": 0.16,
+  "auroc15": 0.28444444444444444,
+  "shuffled15": 0.6066666666666667,
+  "pos": [
+   " from 6:30-8:30 pm at the 1st Community Credit Union Spur Arena. This is a great opportunity[[ to]] enjoy food from many",
+   " Roys, executive director, said. ⏎ She said the program got started 25 years ago when an ATU student had the idea[[ to]] help single parents in",
+   "3e International School will host a series of Open House sessions for prospective Nursery (2 years old) to Kindergarten (6 years old) families[[ to]] visit",
+   " off what they can make. We usually find a few cool new products and at least one or two factories with new and interesting capabilities. We[[ also]] get some great meals"
+  ],
+  "neg": [
+   " or ears that drop into custom slots in the posts, no tools or hardware needed! Our aluminum post and panel signs can be seen in parks[[,]] doctor and lawyers",
+   "WGAN-TV: Show & Tour Media Player Connectivity With Other Platforms12116 ⏎ 7743[[4]] 1 1"
+  ]
+ },
+ "1684": {
+  "group": "lowest",
+  "desc": "They are all tokens that are typically split across line breaks or formatting boundaries.",
+  "first_auroc": 0.16,
+  "auroc15": 0.4822222222222222,
+  "shuffled15": 0.5111111111111111,
+  "pos": [
+   ". It shouldn’t take twenty minutes to drive three and a half miles, the distance back to the station. But it did. South Freder[[ica]] and its offshoot",
+   "summer in Zinkgruvan, Sweden ⏎ As a hobby photographer, he took it upon himself to document the festivities. \"I used the[[ camera]] to get out of",
+   " windy day like today. ⏎ And just in case you haven't noticed yet that my favourite colour is red, here is the rather exotic looking[[ bloom]] of the Ric",
+   " Change (have I told you lately how much I love my job?) talk about what’s happening around the world as we head to a low[[ carbon]] future. (Sid"
+  ],
+  "neg": [
+   " BENI CULTURALI ⏎ - Tipo corso di studio ⏎ - Laurea Magistrale ⏎ - Ripartizione oraria ⏎ - Ore Attività[[ frontale]]: 63",
+   "Genres: Horror/Dark, Mystery, Romance Warnings: Mild Language, Mild Violence Era: Hogwarts Characters: Shacklebolt, Bellatrix[[,]] Neville"
+  ]
+ },
+ "1462": {
+  "group": "lowest",
+  "desc": "They are all punctuation marks or symbols used as separators.",
+  "first_auroc": 0.16,
+  "auroc15": 0.6088888888888889,
+  "shuffled15": 0.6422222222222222,
+  "pos": [
+   "Buzz surrounds these new syndicated series ⏎ “Celebrity Name Game” Hosted[[ by]] “The Late,",
+   " often draws major Hollywood talent looking for audience love, until recently the festival previously dedicated its opening night to Canadian films. That changed two years ago[[ when]] Sony Pictures opened the",
+   " the cover of NHL 13 at the league's annual awards banquet on Wednesday night, prevailing over Pekka Rinne, the Nashville goalie[[,]] in a fan-v",
+   " to the tune of $244,400 to be exact! Now Uncle Sam is reportedly coming for his money! ⏎ The[[ former]] NFL superstar has been"
+  ],
+  "neg": [
+   " epidemic and will continue to cause the Town of Glenville to disburse substantial sums of public funds to deal with the consequences of the opioid epidemic[[ that]] was fueled by Defendants",
+   " according to WebMd. ⏎ In most cases, pain in the armpit diminishes on its own. However, it sometimes may be[[ a]] sign of a more"
+  ]
+ },
+ "959": {
+  "group": "lowest",
+  "desc": "They are all the first token of a multi-token number or code.",
+  "first_auroc": 0.16,
+  "auroc15": 0.3088888888888889,
+  "shuffled15": 0.5022222222222222,
+  "pos": [
+   " Area ⏎ Mold is sneaky and often grows in places that aren’t high traffic areas of your property, such as crawl spaces, bas[[ements]], and attics",
+   " Release ⏎ Farmington Hills, Mich., Four CCHA teams have earned the right to compete for the National Championship starting with this weekend’s regional[[ games]] between 16",
+   " sort of beauty related product ⏎ - BE VERY careful of the item location, notice it says “Seoul, Korea”, while the other items[[ are]] listed “",
+   " for pictures of photographers and their cameras, but more pointedly, images with cameras in my collection are desired. Early pictures of photographers and their[[ cameras]] are hard to find"
+  ],
+  "neg": [
+   " to commissioning artworks. ⏎ The workshop, held in Burnley library, began with the group of young people aged between 15-[[2]]3 creating alternative maps",
+   " Who Isn’t Scared of Having Ozzy as a Father-in-Law ⏎ Looks like the Osbournes are about to add to[[ the]] clan — Kelly has"
+  ]
+ },
+ "1838": {
+  "group": "lowest",
+  "desc": "They are all small, function words or punctuation marks.",
+  "first_auroc": 0.16,
+  "auroc15": 0.3622222222222222,
+  "shuffled15": 0.3488888888888889,
+  "pos": [
+   " another devastating injury to his right knee last night, rupturing the patella tendon and likely severing the ACL after a chop block in the[[ third]] quarter of an ",
+   " game-high 18 ⏎ points as the San Francisco Dons topped the Cleveland State Vikings, 91-82, ⏎ in[[ a]] non-conference clash",
+   " to end before fighting in the most prestigious competition in the world,” said Gomi, whose arrival was announced during Saturday’s UFC 10[[8]] pay-per-view broadcast",
+   " didn’t want my career to end before fighting in the most prestigious competition in the world,” said Gomi, whose arrival was announced during Saturday[[’s]] UFC 10"
+  ],
+  "neg": [
+   "Allow Your Spirit to Lead ⏎ The Already Well program is a simple yet profound perspective on wellness that promotes developing respect[[ and]] compassion for yourself,",
+   " move in the crush. Similar festivities take place in other boroughs of New York on other dates. Macy’s, the largest department store in[[ Manhattan]], has a large"
+  ]
+ },
+ "1880": {
+  "group": "lowest",
+  "note": "not enough fresh firing contexts"
+ },
+ "1538": {
+  "group": "lowest",
+  "desc": "They are all function words or punctuation marks.",
+  "first_auroc": 0.18,
+  "auroc15": 0.7333333333333333,
+  "shuffled15": 0.5733333333333334,
+  "pos": [
+   " USCIS for work authorization. Pre-Completion OPT is an option for full-time F-1 students, while Post-Completion OPT takes place[[ after]] a student’s program",
+   "’s federal student loan delinquency rate of 12.31%, but the statistic demonstrates the high asset quality of credit unions’[[ private]] student loans — according",
+   " work with community partners in a way that meets the needs of all parties. ⏎ For questions regarding community-based and/or engaged research, community outreach[[,]] partnership development and protocols",
+   "IS for work authorization. Pre-Completion OPT is an option for full-time F-1 students, while Post-Completion OPT takes place after[[ a]] student’s program completion"
+  ],
+  "neg": [
+   " and endorsements on social media websites like Facebook, Instagram and Yelp. To get these, my business is planning to pay or provide free products and[[ services]] to reviewers, bloggers",
+   "You are here ⏎ Gunshots fired at rig workers—Roget ⏎ Joint Trade Union Movement (JTUM) leader Ancel Roget is[[ calling]] for the borders to"
+  ]
+ },
+ "1771": {
+  "group": "lowest",
+  "desc": "They are all tokens that are not part of the main sentence's core meaning.",
+  "first_auroc": 0.18,
+  "auroc15": 0.4711111111111111,
+  "shuffled15": 0.6022222222222222,
+  "pos": [
+   " released Wednesday found. ⏎ The regulators wrongly concluded there was little or no pressure from the millions of gallons of water trapped inside the inactive Gold King[[ mine]], the federal Environmental",
+   " was greeted with the Lafayette Monument (pictured above). The park was a site for the Battle of Long Island during the American Revolution. The park[[ is]] about 25",
+   " shaping up to becoming a bucket-list trail running event for the future. ⏎ The course is as tough and challenging as you will get in Australia[[.]] Technical, rugged,",
+   "I came back from India yesterday. Oh dear. I watched the golden sun come up over[[ a]] bleak and mountainous"
+  ],
+  "neg": [
+   " Summer Reading Lists for 2017. Your child will receive further directions during the last week of school regarding information about the books and[[ assignments]] for the summer.",
+   " will improve your jewelry business cash flow and increase sales. People will make impulsive purchases if they know you accept credit cards. Customers will see[[ you]] as more professional because"
+  ]
+ },
+ "1079": {
+  "group": "lowest",
+  "desc": "They are all single characters or short tokens that are easily misparsed or split.",
+  "first_auroc": 0.18,
+  "auroc15": 0.4577777777777778,
+  "shuffled15": 0.4533333333333333,
+  "pos": [
+   " and her husband Jeff of Julie Asselin Yarns are coming to visit and we couldn't be more excited. ⏎ Come learn about the[[ beautiful]] world of Julie Ass",
+   " almost beyond recognition by industrialization and the introduction of modern manufacturing techniques. In the workplace they are used in industrial and scientific processes such as filtering[[.]] In all these applications",
+   " all occasions of gifting to your loved ones. We ensure high quality printing and superior quality fabrics. We provide huge range of value pack Combo[[ of]] Cushion Covers (",
+   "three step process' as I would love to see better pictures of some of your marvellous quilts! I particularly love your Double Cross[[ed]] quilts and find"
+  ],
+  "neg": [
+   " not in stock at any other major music retailer in the UK. ⏎ Some guitarists want lots of versatility, amp modeling and digital FX.[[ That]]'s fine. But",
+   " was all the celebrity deaths, I mean right down to today, the 29th of December! This year in just the music industry[[ alone]] we lost; Glenn"
+  ]
+ },
+ "144": {
+  "group": "lowest",
+  "desc": "They are all common, low-information words that are easily replaced by synonyms.",
+  "first_auroc": 0.18,
+  "auroc15": 0.24444444444444444,
+  "shuffled15": 0.22,
+  "pos": [
+   "“Just Taste It” is essentially the phrase that best described my food and drink upbringing. Family members would just put something in front of[[ me]] and implore me",
+   " we even save snakes... and once a tractor trailer went by us and blew an Indigo Bunting out of the sky and Cliff snagged[[ it]] out of rushing traffic",
+   " APRIL 2015****** ⏎ CURRENTLY IN AMSTERDAM TILL APRIL 13th. ⏎ **Email[[ me]] if you'd like",
+   " as well as I do that I’m not really a sports person. I did, however, tune into the Superbowl halftime show last[[ week]]. I thought that"
+  ],
+  "neg": [
+   ", the latest research indicates that sexual desire has less to do with these changes than it does with lifestyle and other women’s sexual health factors,[[ at]] least some of which",
+   " week's frantic session, it's a more laid back affair all round as we welcome Mixmaster Morris in Hour 1 for our 2[[5]]th Anniversary slot."
+  ]
+ },
+ "1096": {
+  "group": "lowest",
+  "desc": "They are all punctuation marks or short function words.",
+  "first_auroc": 0.18,
+  "auroc15": 0.34444444444444444,
+  "shuffled15": 0.4888888888888889,
+  "pos": [
+   "|Sizes||Giantmicrobes are based on actual microbes, cells, organisms and other crit[[ters]], only 1",
+   "Time 0505 Added Jul 25, proven by direct dating, Buran-K[[aya]] III seems to represent",
+   "Time 0505 Added Jul 25, proven by direct dating[[,]] Buran-Kaya",
+   ". The first four were true or false. ⏎ The earth is billions of years old. A lopsided pencil mark circled false.[[⏎]]Dinosaurs lived"
+  ],
+  "neg": [
+   " while. And why not? Friendship has the power to change people’s lives in amazing ways – in real life, and in the stories we[[ read]]. In fact,",
+   ". They are among the top reasons for doctor visits. They are also the number one cause of disability for people under 45 years of[[ age]] in the US."
+  ]
+ },
+ "691": {
+  "group": "lowest",
+  "desc": "All are common function words or short content words.",
+  "first_auroc": 0.18,
+  "auroc15": 0.6,
+  "shuffled15": 0.36666666666666664,
+  "pos": [
+   " Congress, 6-8 March in Madrid, Spain. Stand number 305. At the exhibition we will display our comprehensive range[[ of]] solutions including Digital Tower",
+   " It’s impossible to monitor every transaction yourself. Our audit and theft control systems are hands down second to none and help you put a stop to[[ theft]], which deple",
+   "A vacant home on Dubose Avenue in Athens was extensively damaged by fire on Sunday. ⏎ Athens-Clarke County Fire[[ Department]] Capt. Doug St",
+   " deal with drinking and cooking water. The filters has to be eliminated and replaced normally. Other Considerations ⏎ Two great providers, one huge family[[.]] North County Plumbing was"
+  ],
+  "neg": [
+   " won a Golden Globe for best animated film, Walt Disney CEO and chairman Bob Iger confirmed to Fortune that the company wants the unconventional princess story[[ to]] become a Broadway musical",
+   "or - KP-100-02 Product Details ⏎ AAXA P2 Jr. Pico DLP Projector - KP[[-]]100-"
+  ]
+ },
+ "1393": {
+  "group": "lowest",
+  "desc": "They are function words or prepositions connecting key content in the text.",
+  "first_auroc": 0.18,
+  "auroc15": 0.4777777777777778,
+  "shuffled15": 0.3244444444444444,
+  "pos": [
+   ". Home will be fitted with top of the line appliances, light and bright open floor plan, salt water pool etc. Land survey & floor[[ plan]] attached to listing.Live",
+   " (http://mydistrict.ed.voicethread.com). You’ll have one homepage for your entire district and one homepage per school. This[[ is]] a place to display",
+   " Online Membership Application ⏎ Mail-in Membership Application Form ⏎ Shooter Information Center ⏎ Shooter Information Center Overview ⏎ All-American Team Standings ⏎ Member[[ Detail]] History Library ⏎ Grand",
+   " starting the initiate short sale process. There is the drop down box for \"Reason for Default\" - there is no \"other\"? Reason for[[ Default]] is not listed."
+  ],
+  "neg": [
+   " the popularity stakes in 2016. ⏎ Shortly after those figures were released by the Australian Stud Book, All American mare American Time[[ returned]] to winning form in",
+   " any fears of birthing or emotions that could be limiting. ⏎ Birth Hypnosis feels like: ⏎ During your labour you will be able to[[ hear]] conversations and may or"
+  ]
+ },
+ "1311": {
+  "group": "lowest",
+  "desc": "They are all the first letter of a word following a line break.",
+  "first_auroc": 0.18,
+  "auroc15": 0.8777777777777778,
+  "shuffled15": 0.7911111111111111,
+  "pos": [
+   " Oh, the craziness that was bestowed on the Higdon household was like non other. Our socks, dishtowels, and under[[ g]]armets will never",
+   "MAYA SANDY, IKA (2009) PENGARUH TINGGINYA KADAR[[ G]]ULA PADA TIK",
+   " ⏎ Set of 4 rubber coasters with brass edging.Coasters arrive in a beautiful matte black box with gold lettering, ready for[[ g]]ifting. ⏎ Slash",
+   " the sixth grade in Fowler, CA when he sent a Christmas box through the Gift Lift program, sponsored by the Los Angeles Chamber of Commerce.[[ G]]endaszek and Hor"
+  ],
+  "neg": [
+   "I made it. I can (almost) officially say that I survived a full[[ year]] of Organic Chemistry Lab",
+   "’s Poll for books published in 2011, when Jill Mansell’s To the Moon and Back was the winner in the category[[.]] A number of"
+  ]
+ },
+ "652": {
+  "group": "lowest",
+  "desc": "All are function words or short phrases that are highly predictable in context.",
+  "first_auroc": 0.2,
+  "auroc15": 0.44666666666666666,
+  "shuffled15": 0.5222222222222223,
+  "pos": [
+   " me as an odd time for truly horrific FOI legislation to hit the books, but… ⏎ Changes to the state’s Freedom of Information Act[[ allow]] government agencies to delay",
+   " but to stand there it takes some grace.” ⏎ Time to ponder how we’ve failed already and remember our weakness in humility. And pray for[[ grace]]. ⏎ Read the",
+   " studied how people categorize the world and the relation between our names for things and our thoughts about things. He has also studied inductive inference[[,]] judgments of probability,",
+   "014, the Privy Council handed down its decision in Singularis Holdings Limited v PricewaterhouseCoopers1, together with[[ its]] decision in a related"
+  ],
+  "neg": [
+   " What Hi-Fi has an excellent retrospective on a format that’s dominated home audio for much of its lifetime over here. ⏎ For most of us[[,]] though, the anniversary",
+   " April without noting that it is National Poetry Month. Or maybe I should clear my throat and look around deliberately, muttering, “Where’s[[ De]]cker?” ⏎ Over"
+  ]
+ },
+ "1216": {
+  "group": "lowest",
+  "desc": "They are punctuation marks or line breaks separating distinct sentences or paragraphs.",
+  "first_auroc": 0.2,
+  "auroc15": 0.5333333333333333,
+  "shuffled15": 0.5644444444444444,
+  "pos": [
+   " of two women in the parking lot of the Kindred Nursing Home in Fayetteville. ⏎ Det. Mike Whitlow said 26-year[[-old]] Charles Frank Collier",
+   " reward of up to $750 to anyone with information leading to the arrest and indictment of those responsible for the following crimes: ⏎ •[[The]] Hale County Sheriff's",
+   " information leading to the arrest and indictment of those responsible for the following crimes: ⏎ •The Hale County Sheriff's Office is looking for information regarding[[ the]] theft of aluminum irrigation",
+   " Memorial Hospital told 5 News that Elizabeth Smith has been upgraded to good condition. ⏎ She was originally in critical condition after she was allegedly shot[[ by]] her ex-husband"
+  ],
+  "neg": [
+   " electricity needs of Berkshire East. That’s the ski area, formerly known as Thunder Mountain, at which I learned to ski. From the valley[[ floor]], the brilliant white",
+   " you interested in fitness in the first place? ⏎ I started my career as a professional basketball player and initially I wanted to know how to get[[ the]] most out of my"
+  ]
+ },
+ "1770": {
+  "group": "lowest",
+  "desc": "They are punctuation marks or line breaks separating distinct sentences or paragraphs.",
+  "first_auroc": 0.2,
+  "auroc15": 0.8311111111111111,
+  "shuffled15": 0.7177777777777777,
+  "pos": [
+   " up to 5 days to explore further the North East coast of Komodo where Crystal and Castle Rock are incredible dive sites ranked 5*.[[⏎]]Labuan Bajo –",
+   " of Brahma. Its summit has never been scaled, but for centuries the mountain has been ritually circled by Hindu and Buddhist pilgrims[[.]] ⏎ Colin Th",
+   " activities (parasailing, aqua glide, undersea walk ...). Return is scheduled for 3:30 p.m. ⏎ Note[[:]] Outing",
+   " the North East coast of Komodo where Crystal and Castle Rock are incredible dive sites ranked 5*. ⏎ Labuan Bajo – Sebayur[[⏎]]Pick up at Lab"
+  ],
+  "neg": [
+   " I told them all week, 'this is our game to take.' No pressure — nobody believed we could win but us.” ⏎ The Tigers[[ fell]] behind early after",
+   "Home > Dog Licenses > License Online ⏎ You will need the following information in front of you when you apply for a dog license for the[[ first]] time: ⏎ -"
+  ]
+ },
+ "876": {
+  "group": "lowest",
+  "desc": "They are all common, low-information words.",
+  "first_auroc": 0.2,
+  "auroc15": 0.4222222222222222,
+  "shuffled15": 0.5044444444444445,
+  "pos": [
+   " no longer live with their own conscience. So, when they decided they had enough of killing people and faced being killed for no reasonable justification,[[ and]] that they simply walked",
+   ". ⏎ Instability deepened in early December when Christian militias - known as anti-Balaka - stepped up revenge attacks against Seleka rebels[[ who]] helped install the country",
+   "This collection contains letters received by Gary Whiteley from Sgt. Robert J. Gendaszek of the 2nd squad of Fox[[ company]], first platoon",
+   " for the United Nations; and when parliament came, she ran for public office. ⏎ But now she hunkers in Kabul, the target[[ of]] too many death threats"
+  ],
+  "neg": [
+   " driver? ⏎ CUBRID client applications can communicate directly over TCP with CUBRID by implementing the CUBRID communication protocol. Examples of[[ drivers]] implementing this protocol are",
+   " Victims Act (CVA), the long overdue bill to extend New York’s stunted child sex abuse statutes of limitations. I am honored to[[ work]] with amazing survivors of"
+  ]
+ },
+ "810": {
+  "group": "lowest",
+  "desc": "They are all punctuation marks or conjunctions that introduce a new sentence or clause.",
+  "first_auroc": 0.2,
+  "auroc15": 0.7755555555555556,
+  "shuffled15": 0.4688888888888889,
+  "pos": [
+   " to make things interesting, before losing 66-58 at Hanford this past Saturday. ⏎ The game was tight early on,[[ as]] the hosts could muster",
+   "DuVal High School football coach Dameon Powell envisioned his young team defeating the defending Class 4A state champions when not many others did.[[ Friday]] afternoon he turned a",
+   "Tocqueville Miles & Points has been given access to a video taken this weekend at the Darlington[[,]] SC. NASCAR race",
+   " and all the opposite actions on the phone of the target. It will possibly access of apps used notifications on an. Properly, it appears[[ not]] so difficult as quickly"
+  ],
+  "neg": [
+   " launched at The Ocean in a High CO2 World Symposium in Monterey, California. ⏎ “The new knowledge and multimedia guides released today open up ocean[[ acid]]ification so everyone can",
+   " music management system. These include the Rock-Ola Music Center Series and other specialized jukebox products. The line will continue to bear the[[ \"]]Rock-Ola\""
+  ]
+ },
+ "211": {
+  "group": "lowest",
+  "desc": "They are the first token of a multi-word proper noun or phrase.",
+  "first_auroc": 0.2,
+  "auroc15": 0.5755555555555556,
+  "shuffled15": 0.6688888888888889,
+  "pos": [
+   "20 years experience in the industry we guarantee professional and efficient service. We have confirmed our ability to be innivative and always go the extra[[ mile]] when it comes to",
+   " you ⏎ Unimpaired eyesight, thus, is one of the most important factors in our daily lives. For this reason, we take[[ all]] the time that’s",
+   "039348 ⏎ About MeI'm constantly on the lookout for work in the Austin area. I also make the trip to[[ San]] Antonio or Dallas for",
+   " ⏎ What others should know:I am almost reluctant to publish this because Beeman has come up with such a great product and other ammunition is rather[[ hard]] to get. The"
+  ],
+  "neg": [
+   "son Reuters Foundation) - Plastic used in everyday objects from bottles to packaging emit greenhouse gases when exposed to sunlight, according to a study released on[[ Wednesday]], as global concern",
+   "« previous » next ⏎ \"My Life. My Choice. My Responsibility\" is the[[ theme]] of our 2"
+  ]
+ },
+ "1694": {
+  "group": "lowest",
+  "desc": "They are all function words or punctuation marks.",
+  "first_auroc": 0.2,
+  "auroc15": 0.45111111111111113,
+  "shuffled15": 0.7,
+  "pos": [
+   " engineering and math — the arts and community service. Each team chooses the challenge they want to complete from the season’s list and spends months preparing[[ their]] solution to the problem",
+   " important resource in the business – people. Database of free human resources essays - we have thousands of free essays across a wide range of subject areas[[ sample]] human resources essays |",
+   "0000 free masking ends in deception, much ado about nothing papers & masking ends in deception, much ado about nothing essays at #[[1]] essays bank since ",
+   " scholarship from the Abhishek “AB” Taiwade Memorial Scholarship Fund. Hillsborough High school seniors are asked to submit a narrative,[[ script]] or artistic piece incorporating"
+  ],
+  "neg": [
+   "-year growth numbers were actually down slightly due to, among other things, retooling to make way for its new aluminum-body F-1[[5]]0. ⏎ Even",
+   " meal and the adults would sink a few bottles of wine. The get together would usually end in the early hours of the next morning, and[[ usually]] after a selection of"
+  ]
+ },
+ "1193": {
+  "group": "lowest",
+  "desc": "All are common function words or high-frequency tokens.",
+  "first_auroc": 0.2,
+  "auroc15": 0.4022222222222222,
+  "shuffled15": 0.4688888888888889,
+  "pos": [
+   " KNOW ABOUT STARTING A BUSINESS FROM SCRATCH or growing your existing brand ⏎ *The building blocks for a STRONG FOUNDATION from the ground[[ up]] every step of the",
+   " patterns of correlation, GATE also allows interactive interrogation of movies against a wide variety of prior knowledge datasets. GATE movies can be paused and[[ are]] interactive, allowing users",
+   " a small-town diner. There’s no stopping the free-wheeling burger, and in the spirit of free enterprise, empires continue to be[[ built]] in the 2",
+   " control mechanisms from patterns of correlation, GATE also allows interactive interrogation of movies against a wide variety of prior knowledge datasets. GATE movies can[[ be]] paused and are interactive"
+  ],
+  "neg": [
+   " that’s visually misleading: When the wind blows sufficiently atop the 1,538-foot peak, the tips of the 91[[-foot]] blades slash through the",
+   "Moving the map ⏎ You can move the map section shown on the display as required.[[ You]] have two options for"
+  ]
+ },
+ "1019": {
+  "group": "lowest",
+  "desc": "They are all function words or punctuation marks.",
+  "first_auroc": 0.2,
+  "auroc15": 0.7911111111111111,
+  "shuffled15": 0.4955555555555556,
+  "pos": [
+   " if we have Whois information available for it, we will display it further below to assist in your research of Myly319.com[[.]] Feel free to run",
+   "To help inspire or plan your trip to Timor-Leste, some of its major attractions ⏎ for travellers are shown below[[,]] including some of the",
+   " ⏎ Advice on finding Rockford Photographers - Quickly and easily find the best Rockford wedding photographers and Rockford wedding photography in your area below[[.]] Wedding photographers fall into",
+   " bad credit ratings. Buy a car with a credit score around 500 in Washington County, and NWA Arkansas. ⏎ Narrow[[ your]] used car search by"
+  ],
+  "neg": [
+   "Shield||INK-204 - INK-304| ⏎ |5×||Class 1||Class 1 Weapon[[ Systems]]| ⏎ |2",
+   "FREE • 20% COMMISSIONS • FLEXIBLE OPTIONS • PREMIER PRODUCTS ⏎ The PurO3 Affiliate Program is[[ free]] and easy to use"
+  ]
+ },
+ "644": {
+  "group": "lowest",
+  "desc": "They are all function words or short tokens that are easily replaced or omitted.",
+  "first_auroc": 0.2,
+  "auroc15": 0.6111111111111112,
+  "shuffled15": 0.58,
+  "pos": [
+   " and more people are considering open relationships and marriages these days, which is pretty awesome. There’s a whole line of thinking and research that suggests[[ that]] we humans just weren",
+   "ofness or faux disinterest but like you they are also being gnawed by that undeclared ache of being the parallel contributor and recipient[[ of]] a certain fondness",
+   " elongating, always in flux. ⏎ I want to create things with rawness, emotion, magic. ⏎ I want moments that awaken,[[ moments]] that illuminate. ⏎ ",
+   " infatuation in a southern town--now available in hardcover for the first time. ⏎ In the small town of Innocence, Mississippi[[,]] days are long,"
+  ],
+  "neg": [
+   "Virtual event to take place March 21 ⏎ Storm Water Solutions and Stormwater USA have partnered to deliver the Storm Water[[ Solutions]] Virtual Expo, a",
+   " find that I have a big heart for people. ⏎ My goal is to help build confidence in people whether it’s through my writing, speaking[[,]] or teaching. I"
+  ]
+ },
+ "758": {
+  "group": "lowest",
+  "desc": "They are punctuation marks or function words that are highly predictable in context.",
+  "first_auroc": 0.2,
+  "auroc15": 0.37333333333333335,
+  "shuffled15": 0.43333333333333335,
+  "pos": [
+   ", the CIC works to enable an economically viable UK agroforestry. The information below charts the trajectory of this work to date. The two[[ main]] strands to this are",
+   " & Forest Strategy ⏎ Behing the scenes from the day to day trade, the CIC works to enable an economically viable UK agroforestry.[[ The]] information below charts the",
+   " GNI) ⏎ Adjusted net national income is particularly useful in monitoring low-income, resource-rich economies, like many countries in Sub-Saharan Africa,[[ because]] such economies often see",
+   " strands to this are: ⏎ 1. Advocating specific changes to the current grant system necessary to increase agroforestry uptake. ⏎ 2.[[ Developing]] best practice in UK"
+  ],
+  "neg": [
+   "' kept them in the hunt with three games left of the Yorkshire Men's League group 'A' season, moving into a three-way tie[[ for]] the lead with Shaw",
+   " anti-law enforcement. While I did notice the definite black empowerment theme of her performance, I certainly didn’t find it to be anti-police[[.]] ⏎ I was intrigued"
+  ]
+ },
+ "1450": {
+  "group": "lowest",
+  "desc": "All are punctuation marks or line breaks separating distinct clauses or sentences.",
+  "first_auroc": 0.22,
+  "auroc15": 0.56,
+  "shuffled15": 0.6777777777777778,
+  "pos": [
+   " years ago ⏎ As a collector of really early photographic apparatus, I search intently for pictures of photographers and their cameras, but more pointedly[[,]] images with cameras in",
+   "My Prince Charming husband and I went to the Getty Center the other day to celebrate our wedding anniversary. I love this museum. It[[’s]] one of the best",
+   "If you are lucky to have your ancestor's will proved there, then the will, once located, can be ordered online. The records[[ are]] also on microfilm",
+   " to have your ancestor's will proved there, then the will, once located, can be ordered online. The records are also on microfilm[[ at]] the Family Record Centre"
+  ],
+  "neg": [
+   "ese Gives Rise to New Ventures ⏎ Some obese workers, tired of being treated badly for not being able to conform to workplace expectations of what a[[ healthy]] person looks like,",
+   " a God that can be trusted and He will always be JUST, even though He doesn't always seem fair to us. ⏎ I used to[[ tell]] my kids"
+  ]
+ },
+ "342": {
+  "group": "lowest",
+  "desc": "They are all common function words or prepositions.",
+  "first_auroc": 0.22,
+  "auroc15": 0.5377777777777778,
+  "shuffled15": 0.43777777777777777,
+  "pos": [
+   "ers in a season when he hit his 270th in the second quarter of the Warriors' game Wednesday night against the Trail Blazers[[.]] ⏎ The shot with",
+   "2, ⏎ in a non-conference clash at War Memorial Gymnasium. ⏎ Also scoring in double figures for the Dons (2-[[0]]) were Tim Der",
+   " The best thread maker on Knicksonline. ⏎ Metrocard-entertaining, funny poster, very informative, especially when it comes[[ to]] the draft. The",
+   " ⏎ The shot with 6:49 left in the half put Curry in front of Ray Allen's mark of 269 set[[ in]] 200"
+  ],
+  "neg": [
+   " we are the perfect place to party! Take pre-dinner cocktails on our sun terrace or gardens, lounge in our bar with a beer,[[ take]] over the conference suite",
+   " to commissioning artworks. ⏎ The workshop, held in Burnley library, began with the group of young people aged between 15-[[2]]3 creating alternative maps"
+  ]
+ },
+ "2045": {
+  "group": "lowest",
+  "desc": "All are verbs or verb-like words introducing new information or actions.",
+  "first_auroc": 0.22,
+  "auroc15": 0.8533333333333334,
+  "shuffled15": 0.49777777777777776,
+  "pos": [
+   " GATE also allows interactive interrogation of movies against a wide variety of prior knowledge datasets. GATE movies can be paused and are interactive, allowing[[ users]] to reconstruct networks",
+   "4:59 Konami and Square/Enix showing large profits in last quarter ⏎ @6:13 Angry Birds 2 S[[ells]] 20 Million",
+   " for a computer with a decent processor, RAM and storage to play your favorite games or run any other application, but you have some constraints with[[ respect]] to budget and other",
+   " has teamed up with former Vice President Joe Biden to put an end to domestic violence. Kelley Evans with The Undefeated wrote a great piece[[ talking]] about how domestic violence"
+  ],
+  "neg": [
+   " and introducuing Ofsted-style ratings which it says will better protect patients, and ensure hospitals are scrutinised “from top to bottom”. ⏎ [[Prof]] Sir Mike Richards,",
+   " a healthier lifestyle. ⏎ \"I had been having some episodes where my heart would beat fast and I could feel it ⏎ in my neck,\" Martin[[son]] said. \"I"
+  ]
+ },
+ "699": {
+  "group": "lowest",
+  "desc": "All are nouns or noun phrases functioning as objects or complements.",
+  "first_auroc": 0.22,
+  "auroc15": 0.38,
+  "shuffled15": 0.32,
+  "pos": [
+   " on this site. We do suggest using the tools below to find Charlene Purdy. ⏎ About placeholder profiles ⏎ You are visiting the placeholder[[ page]] for Charlene Pur",
+   " on determining the success of hris yasemin bal yıldız technical university, turkey. Importance of human resources term papers, essays and research papers[[ available]]. The importance of",
+   ". CFRC online archive has been down for a few weeks. Which is how I would grab the older episodes. Now I have to go[[ to]] the station computers and",
+   " photos and memories with other registered alumni ⏎ Looking for Charlene Purdy? ⏎ This is a placeholder page for Charlene Purdy, which[[ means]] this person is not"
+  ],
+  "neg": [
+   "TE, N.C. - ⏎ Duke Energy will release its fourth quarter and year-end 2013 earnings results at 7[[ a]].m. ET on",
+   " along the Mediterranean coast to the border with Spain still offer unrivaled grape-growing terroir. An ideal climate combines with diverse soils and[[ optimal]] topography"
+  ]
+ },
+ "1726": {
+  "group": "lowest",
+  "desc": "They are all the first word of a proper noun or name.",
+  "first_auroc": 0.22,
+  "auroc15": 0.2644444444444444,
+  "shuffled15": 0.4266666666666667,
+  "pos": [
+   " clearly states on this blog, all text and images are copyrighted, either to myself, or to those who have generously donated me the use of[[ their]] images (which are",
+   "putated Thursday because they'd turned into purple \"poison bags.\" But he said she's maintained her positive outlook since the amputations[[.]] By reading her lips",
+   " is a bold, fruity black tea. We love it first thing in the morning! ⏎ Available in 50g (approximately 1[[2]]-15 servings",
+   " interesting capabilities. We also get some great meals and do a little sightseeing. Alec is taking his bike for a 4-day trip through[[ the]] mountains. ⏎ We"
+  ],
+  "neg": [
+   " NBN Co, had blamed a “typo” for changing who will receive fibre connection in regional Australia. ⏎ NBN Co general manager[[ of]] external relations Trent Williams",
+   "2014 ⏎ Dorothy 'Dottie' Dolan was born in Cleveland, Ohio, February 7, 19[[2]]2. Wife of"
+  ]
+ },
+ "502": {
+  "group": "lowest",
+  "desc": "They are all function words or punctuation marks.",
+  "first_auroc": 0.22,
+  "auroc15": 0.39555555555555555,
+  "shuffled15": 0.45111111111111113,
+  "pos": [
+   " almost icky. ⏎ i have been working hard from the time i get up until the time i go to sleep. working out, trying[[ to]] get on top of",
+   " gathered from my blogs) but there are a few tricks up my fitness sleeves, although I would hasten to add these aren't recommendations for[[ a]] long-term fitness solution",
+   " first place? ⏎ I started my career as a professional basketball player and initially I wanted to know how to get the most out of my body[[ to]] maximize my performance on",
+   " there are a few tricks up my fitness sleeves, although I would hasten to add these aren't recommendations for a long-term fitness solution.[[⏎]]One of the best"
+  ],
+  "neg": [
+   " the Himalaya — bends to the will of raindrops. ⏎ The research, recently published in Science Advances with Arizona State University co-authors[[ Kel]]in Whipple,",
+   "'s energy, sunlight and infrared waves increasing our energy and oxygenation in the body. ⏎ Decades of development by experts in medicine, physics[[ and]] biology, as well"
+  ]
+ },
+ "539": {
+  "group": "lowest",
+  "desc": "They are all common nouns or adjectives functioning as objects or modifiers.",
+  "first_auroc": 0.22,
+  "auroc15": 0.49333333333333335,
+  "shuffled15": 0.41333333333333333,
+  "pos": [
+   " Battery Range offers very high performance for race and rally applications. Designed and engineered to a high specification for motorsport use, the Varley Red[[ Top]]™ can withstand even",
+   " One bedroom apartment, for 2 people, 45 m2, on the ground floor, rustic furnishings.Living/dining room with[[ satellite]]-TV. Smoking not",
+   "water Trolling Motors/i-Pilot Wireless GPS Trolling System Combos ⏎ All the great features of the Minn Kota® Riptide[[®]] ST Saltwater T",
+   " with his three less-fascinating elder brothers, was beamed into our Istanbul flat right after school, where I would sit in front of[[ the]] small kitchen TV,"
+  ],
+  "neg": [
+   " nature lovers of all ages and abilities will be having a whale of time in Tacoma, Washington. Starting at 11am at Owen Beach[[ along]] Five Mile Drive and",
+   " 91, of Bethlehem, formerly of Wilson Borough, passed away Monday, March 3, 2014 at her home[[,]] surrounded by her loving"
+  ]
+ },
+ "1464": {
+  "group": "lowest",
+  "desc": "They are all function words or prepositions.",
+  "first_auroc": 0.22,
+  "auroc15": 0.5244444444444445,
+  "shuffled15": 0.5,
+  "pos": [
+   "Development Opportunities and Staff Benefits ⏎ People are our most valued asset at HDB. Our development opportunities and staff benefits help you advance professionally in a[[ positive]] work environment.Find out",
+   " huge spoilsport otherwise the year 2020 could’ve been special as far as Bollywood is concerned. So many big Bollywood films[[ were]] scheduled to release but",
+   " most of the things mentioned in it are as true as it was 2300 years ago. ⏎ The person who adopts these things[[ will]] succeed in whatever he",
+   " not hamper the Indian Information Technology business and the current (IT) environment is expected to be much stronger than in 2009[[,]] a top official of"
+  ],
+  "neg": [
+   " of thinking and research that suggests that we humans just weren’t built for monogamy. To each their own, of course, but if[[ you]] feel like your relationship",
+   "ANFRONT SKY VIEW UNIT in TOWERS 10!!! Complete with AMAZING Panoramic views of both OCEAN &[[ R]]IVER - Sunrise &"
+  ]
+ },
+ "336": {
+  "group": "random",
+  "desc": "They are all the start of a word split across a line break.",
+  "first_auroc": 0.68,
+  "auroc15": 0.7355555555555555,
+  "shuffled15": 0.54,
+  "pos": [
+   ". Leadership Year Evaluation and Goals Questions for Potential Cheer Captains My 10 Coaching Mistakes E-book … ⏎ Chassé Girls Mini[[ Cheer]]leading Pom-Pom",
+   " price: $1,500. Includes furniture and appliances. ⏎ The apartment is located at PH Vista del Mar (same building as[[ Le]] Meridien Hotel",
+   " Sean Monahan of the Ottawa 67's Hockey Club. ⏎ Based on a review of the incident, it is the position of the[[ League]] that player Sean Mon",
+   " anything else on our site that already happens to be on sale. Take advantage of this sale to enjoy a further discount on items like the classic[[ Le]] Printemps and Le"
+  ],
+  "neg": [
+   " this collection. Melissa Harmonic + Alexandre Herchcovitch. A breeze to use, the perfect sandle for easy days. ⏎ The[[ successful]] Melissa Flower Queen +",
+   " and why have been elusive. This seemingly logical concept has never been quantitatively demonstrated until now, thanks to a new technique that captures precisely how[[ even]] the mightiest of"
+  ]
+ },
+ "889": {
+  "group": "random",
+  "desc": "All are nouns or adjectives used in idiomatic or metaphorical expressions.",
+  "first_auroc": 0.52,
+  "auroc15": 0.6088888888888889,
+  "shuffled15": 0.3088888888888889,
+  "pos": [
+   " and include all tourist attractions, the information centre, public amenities, parks as well as many shops and restaurants. ⏎ Increase your footfall and[[ turnover]] by highlighting your company",
+   " dB at 10 kHz). The frequency response in the diffuse sound field is flat up to 10 kHz. ⏎ Studio Quality Sound[[ Experience]] From Elegant and Under",
+   " Wine Only ⏎ Spring St. to 30th St., FDR Dr. to West Side Hwy. ⏎ - Order Delivery with seamless[[.com]] ⏎ Pie is as",
+   "- This event has passed. ⏎ TIME COPS: It’s Interdimensional[[ Now]] ⏎ April 1"
+  ],
+  "neg": [
+   "% of reproductive age females. It is the most common hormonal problem affecting this population and has been associated with elevated risk of liver damage owing to[[ fat]] accumulation in the liver",
+   " get. The copper wash seems to add a hard outer coating to these pellets which adds to flight stability. From my R-9 this,[[ pellet]] has outstanding accuracy."
+  ]
+ },
+ "1965": {
+  "group": "random",
+  "desc": "They are all prepositions or conjunctions linking subjects to objects or groups.",
+  "first_auroc": 0.7,
+  "auroc15": 0.8422222222222222,
+  "shuffled15": 0.6244444444444445,
+  "pos": [
+   "-grader knows that public sector jobs, needed as they are, do not create anything. They do not expand the economy. They don’t[[ help]] the private sector grow",
+   " private institutions to alleviate poverty and promote prosperity. Boudreaux will be contributing her analysis monthly to the Deseret News on effective care for[[ the]] poor. ⏎ Char",
+   ", clothing and other services to people in Montclair and neighboring communities. Its clients include families and singles who are elderly, disabled, home-bound[[,]] unemployed or underemployed",
+   "ine Center at SNI ⏎ August 27, 2010 ⏎ Neck pain and low back pain are common health problems[[ in]] the US. They"
+  ],
+  "neg": [
+   " of the population is younger than 15 years old. So Telkomsel, the leading mobile operator in the country, offers a[[ data]] plan called Flexi",
+   "012, a category that at times has been a bit of a problem in the Annual Reader Poll at AAR. Some years we[[ poll]]sters wonder if we"
+  ]
+ },
+ "750": {
+  "group": "random",
+  "desc": "All are prepositions or particles expressing apology or softening.",
+  "first_auroc": 0.94,
+  "auroc15": 0.7377777777777778,
+  "shuffled15": 0.3622222222222222,
+  "pos": [
+   " few nights ago, I got into a Facebook disagreement with a friend of a friend over the Syrian refugee crisis. I took offense to his comments[[ which]] I found intolerant",
+   " and Michael Nienaber write for Reuters. The plan is to house 26 containers of nuclear waste across four different German states, but[[ it]] has drawn criticism from",
+   " there were more details about him on the tomb but I was afraid to get out of the truck to go check it out. I didn't[[ want]] to draw attention to",
+   " the Rays (the Red Sox had just lost the first game after a five-game winning streak). Any idiot knew why he said that and that[[ it]] had nothing to do"
+  ],
+  "neg": [
+   " Orders of $200 or More! Use Coupon Code: FREESHIP17 ⏎ This offer for free shipping and handling applies to[[ ground]] ship orders over $",
+   ". ⏎ After suffering a heart attack in 2009 at the age of 79, Martinson decided it was time to[[ make]] some changes and work"
+  ]
+ },
+ "1701": {
+  "group": "random",
+  "desc": "They are all punctuation marks or line breaks.",
+  "first_auroc": 0.22,
+  "auroc15": 0.48,
+  "shuffled15": 0.5555555555555556,
+  "pos": [
+   " jewels that were eye catching for all the right reasons: every single one was a one off piece, with breathtaking attention to detail. The array[[ of]] stones was wonderful in",
+   ", you will know when you are ready for this when taking the same style of shots over and over again becomes static and uninteresting. Fortunately[[ for]] underwater photographers, there",
+   " underwater photographers, there are many challenges available without having to break the bank. One of the biggest, and certainly most rewarding, is the world[[ of]] “super macro”",
+   " up at Labuan Bajo airport and transfer to the boat. ⏎ First dive test in Sebayur, a second dive might be planned according[[ to]] the check in time"
+  ],
+  "neg": [
+   ". ⏎ Kingstarbury3 should go back to being MSGKnickz33. ⏎ Here are some of the people who I think[[ are]] Knicksonline",
+   " have heart attacks or other heart problems. ⏎ Desperate for a solution, a doctor tries the hardware store when hospital equipment won't do.[[⏎]]The keyboard is might"
+  ]
+ },
+ "581": {
+  "group": "random",
+  "desc": "They are infinitive markers or conjunctions introducing purpose or consequence clauses.",
+  "first_auroc": 0.88,
+  "auroc15": 0.8777777777777778,
+  "shuffled15": 0.9888888888888889,
+  "pos": [
+   " the date of the shower maximum. ⏎ LINKAGE TO OTHER HEALTH CARE DATABASES Linkage to other existing health care automated databases would be welcome[[ to]] facilitate followup and",
+   " your visitors and customers to deliver the personalized experiences that matter to them. With Adobe Analytics, you can dive deep into customer data for segmentation analysis[[ to]] get a precise and",
+   "Alzheimer's causes disorientation, which can lead to wandering. Here's how[[ to]] curb or prevent wandering",
+   " Boudreaux is a senior research fellow at the Mercatus Center at George Mason University and lead researcher for Enterprise Africa!, an international initiative[[ to]] promote successful business development"
+  ],
+  "neg": [
+   " Dwayne Roloson, the stringy-haired goalie, was taking a spin in his new role among youngsters who weren’t born when he[[ arrived]] in Lowell in ",
+   "-level talks in Geneva on Ukraine come as the country's eastern regions are awash in turmoil and pro-Russian insurgents have seized police stations and government[[ buildings]] in at least nine"
+  ]
+ },
+ "163": {
+  "group": "random",
+  "desc": "They are all common nouns or noun phrases.",
+  "first_auroc": 0.82,
+  "auroc15": 0.8177777777777778,
+  "shuffled15": 0.5044444444444445,
+  "pos": [
+   " abroad to engage in extremist activity. Extremist activity is defined as any activity undertaken on behalf of, or in support of, a terrorist[[ entity]]. It can include",
+   " down to image; they simply prefer themselves without glasses. ⏎ But, wearing contact lenses raises the possibility of eye infection as you are putting a[[ foreign]] body into your eye",
+   " of 25 (whereby your repair system has gotten slower) and you are almost to get married!*_* Guess who I am talking[[ about]] T_T ⏎ But",
+   " the US each year, and each one of those weddings is unique. Thus, the experiences that people have at weddings are as numerous as the[[ weddings]] themselves"
+  ],
+  "neg": [
+   " walked from the bedroom. hot pakistani bhabhi sex pic ⏎ khwajw saraxxx Mary dropped four chips into the pot[[ for]] him. big w",
+   " and old classics. ⏎ - Curated recommendations highlighting the thriving art, cultural and lifestyle events and experiences in London. ⏎ - Luxury edge,[[ manifest]]ing in collaborations with"
+  ]
+ },
+ "687": {
+  "group": "random",
+  "desc": "They are prepositions introducing specific calendar dates or days of the week.",
+  "first_auroc": 1.0,
+  "auroc15": 0.9177777777777778,
+  "shuffled15": 0.6888888888888889,
+  "pos": [
+   " that record. ⏎ He joined the Panthers in 2011 with his infamous five-year-plan but it's now eight years. ⏎ [[On]] Friday night, Pen",
+   "I went on a reading frenzy in the two months before I came and it has continued since I arrived.[[ On]] Friday I met with",
+   " ⏎ Toronto, ON - The Ontario Hockey League today announced the results of a review of an incident which took place in a game played in Ottawa[[ on]] the 18",
+   " City is set to celebrate the Year of the Monkey with great fanfare. Starting with the Firecracker Ceremony and Cultural Festival in atown[[ on]] the 8th"
+  ],
+  "neg": [
+   " prevent it from happening again and safely return to running. ⏎ Posted by: Caity May 23, 2007:[[⏎]]I'm just coming",
+   " photographers in the Rockford area when planning for your wedding, corporate event, mitzvah, or private party. ⏎ Rockford area Photograph[[ers]] ⏎ for your business"
+  ]
+ },
+ "1481": {
+  "group": "random",
+  "desc": "All are function words or pronouns that are highly context-dependent.",
+  "first_auroc": 0.82,
+  "auroc15": 0.6777777777777778,
+  "shuffled15": 0.6977777777777778,
+  "pos": [
+   " spend some quality time with my oldest son, this doesn’t happen very often anymore so I am so grateful for that! This week I intend[[ to]] get back on top",
+   " scheduled as planned. ⏎ Fresh Events This Week ⏎ 3e Open House, Jan 22 ⏎ All ages. 3e International School[[ will]] host a series of",
+   " whole idea of female autonomy and saving women’s lives rather than forcing them into forming babbys that they don’t necessarily want or can’t[[ necessarily]] take care of is",
+   " at a set break. So I took a quick pic of a nice double rainbow. ⏎ Ran into some old friends. Was also offered[[ to]] take a bunch of"
+  ],
+  "neg": [
+   " religious devotion and respect to; adore or venerate.Do Catholics pray to the Virgin Mary? Yes.ANCIENT PRAYER TO THE VIRGIN[[ M]]ARYWe turn to",
+   " the other three. The wonderful three. Where everything is magic to her. Everything is special. Everything a delight. Everything has meaning and everything[[ matters]]. The stakes feel"
+  ]
+ },
+ "1314": {
+  "group": "random",
+  "desc": "They are punctuation marks or abbreviations that end a sentence or clause.",
+  "first_auroc": 0.64,
+  "auroc15": 0.7244444444444444,
+  "shuffled15": 0.5333333333333333,
+  "pos": [
+   ".com (CD) are posted by individuals acting in their own right and do not necessarily reflect the views of CD. CD will not be held[[ liable]] for the actions of",
+   ". ⏎ DISCLAIMER: Any posts on CakesDecor.com (CD) are posted by individuals acting in their own right and do not[[ necessarily]] reflect the views of",
+   "From Library Journal ⏎ Pat Griffith, Schlow Memorial Library, State College, PA ⏎ Copyright 1999 Reed Business[[ Information]], Inc. --",
+   " (NASCAR)-A956065.JPG ⏎ - © 2012 Jason O. Watson. All rights[[ reserved]]. ⏎ - Image"
+  ],
+  "neg": [
+   " sign it?) ⏎ As I got off the bus and walked up to the Lowy Institute the city was humming with workers heading out to get[[ some]] lunch. It",
+   " Brian Dodson ⏎ January 5, 2013 ⏎ Twenty to thirty percent of the world's population suffers from some sort of[[ chronic]] pain, which is"
+  ]
+ },
+ "886": {
+  "group": "random",
+  "desc": "They are the first digit of a two-digit number.",
+  "first_auroc": 1.0,
+  "auroc15": 0.9822222222222222,
+  "shuffled15": 0.5533333333333333,
+  "pos": [
+   " Teen Parent Program. ⏎ This is a Rain or Shine Event... ⏎ Our 5K walk-a-thon will begin promptly at 1[[0]]:00 a",
+   "Berry Banana Smoothie ⏎ Makes 2 servings. Recipe is from “Dinner Solved! 1[[0]]0 Ingenious Recipes",
+   "|East Side Cafe: Cheap and Easy| ⏎ 03:09PM / Saturday, November 1[[0]], 20",
+   " December 8th, get 20% off all children’s supplements. Stop by our store in Grandview, MO from 1[[0]]am - 4"
+  ],
+  "neg": [
+   "BF Mentor ⏎ My story begins about seven years ago. I was part owner and general manager of a growing company that had succeeded in expanding across[[ Canada]] and was reasonably profitable",
+   " ultimately be required. ⏎ To use FMT for research or to treat any condition other than RCDI, an IND permit is required.[[⏎]]The FDA has released"
+  ]
+ },
+ "1706": {
+  "group": "random",
+  "desc": "They are all punctuation marks or function words.",
+  "first_auroc": 0.78,
+  "auroc15": 0.6355555555555555,
+  "shuffled15": 0.6222222222222222,
+  "pos": [
+   " two search warrants had been served on the company and several subpoenas issued, including some to members of the sales staff. He noted the firm[[ has]] 23",
+   "’s call her Sarah) asked my advice regarding an email she received from a photographer who demanded removal of an image from her blog as well as[[ a]] substantial fee for damages",
+   "The Taiwanese PC maker was originally planning on releasing an ARM-based Windows RT tablet in early 2013, however the company has decided[[ to]] delay those plans in",
+   " his own miserable existence, what opportunities he wasted in his youth, his current cruelties, and the dire fate that awaits him if he[[ does]] not change his ways"
+  ],
+  "neg": [
+   " oraria ⏎ - Ore Attività frontale: 63.0 ⏎ - Anno accademico ⏎ - Anno di erogazione ⏎ - Anno[[ di]] corso ⏎ - Docente",
+   " in the sounds of a saxophone, a Woodwind Ensemble works well on any occasion: weddings, birthdays, anniversaries, corporate functions,[[ and]] more. Search from"
+  ]
+ },
+ "126": {
+  "group": "random",
+  "desc": "All are function words or punctuation marks with low semantic weight.",
+  "first_auroc": 0.62,
+  "auroc15": 0.6466666666666666,
+  "shuffled15": 0.6044444444444445,
+  "pos": [
+   " The handsome, charismatic actor George Clooney has adopted pets from Luv for Mutts on more than one occasion - now that's one lucky[[ dog]] or two! Won",
+   " fact, according to the canine age charts, these two senior dogs should not even be among the living. ⏎ We find it hard to believe[[ that]] people move and surrender",
+   ". to 1 p.m. Call 303/383-4608 for more. ⏎ 4PAWS[[ Rescue]] Dog Adoptions,",
+   " find it hard to believe that people move and surrender their pets; that a pet that needs extra care or develops signs of old age, so[[ their]] human family deposits them"
+  ],
+  "neg": [
+   "And yet another flash fiction from FB: A decision needs to be made. Quickly.[[⏎]]“It’s the last",
+   " and an officer roused him to help him sit up and stand. ⏎ He had difficulty standing, the officer said, and had bloodshot[[ eyes]], \"slurred"
+  ]
+ },
+ "1178": {
+  "group": "random",
+  "desc": "They are all the first letter of a capitalized word.",
+  "first_auroc": 0.76,
+  "auroc15": 0.7933333333333333,
+  "shuffled15": 0.54,
+  "pos": [
+   "Trail Terminology) ⏎ Click any of the links on the below terms to get a fuller description, images, and relevant articles. ⏎ AL[[D]]HA (noun,",
+   " expecting to be blown away. I pictured a little park tucked into Brooklyn, similar to many small parks around the city. After eating breakfast at[[ D]]izzy’s, I",
+   "9:42 AM ET ⏎ If you're traveling to Hollis, Queens anytime soon, make sure you check out the new \"Run[[ D]]MC JMJ Way",
+   "Metolius Easy Aiders have revolutionize aid climbing systems. They can be used on their own or in combination with conventional[[ d]]aisies and aid"
+  ],
+  "neg": [
+   ". 4-7. ⏎ It’s all part of the Georgia Bat Working Group’s first Bat Blitz. The event based at the park[[ in]] northeast Georgia’s Rab",
+   " insane. How can I limit disturbances so I can actually get work done? ⏎ It’s almost funny, isn’t it? Working from home[[ is]] often lauded as"
+  ]
+ },
+ "1456": {
+  "group": "random",
+  "desc": "They are comparative quantifiers indicating amounts exceeding a specific threshold.",
+  "first_auroc": 0.86,
+  "auroc15": 0.9333333333333333,
+  "shuffled15": 0.35333333333333333,
+  "pos": [
+   " One”, the Daily Star reported. ⏎ Women also live with one partner and have four one-night stands. But men play the field more with[[ six]] one-night stands.",
+   " all areas from e commerce activities up to the content curation. The reason for which there is a rise in the number of mobile apps is[[ more]] and more people are",
+   " Target, and since I know Katie loves stickers, I thought she would enjoy putting them onto the paper strips and that it would sustain her interest[[ more]] than if we colored",
+   " customers and an improved flying experience to their passengers. ⏎ The airplane has logged 50,000 hours of flight and there are[[ more]] than 15"
+  ],
+  "neg": [
+   " news of the exceptionally astounding and frequented Samsung’s Galaxy S arrangement. The organization has dependably been among the most loved of its line in[[ the]] clients. Individuals have",
+   " I don’t know…” ⏎ “How you got here?” He didn’t smile – or answer her other questions. “You showed up about half[[ an]] hour ago, pitched"
+  ]
+ },
+ "1058": {
+  "group": "random",
+  "desc": "They are all the beginning of a proper noun or name.",
+  "first_auroc": 0.84,
+  "auroc15": 0.5844444444444444,
+  "shuffled15": 0.41333333333333333,
+  "pos": [
+   "IA lands Nano CPU orders from HP ⏎ Hewlett-Packard (HP) has reportedly recently place orders for VIA Technologies' Nano CPUs the[[ chip]]maker has already started",
+   " “one too many.” ⏎ when your preference is “not any!” ⏎ Kids with colds and snoopy neighbors, ⏎ tiresome[[ chores]] and heavy labors",
+   "—juggling hats, balancing cups, spinning plates, and diving through hoops. Cirque Zíva is the latest project from seasoned director Danny[[ Chang]]. His eye-catching",
+   "Best Price for Medical X Ray Protective Lead Collar - Shield single PVC MDF –[[ Chen]]Lu ⏎ Best Price"
+  ],
+  "neg": [
+   " Writing Contest With Publishing Contract Prize ⏎ Posted at 7:39AM Friday 22 Jun 2012 ⏎ Harle[[quin]] (Harlequin",
+   " Mills & Boon Launch Global Writing Contest With Publishing Contract Prize ⏎ Posted at 7:39AM Friday 22 Jun 2[[0]]12 ⏎ Har"
+  ]
+ },
+ "1199": {
+  "group": "random",
+  "desc": "They are all common, low-information words.",
+  "first_auroc": 0.32,
+  "auroc15": 0.5533333333333333,
+  "shuffled15": 0.6,
+  "pos": [
+   "971 ⏎ Free \"Best Way\" Shipping on Orders Over $125! ⏎ | || | ⏎ This is a Genuine Hoover[[ replacement]] 3-Pack of",
+   " being urged not to let thieves take their bike for a ride and make sure they store bikes securely. ⏎ In the past 24 hours[[ three]] bikes have been stolen",
+   "16 16:22 PM[View Full Size] ⏎ Cyclists in Sunderland are being urged not to let thieves take[[ their]] bike for a ride",
+   " to let thieves take their bike for a ride and make sure they store bikes securely. ⏎ In the past 24 hours three bikes have[[ been]] stolen in the west"
+  ],
+  "neg": [
+   "ings (SS): What is Potential U and what does it do? ⏎ JOY ODUNSI (JO) Potential U is a style[[ &]] image consultancy that helps",
+   "aby Baby Nurse Services ⏎ Lullaby Services is owned and operated by a former English nanny, newborn care specialist and mother of two. Since[[ our]] inception, our mission"
+  ]
+ },
+ "950": {
+  "group": "random",
+  "desc": "They are all function words or prepositions.",
+  "first_auroc": 0.4,
+  "auroc15": 0.5866666666666667,
+  "shuffled15": 0.52,
+  "pos": [
+   " concede that the state's ban on marriages for same-sex couples is unconstitutional in conjunction with two lawsuits filed against the Cook County clerk. ⏎ Att[[orney]] General Lisa Madigan",
+   " trail in Cuyahoga National Forest. Located just a short 0.5 mile walk from a parking lot or a rigorous hike from[[ the]] river up to the",
+   " outdoor activities centered around the natural attractions. The subdivision is within a short drive of the beautiful National Scenic Riverways and within just a few[[ miles]] of thousands of acres",
+   "Projects & Waves ⏎ Surf the Confluence - Denver Project ⏎ Confluence Park, where[[ the]] South Platte River"
+  ],
+  "neg": [
+   " we kept the session simple by sticking to neutral colors for backdrops, and varying Arlo's photos with a variety of hats I've collected[[ over]] the years to keep",
+   " Committee on Space Research (COSPAR) ⏎ - Comparative Research Programme on Poverty (CROP) ⏎ - Future Earth ⏎ - Gender, Global[[isation]] and Democratisation ⏎ "
+  ]
+ },
+ "753": {
+  "group": "random",
+  "desc": "They are all short, common words or punctuation marks.",
+  "first_auroc": 0.34,
+  "auroc15": 0.6711111111111111,
+  "shuffled15": 0.7311111111111112,
+  "pos": [
+   "The departments of physics and mathematics collaborated with the engineering school to create an innovative series of courses that integrate all[[ their]] subjects into a multid",
+   " our lives to work for our good, even when it doesn't make sense. ⏎ Jennifer teaches us to rest in Him because He is truly[[ a]] God that can be",
+   " figure out God's mind and the things He allows in our lives. However, He teaches us in His word that He loves, cares and[[ will]] always walk with us",
+   ", CO. ⏎ “sovrn is an advocate of and partner to almost 20,000 publishers across the independent web[[,]] representing more than a"
+  ],
+  "neg": [
+   " the USA and elsewhere whilst collaborating with existing UK producers. ⏎ Stage 1 - New Environmental Land Management Proposal ⏎ The CIC founded November 2[[0]]17 to ensure",
+   " im not focusing enough on farming nor ganking, and during early game i try to gank but most of the time i just get their[[ flash]] or heal and then"
+  ]
+ },
+ "846": {
+  "group": "random",
+  "desc": "They are all surnames of people mentioned in the text.",
+  "first_auroc": 0.96,
+  "auroc15": 1.0,
+  "shuffled15": 0.08,
+  "pos": [
+   "ance's vision to life... and now to the world. ⏎ Download the Brochure ⏎ Flautist and Latin Grammy Award winner Nestor[[ Torres]] has garnered popular and",
+   " League from Lenoir County held its Recognition and Awards Banquet Oct. 6 at King’s Restaurant. ⏎ Marine Carl L.[[ Gardner]] was honored with the",
+   "2014 ⏎ Good news, everybody! Wisconsin's senior Sen. (and man, is that a tough phrase to type) Ron[[ Johnson]], Republican, is",
+   " season to-date among all key demos and featured guests Porsha Stewart from “The Real Housewives of Atlanta” and actress Vivica A.[[ Fox]]. Immediately following,"
+  ],
+  "neg": [
+   "ider Men's Striper Laceless CVO Canvas Neon / Danner Men's Light Boot / Puma Mens Cell Jago LN White/[[Steel]] Grey Athletic/Running",
+   " ‘communicating atheism.’ They sort of left it open for us to talk about whatever we wanted, really, within that realm. I[[ was]] going to talk about"
+  ]
+ },
+ "1180": {
+  "group": "random",
+  "desc": "They are all part of \"sign up\" or \"sign in\" phrases.",
+  "first_auroc": 1.0,
+  "auroc15": 1.0,
+  "shuffled15": 0.7244444444444444,
+  "pos": [
+   " among the living. ⏎ We find it hard to believe that people move and surrender their pets; that a pet that needs extra care or develops[[ signs]] of old age,",
+   " Although based in Cape Town we do Project Management and handle installations nationally. We are seen as one of the leaders in our field, providing practical[[ Sign]]age solutions and working",
+   "My Beatport lets you follow your favorite DJs and labels so you can find out when they release new tracks. Log in[[ or]] create an account today",
+   " ellenburg center dating services find a girlfriend or lover in ellenburg center, or just have fun flirting online with ellenburg center single girls.[[ Join]] the largest christian dating"
+  ],
+  "neg": [
+   " lot of the reviews for PetSafe said that it would only take about 2 to 3 hours to install. However, we decided to[[ do]] it on",
+   " to this obviously religious man so I'm sharing this photo with you anyway. But I have to admit that I have some conflicted feelings about[[ it]] now"
+  ]
+ },
+ "1587": {
+  "group": "random",
+  "desc": "They are all year digits split from their preceding digits.",
+  "first_auroc": 0.92,
+  "auroc15": 0.9444444444444444,
+  "shuffled15": 0.4688888888888889,
+  "pos": [
+   ", been the Blues' most successful State of Origin leader and carries enormous influence on the back of that record. ⏎ He joined the Panthers in[[ ]]2011",
+   " park or neutral try pulling the shift leaver back and forth while pushing the button repeatedly. ⏎ Posted on Oct 02, 2[[0]]09 ⏎ a",
+   "Image gallery (0) Add an image Rate 1 2 3 4 5 6 7[[ ]]8 9 ",
+   " and Rex Stockton, Chancellor’s Professor at IU were in Gaborone from 23rd – 28th January 2[[0]]18 to strengthen"
+  ],
+  "neg": [
+   " the hive is already in one – where you have access to the bottom, this works. ⏎ Use clear plastic bags or sheeting to complete[[ the]] enclosure so that it",
+   "I'm a terrible blogger. I never remember to do it. I'm constantly remembering that I *should[[*]] have blogged this"
+  ]
+ },
+ "294": {
+  "group": "random",
+  "desc": "All are nouns or pronouns functioning as subjects or objects.",
+  "first_auroc": 0.72,
+  "auroc15": 0.7777777777777778,
+  "shuffled15": 0.24666666666666667,
+  "pos": [
+   " ⏎ This year, perhaps because (more likely, in spite of) the two head coaches are brothers, the Ravens and the 49[[ers]] managed to do a",
+   " Pisces are imaginative and sensitive, and Gemini must be careful not to hurt their feelings. However, any arguments they have are easily forgotten,[[ and]] they rarely bear ill",
+   " tiny container on each Docker host and provides automatic collection and processing of Docker Metrics, Events and Logs for all cluster nodes and all auto-discovered[[ containers]]. It works with",
+   " International program, the buffalo will help impoverished families farm rice and other products. According to CORDA Technologies: ⏎ Employees at CORDA[[ Technologies]], a Lindon"
+  ],
+  "neg": [
+   "\" health advice can foster anxiety, and even cause people to experience symptoms of a disease they don't really have, experts say. ⏎ So[[ far]], 24",
+   " Affiliate Program is free and easy to use. You earn 20% commission on every sale made by customers directed to our site by your[[ links]]. You make the"
+  ]
+ },
+ "1606": {
+  "group": "random",
+  "desc": "They are all function words or common verbs, not content words.",
+  "first_auroc": 0.7,
+  "auroc15": 0.6044444444444445,
+  "shuffled15": 0.4222222222222222,
+  "pos": [
+   " date farm on line and it said they offered tours at 1030 so we left the RV around 0930 to[[ make]] sure we arrived before",
+   "0 and by 116% from 2010 to 2011 ⏎ Dallas, TX (PRWEB)[[ September]] 30,",
+   ") would like to see put together.. My main points have already been presented, there will be plunty of time to discuss design ideas[[ face]] to face.. My",
+   " the Hardest Permits to Get within the US ⏎ So you want to go hiking at The Wave or climb Mt. Whitney? You’re[[ going]] to need persistence,"
+  ],
+  "neg": [
+   "iture. I had started my experiments in drawing around 20 years ago. In 2011, encouraged by the inspiring comments[[ of]] the professional artists,",
+   " our money on the Safeco community center project, let's think about how we could be spending the money in other more productive ways. ⏎ [[The]] total estimated cost of"
+  ]
+ },
+ "1250": {
+  "group": "random",
+  "desc": "Possessive pronouns or determiners indicating ownership or association.",
+  "first_auroc": 1.0,
+  "auroc15": 0.6088888888888889,
+  "shuffled15": 0.5955555555555555,
+  "pos": [
+   " impoverished families farm rice and other products. According to CORDA Technologies: ⏎ Employees at CORDA Technologies, a Lindon, Utah[[-based]] developer of dynamic,",
+   " (sorry)| ⏎ The rumor originated in a Tweet from Daina Falk, a food blogger known as “The Hungry Fan’’ and also[[ the]] daughter of longtime NBA",
+   " the fight for the rights of consumers. He practices in many areas of consumer law, including lemon law, warranty litigation, and fraud, in[[ addition]] to handling other civil",
+   " per hour, The Palm Beach Post has reported. ⏎ \"It's outrageous,\" said Nancy Hass, Birkhead's attorney. \"I'm[[ a]] guardian ad litem"
+  ],
+  "neg": [
+   " first product was VuePrint, an easy to use JPEG viewer for Windows that for many years was the recommended. Dating Tips, Dating Advice and[[ Dating]] Help for Online Dating",
+   " into the nearest café or pub to scribble down scenes while they were fresh. ⏎ A strange way to spend a Sunday afternoon? Perhaps.[[⏎]]For me, it"
+  ]
+ },
+ "1129": {
+  "group": "random",
+  "desc": "They are all first names or initials of people.",
+  "first_auroc": 1.0,
+  "auroc15": 0.8133333333333334,
+  "shuffled15": 0.7133333333333334,
+  "pos": [
+   " She enjoyed cooking, shopping and family beach trips. ⏎ Connie was preceded in death by her parents; husband of 68 years,[[ Samuel]] J. Richardson Jr",
+   ". I'm flattered that you think they are nice enough to keep, but note that you are in breach of copyright laws. - Adri[[enne]] Rewi",
+   " two women in the parking lot of the Kindred Nursing Home in Fayetteville. ⏎ Det. Mike Whitlow said 26-year-old[[ Charles]] Frank Collier,",
+   " has been awarded to three academics who have transformed our understanding of stock and house prices. ⏎ The official announcement stated that the prize was awarded to[[ Eugene]] F Fama,"
+  ],
+  "neg": [
+   " about. There are some essential conversations about open relationships that you should probably have before you head out into the world looking for other partners. ⏎ [[Open]] relationships come in all",
+   ", who said PERRY was \"his hero\" and \"the reason I picked up the guitar in the first place.\" ⏎ The two were[[ joined]] by AEROS"
+  ]
+ },
+ "1865": {
+  "group": "random",
+  "desc": "They are all clickable hyperlinks or navigation elements.",
+  "first_auroc": 1.0,
+  "auroc15": 0.8733333333333333,
+  "shuffled15": 0.18444444444444444,
+  "pos": [
+   " color to accompany the day's outfit, these studs will suit you well. Clutch/post, 14kt yellow gold earrings. ⏎ [[Product]] Details (for ",
+   "I spook easier alone too, but it beats not going out because you can't find a buddy to paddle out with. ⏎ Results[[ ]]21 to ",
+   "ension and its relationship to risk factors for cardiovascular disease in Jamaica: Analysis from a cross-sectional survey ⏎ BMC Cardiovascular Disorders ⏎ Date of[[ Publication]] ⏎ Background: Recent",
+   " the S&R page, enter word or phrase you wish to search for. ⏎ - Enter Replace string (leaving blank will just delete the[[ word]] or phrase). ⏎ "
+  ],
+  "neg": [
+   " stereo equipment was more segmented between high-end and lower quality. ⏎ My first encounter with the company was before 1980 where I[[ saw]] an ad for the",
+   " their many adoption events held at area PetValu stores. The handsome, charismatic actor George Clooney has adopted pets from Luv for Mut[[ts]] on more than one"
+  ]
+ },
+ "756": {
+  "group": "random",
+  "desc": "All are positive adjectives used to describe people or things.",
+  "first_auroc": 0.8,
+  "auroc15": 0.9244444444444444,
+  "shuffled15": 0.3111111111111111,
+  "pos": [
+   " days in Rust Creek Falls is folks falling in love and getting engaged. But this latest one tops them all. Dr. Brooks Smith, our[[ favorite]] veterinarian, the most",
+   " there and find your soulmate. A simple, straightforward guide to finding real love. Ebook and paperback available from Amazon. ⏎ Amazon 5[[ star]] review You Can Love",
+   " Russia and studied a course at the school of Olga Petrova. The personal satisfaction and lessons from the training inspired me to become a full-f[[ledged]] certified instructor and to",
+   "Mads Nissen interviewed by Martine Kolstad ⏎ As a 19 year[[ old]] boy you were determined"
+  ],
+  "neg": [
+   "Has someone ever verbally questioned your sexuality? Has anyone ever yelled lewd insults about your mother, before threatening to kill you[[?]] Sadly, the answer",
+   ", travel & lifestyle. ⏎ - Insider guides categorised by cuisine, theme and/ or by area, with a dedicated series on neighbourhood guides[[ in]] London. ⏎ -"
+  ]
+ },
+ "333": {
+  "group": "random",
+  "desc": "All are function words or short phrases that are highly predictable in context.",
+  "first_auroc": 0.8,
+  "auroc15": 0.45111111111111113,
+  "shuffled15": 0.6066666666666667,
+  "pos": [
+   " that the new price regime would take effect at midnight today. ⏎ Mrs. Alison-Madueke said the N10 reduction in fuel[[ price]] was necessitated by",
+   " ways Monday. ⏎ At its monthly public meeting, the Sugar Hill City Council voted to put Sunday package alcohol sales to public vote in November,[[ as]] well as to hold",
+   " pays both employer and employee ⏎ shares of pension contributions, should consider requiring ⏎ employees to pay their own share of the payments in order to create[[⏎]]immediate savings to",
+   " of Vero Beach have filed legislation to have Florida join 48 other states that require motorists to carry bodily injury insurance. The bodily injury[[ requirement]] would replace the mandate"
+  ],
+  "neg": [
+   "26 May 2008 ⏎ Certainly areas of potential improvement is in regard to defining appropriate tags for Milestones and Components, and[[ coming]] up with a list",
+   " Days, a Courtyard concert, Church Festival, 2017 River Fest, and more... ⏎ The San Angelo Restaurant Association presents[[ the]] 42nd"
+  ]
+ },
+ "647": {
+  "group": "random",
+  "desc": "All are nouns or noun phrases functioning as objects or complements.",
+  "first_auroc": 0.82,
+  "auroc15": 0.8733333333333333,
+  "shuffled15": 0.24222222222222223,
+  "pos": [
+   " families and communities. These materials include TV, radio, print and online creative that underscore the value of home ownership in improving academic achievement, creating[[ stability]] and strengthening families.",
+   " is centred on mutual relations between techniques and activity within education and training environments; ⏎ - the other one focuses on the role of technical arte[[facts]] and also the usage",
+   " education and training environments; ⏎ - the other one focuses on the role of technical artefacts and also the usage of ICT and socio-technical[[ measures]] within their own context",
+   " but still lags behind as a second-world nation. As the country seeks to improve its international reputation, topics such as gender performance and sexual[[ identity]] cannot be ignored."
+  ],
+  "neg": [
+   " Thelonious Monk, is pretty good. The second, with all originals, is a knockout. ⏎ You have heard Monk’s tunes covered[[ so]] many times that only",
+   " and the Wizard in Oz that I added to my collection. The interesting aspect of this copy was the endpapers, an inventive design that was[[ later]] adapted into the second"
+  ]
+ },
+ "103": {
+  "group": "random",
+  "desc": "They are all function words or punctuation marks.",
+  "first_auroc": 0.56,
+  "auroc15": 0.6688888888888889,
+  "shuffled15": 0.3844444444444444,
+  "pos": [
+   " container on each Docker host and provides automatic collection and processing of Docker Metrics, Events and Logs for all cluster nodes and all auto-discovered containers[[.]] It works with Kubernetes",
+   " predefined path variables are available for defining the location of linked resources relative to user-defined path variables. The Standard Widget Toolkit (SWT) Accessibility[[ has]] been upgraded, with",
+   "80 of the strong and stable. the device and of the materials and components of machine using high qualité.le reversal roll hydraulic machine programming,[[ we]] will see a reversal",
+   " innovation. Free yourself from the constraints brought upon you by wall paper and let the Vynil collection, beyond the sheer practical benefits that it[[ brings]] - you no longer"
+  ],
+  "neg": [
+   " smile. Give us a call today and see the difference we can make in your next construction or clean out project. ⏎ Simply give us a[[ call]] and we will help",
+   " up in a cabinet. I hung a spice cabinet up on the wall. There is a bucket in the corner, where the washing machine will[[ be]]. The floor space"
+  ]
+ },
+ "1537": {
+  "group": "random",
+  "desc": "Future tense auxiliary verbs introducing expected outcomes or findings.",
+  "first_auroc": 0.92,
+  "auroc15": 0.9022222222222223,
+  "shuffled15": 0.48444444444444446,
+  "pos": [
+   " in Sonar you have to create a generic controller… ⏎ If you follow the tutorial for the Setting up NANOKontrol and sonar you[[ will]] be able to get",
+   "' started by Asif WILSON Khan, Jun 17, 2015. ⏎ English Jingling Traffic Bot ⏎ [[Will]] try this one out",
+   " Apple TV. Charter and Apple will work to tightly integrate the Spectrum TV app for Apple TV 4K with Apple’s tvOS. Customers[[ will]] be able to use",
+   " SO excited about this recipe I may or may not have done an actual happy dance when I ate it for the first time. ⏎ What you[[ will]] need: ⏎ -"
+  ],
+  "neg": [
+   " so now is the time to act if you want to take advantage of these tax savings! Your windows must be installed by December 31[[st]] ⏎ The tax credit",
+   " slip on shoes by Greek designer Anna Despotopoulou (Anna’s Handmade Shouz) and leather backpack by Callista Crafts.[[ The]] backpack is a new"
+  ]
+ },
+ "1509": {
+  "group": "random",
+  "desc": "They are all contractions or auxiliary verbs expressing desire or preference.",
+  "first_auroc": 0.84,
+  "auroc15": 0.8888888888888888,
+  "shuffled15": 0.7755555555555556,
+  "pos": [
+   " financial ⏎ means to take this route. ⏎ can help you leave with your vehicle and pay it back over time. Keep reading ⏎ if you[[ would]] like to learn how",
+   " stencilling, and combined with my love for pixel art. What I was not expecting was for this to turn into an assignment which I[[ would]] submit to ds1",
+   " on hot summer days with hundreds of people enjoying the water while being nestled into one of the City’s most happening neighborhoods, it’s no wonder[[ people]] often refer to Con",
+   "2015. ⏎ English Jingling Traffic Bot ⏎ Will try this one out. Thanks ⏎ I can think of a couple of things[[ I]] can use this for"
+  ],
+  "neg": [
+   " arts organization. ⏎ “I didn’t want my career to end before fighting in the most prestigious competition in the world,” said Gomi, whose[[ arrival]] was announced during Saturday",
+   " own: \"And you're a man with great responsibilities. May I suggest more care on Twitter and more time learning about #climatechange.\"[[⏎]]— Ivanka Majic"
+  ]
+ },
+ "474": {
+  "group": "random",
+  "desc": "They are all part of the phrase \"announce [something] today\" or similar announcement contexts.",
+  "first_auroc": 0.54,
+  "auroc15": 0.8422222222222222,
+  "shuffled15": 0.45111111111111113,
+  "pos": [
+   "TORRANCE, CA -- Rock-Ola/Antique Apparatus Co. has announced[[ that]], following the sale",
+   "Virtual event to take place March 21 ⏎ Storm Water Solutions and Stormwater[[ USA]] have partnered to deliver",
+   "Baltimore, Md.-- Corrigan Sports Enterprises, Inc., (CSE) the creator of the Under Armour All-America Lacrosse Classic[[,]] announced today the second",
+   " to personalize their Conference experience. Notaries from coast-to-coast have already begun using this feature to build their custom schedule. The MyConference[[ feature]] can be found on"
+  ],
+  "neg": [
+   " DVD movies, there is the Collectorz.com Movie Collector. It is one of a series of products created by the Collectorz Company for the[[ collector]]. Other than DVD",
+   " or 780-492-0998. ⏎ EDU 597 Organizational Behaviour in Educational Settings[[⏎]]ED"
+  ]
+ },
+ "484": {
+  "group": "random",
+  "desc": "They are all punctuation marks or line breaks.",
+  "first_auroc": 0.46,
+  "auroc15": 0.5044444444444445,
+  "shuffled15": 0.31555555555555553,
+  "pos": [
+   " three general camps: photojournalists, traditional photographers, and those with a balanced bag of tricks. Seasoned Rockford wedding photographers will show[[ you]] their \"book,\"",
+   " Rockford Photographers - Quickly and easily find the best Rockford wedding photographers and Rockford wedding photography in your area below. Wedding photographers fall[[ into]] three general camps:",
+   "Decidio provides listings of top local Photographers in Rockford. Find advice and unbiased reviews on photographers and[[ wedding]] photographers in the Rock",
+   ", romantic moments together as man and wife. ⏎ Costs & Package ⏎ When choosing Neli as your wedding photographer in London or abroad,[[ personalised]] packages can be made"
+  ],
+  "neg": [
+   " tour of the day. ⏎ When we arrived we found out they no longer offer tours, something to do with their insurance carrier. They did[[ offer]] to show us a",
+   " Altogether, they paint a fascinating portrait of turn-of-the-last-century Chicago. ⏎ Today's tale deals with a bored sailor, tired of[[ working]] on a grain ste"
+  ]
+ },
+ "599": {
+  "group": "random",
+  "desc": "They are all function words or determiners that are easily replaced by pronouns or other words.",
+  "first_auroc": 0.8,
+  "auroc15": 0.5533333333333333,
+  "shuffled15": 0.4111111111111111,
+  "pos": [
+   " then change to grip to operate the buckle. Metolius Easy Aiders allow you to operate both the carabiner and the buckle with[[ the]] same grip! ⏎ ",
+   "Adam Gilchrist has the bad habit of writing down something about the match he is going to play on a piece of paper and keep it[[ in]] his pocket. Before",
+   "1. Leaving the Wee One alone in the car for 3.2 seconds while I run inside to grab my[[ cell]] phone. He was",
+   " Monday. ⏎ Abbott's non-binding legal opinion said the 2005 Texas voter-approved constitutional amendment defining marriage as only between a[[ man]] and a woman makes"
+  ],
+  "neg": [
+   " 25The John Warren Award for Excellence in Philosophy was awarded to Roger McCormack May 7, 2014. With[[ Roger]] is Professor Arthur Led",
+   "I heard a story today at work that I couldn't resist repeating. ⏎ An[[ uncle]] of a fellow who"
+  ]
+ },
+ "1318": {
+  "group": "random",
+  "desc": "They are all punctuation marks or short tokens that are frequently mis-segmented.",
+  "first_auroc": 0.6,
+  "auroc15": 0.48,
+  "shuffled15": 0.6288888888888889,
+  "pos": [
+   " dating a generation y veteran is there anything wrong with dating a shorter guy of your own, consider dog walking or dog boarding. Recently, i[[ read]] a really interesting piece",
+   "entertaining, funny poster, very informative, especially when it comes to the draft. The best overall poster on Knicksonline.[[⏎]]Kiyaman-The",
+   " home so far so am well behind... ⏎ heres my armoury http://eu.battle.net/wow/en/characte...C[[3]]%ADum/simple",
+   " so am well behind... ⏎ heres my armoury http://eu.battle.net/wow/en/characte...C3%AD[[um]]/simple ⏎ Ive"
+  ],
+  "neg": [
+   "ancpalota ⏎ Main Actors: Various Cabaret Performers ⏎ The programme consists of glossy thick paper and printed with black, silver, gold[[ and]] pink, with black",
+   "From the most recent Sales Flyer: ⏎ 4 BEDROOM / 2.5 BATH HOME ⏎ This[[ lovely]] California contemporary tri-level"
+  ]
+ },
+ "1817": {
+  "group": "random",
+  "desc": "They are all nouns or noun phrases denoting geographic locations or areas.",
+  "first_auroc": 0.8,
+  "auroc15": 0.9222222222222223,
+  "shuffled15": 0.42,
+  "pos": [
+   " might be enough to transmit multiple viruses, study finds ⏎ \"Despite the seeming ubiquity of social media platforms like Facebook and Twitter, many in[[ Europe]], the U.S",
+   " anything you can think of (from cars to computers, handyman, and even drones). ⏎ click here to download the app (for users[[ in]] the US for now",
+   " is a very old disease and prehistoric man is thought to have suffered from malaria. It probably originated in Africa and accompanied human migration to the[[ Mediterranean]] shores, India and",
+   " other daily stresses. Each blend is made from 100 percent natural, therapeutic-grade essential oils that are sourced from artisan distillers scattered[[ around]] the world. This"
+  ],
+  "neg": [
+   " lazily rotate at up to 28 revolutions per minute. But that’s visually misleading: When the wind blows sufficiently atop the 1[[,]]538-foot",
+   "ington, Ky., and other venues in the Greater Cincinnati area ⏎ Why: Because it’s the Ultimate Woodworking Weekend, with 40[[0]]+ of your closest"
+  ]
+ },
+ "397": {
+  "group": "random",
+  "desc": "All are adjectives modifying nouns in a prepositional or attributive context.",
+  "first_auroc": 1.0,
+  "auroc15": 0.6022222222222222,
+  "shuffled15": 0.3977777777777778,
+  "pos": [
+   "BN Co, had blamed a “typo” for changing who will receive fibre connection in regional Australia. ⏎ NBN Co general manager of[[ external]] relations Trent Williams has",
+   "enez (Shey) ⏎ 260 posts and ⏎ since Feb 2012 ⏎ Tinkerbelle & Aquabats[[ dual]] birthday=) ⏎ ",
+   " lead researcher for Enterprise Africa!, an international initiative to promote successful business development in Africa. She is an internationally recognized expert on the role played by[[ private]] institutions to alleviate poverty",
+   " regarding the application of fundraising regulations to a person who serves as a member of a Government commission and also holds a position as an officer of a[[ private]] nonprofit organization that supports"
+  ],
+  "neg": [
+   " along! ⏎ Here are some things to remember: ⏎ 1. Enter your project in no more than two other challenges.2. Link back[[ to]] the Fab Friday site",
+   " a run? Pfft, no way. Grabbing another cold brew? Get the summer intern to do it. Survival is all about doing[[ whatever]] you can to stay"
+  ]
+ },
+ "515": {
+  "group": "random",
+  "desc": "All are function words or short common nouns with low information content.",
+  "first_auroc": 1.0,
+  "auroc15": 0.6866666666666666,
+  "shuffled15": 0.68,
+  "pos": [
+   " as a coop campaign, though when we can’t say. ⏎ If you have played Human Error Episode One, or if you have read any[[ of]] the reviews, you",
+   "Search on page ⏎ Last forum posts ⏎ True Combat Elite ⏎ ET Quake Wars[[⏎]]~ MaPZone",
+   " single massive multiplayer online video game has an \"I win\" button and it is quite lulzy when you abuse the fuck out of it.[[ In]] Marvel vs Capcom ",
+   " to release Human Error Episode Two as a coop campaign, though when we can’t say. ⏎ If you have played Human Error Episode One,[[ or]] if you have read"
+  ],
+  "neg": [
+   " we were afraid that no one would be interested in modeling, but in the end we had 12 models in total, which is just[[ fine]]. Hanna had this",
+   " going ahead with its first real estate venture in India. ⏎ The Jumabhoy siblings Iqbal, Asad and Mimi Nassem[[ are]] developing a 1"
+  ]
+ },
+ "1604": {
+  "group": "random",
+  "desc": "They are prepositions or pronouns indicating universal applicability or shared experience.",
+  "first_auroc": 0.8,
+  "auroc15": 0.6444444444444445,
+  "shuffled15": 0.5688888888888889,
+  "pos": [
+   " on the sexy side called “50 Shades of Chocolate” by Claire Preen. Available on kindle, it shares lots of great ways[[ to]] bring chocolate to the",
+   " gift ideas. ⏎ Provides timely email reminders for a birthday, anniversary, and other special occasions. ⏎ Get advice from friends and family on which[[ gifts]] to buy. ⏎ ",
+   " It features a multiple pocket design, trendy black hue, a zip fly with button closure and slim leg shape. Its universal fit is designed for[[ every]] curvy figure.",
+   " a morbid sense of humor in furnishing your homes. This is the long overdue continuation of that post, with more ways for you to[[ impress]] visitors to your home"
+  ],
+  "neg": [
+   " of limited working memory, low processing speed, fine motor difficulties, or another problem. ⏎ But teachers who are willing to be creative with written[[ assignments]] and note-taking—",
+   " its use in fecal microbiota transplantation (FMT) therapy and other research should be regulated to ensure patient safety. ⏎ To use F[[MT]] to treat recurrent Clo"
+  ]
+ },
+ "1470": {
+  "group": "random",
+  "desc": "They are all words that are strongly associated with religious or spiritual contexts.",
+  "first_auroc": 0.76,
+  "auroc15": 0.9266666666666666,
+  "shuffled15": 0.8666666666666667,
+  "pos": [
+   " putting a foreign body into your eye. If your fingers and lenses are sterile the chance of infection is negligible, however poor hygiene and disregard of[[ safety]] procedures is terrible news",
+   " you are responsible for your own interpretation of the Bible. Each of us must walk in the light we have. You, the Bible, and[[ the]] Holy Spirit are priority",
+   " continuously battling spiritual bankruptcy. I knew that regardless of how much I was “doing” for God, I didn’t have a saving relationship with[[ Jesus]]. After fighting the",
+   " adore or venerate.Do Catholics pray to the Virgin Mary? Yes.ANCIENT PRAYER TO THE VIRGIN MARYWe turn to you[[ for]] protection, holy Mother"
+  ],
+  "neg": [
+   ". However, the Indian government aspires to touch $200 billion mark before 2020. ⏎ According to the McKin[[sey]] report: “Join",
+   " $900 per hour, The Palm Beach Post has reported. ⏎ \"It's outrageous,\" said Nancy Hass, Birkhead's attorney[[.]] \"I'm a"
+  ]
+ },
+ "317": {
+  "group": "random",
+  "desc": "First-person singular possessive pronouns used as subject in informal contractions.",
+  "first_auroc": 1.0,
+  "auroc15": 0.8,
+  "shuffled15": 0.8133333333333334,
+  "pos": [
+   " you believe, I get an email from a guy in London saying they were starting to make a biopic of Leonard Rossiter, so I[['m]] going to see the",
+   " a great brass barrel or any modern barrel of your choice. The marker will also have a CP regulator instead of a Stabilizer. ⏎ I[[ am]] primarily looking for ",
+   " home from the back-half of the field to defeat Pippi’s Pride by a neck on Sunday. ⏎ “She had an interrupted preparation so I[[ was]] concerned,” trainer",
+   "7-2010 at 09:57 PM (9731 Views) ⏎ Well I must say, I[[ am]] very impress with what"
+  ],
+  "neg": [
+   "This originally appeared in Scuba Diver Australasia Magazine as a part of the[[ “]]In Focus” photography",
+   " to consider. ⏎ One of the most important factors to getting your business off the ground and successful is the shopping cart. ⏎ Shopping carts help[[ you]] by enabling your customers"
+  ]
+ },
+ "908": {
+  "group": "random",
+  "desc": "They are all function words or punctuation marks.",
+  "first_auroc": 0.84,
+  "auroc15": 0.41333333333333333,
+  "shuffled15": 0.6177777777777778,
+  "pos": [
+   " perception, some of it is real. They also know that they will be dead in the water if by this time next year, they aren[['t]] equalling or surpass",
+   " about “Moving Object Detection (MOD) for surveillance (static camera)” image processing algorithm, based on ViBe (Visual background extractor). There[[ are]] many moving object detection",
+   " the Wintel world. Some of it is perception, some of it is real. They also know that they will be dead in the water[[ if]] by this time next",
+   " Benchmark with the Exynos 5250 doing the heavy lifting. Considering that this will probably be the fastest chip on an Android model[[ when]] launched on a device"
+  ],
+  "neg": [
+   " for leveragee minimum period of ten years from the date of last discharge or until age 19 if the patient is forex signal blogspot[[ minor]], whichever period",
+   " you might get one published – writing, adding images and links, and proofreading included – within an hour, maybe even less. On a[[ bad]] day, especially if"
+  ]
+ },
+ "1093": {
+  "group": "random",
+  "desc": "They are all line breaks or newlines preceding the next section.",
+  "first_auroc": 1.0,
+  "auroc15": 1.0,
+  "shuffled15": 0.19777777777777777,
+  "pos": [
+   ". Enjoy Food Trucks, Live Music, Mr. Bungles Bubbles, Races for Children and Toddlers, plus other outdoor games.[[⏎]]By participating in The",
+   " cookie. Its details include a metal snap closure and a handle made of the same leather. ⏎ Metal snap closure ⏎ Length 10 cm[[⏎]]Width 11",
+   " Body Shop and I love fruity smells. My daughter introduced me to some oils a few years ago and now I like to use them regularly.[[⏎]]I bought some from",
+   "’ unique character. Almost haunting in character, the No. 6 is a dark mahogany whisky presented in a Lalique decanter.[[⏎]]About the BrandFounded"
+  ],
+  "neg": [
+   " communities as well as the civilization and new blood the Harvey Girls brought. ⏎ HAVE LOTS OF FUN ⏎ ACTIVATE OR CONTACT HARVEY[[ HOUSE]]S ON THE AIR",
+   "On his Monday evening program, Glenn Beck reviewed the long list of questions surrounding the events[[ leading]] up to and during"
+  ]
+ },
+ "1293": {
+  "group": "random",
+  "desc": "They are all nouns or pronouns referring to specific teams or entities.",
+  "first_auroc": 0.88,
+  "auroc15": 0.8066666666666666,
+  "shuffled15": 0.5911111111111111,
+  "pos": [
+   " State University women's swimming and diving team went 0-2 in a tri-meet Saturday afternoon at Colby-Sawyer College,[[ falling]] to the host Chargers",
+   " games, albeit with one major dud. ⏎ Grace Community and Dallas Parish Episcopal, both tied at 8-1 and 5-1[[ in]] district, will duke",
+   " surrounding streets. ⏎ Thus, while getting people to and from the ballpark could be an issue, playing the game will not. ⏎ The Tigers[[ are]] in a position where",
+   "d Sunnyside 20-13 in the second stanza to go up 35-27 heading into intermission[[.]] ⏎ Sunnys"
+  ],
+  "neg": [
+   " more. ⏎ TEXT: U-N Undersecretary for Political Affairs Kieran Prendergast cautioned the Security Council Wednesday that there is no[[ quick]] fix for Haiti,",
+   " Pertiet - Postage Frame Photo Clusters No. 01 EL797598 Katie Pertiet Postage Frame Photo[[ Cl]]usters No. "
+  ]
+ },
+ "475": {
+  "group": "random",
+  "desc": "They are all adjectives or nouns modifying or preceding a hyphenated compound word.",
+  "first_auroc": 0.9,
+  "auroc15": 0.7266666666666667,
+  "shuffled15": 0.48444444444444446,
+  "pos": [
+   "on was supposed to be here but could not make it. It was an AWESOME concert and the sisters were terrific. The fair was[[ full]] of art.. Qu",
+   " getting blindsided by Marianne Williamson to being empowered by Thich Nhat Hanh, I can’t remember a time in my life so[[ full]] of growth and discomfort",
+   " little skeptical, but you never know. They show the Mark VIII and some old truck, but nothing new. They claim they'll have a[[ fully]] operational concept vehicle available",
+   " empires continue to be built in the 21st century upon our insatiable, unblushing appetite for quarter-pounders,[[ fully]] loaded, piled high"
+  ],
+  "neg": [
+   " materials in parallel with the world wide technological revolution experienced in the last 30 years already are forcing all industries to be much more flexible and[[ forward]] looking: to review",
+   " Instruments and NetApp. ⏎ The kneejerk reaction to President Barack Obama's re-election has seen plenty of follow-through with the Dow Jones[[ Industrial]] Average now down in"
+  ]
+ },
+ "1327": {
+  "group": "random",
+  "desc": "All are words beginning with the letter sequence \"comm\".",
+  "first_auroc": 0.92,
+  "auroc15": 0.8866666666666667,
+  "shuffled15": 0.2577777777777778,
+  "pos": [
+   " the walk ⏎ Maps courtesy of Google Maps. Route for indicative purposes only, and may have been plotted after the walk. Please let me have[[ comments]] on what you think",
+   " it’s been already! 2015 is the Year of Infinity! It’s about BELIEVING, KNOWING, getting[[ comfortable]] with UNCERTAINT",
+   "Majority of contemporary world at present is already in great dependence on computers. What I am making an attempt to describe are the political[[ compromises]] made by the trainer",
+   "This offer for free shipping and handling applies to ground ship orders over $200 and is valid for orders placed online at www.etundra[[.com]] from 08"
+  ],
+  "neg": [
+   " pages (slowly) and I can't wait till you finish your 'three step process' as I would love to see better pictures of[[ some]] of your marvell",
+   " wonderful, and coffee is available 24/7. ⏎ Boston Pizza is nearby, along with a Dunkin Donuts and convience[[ shop]], and a diner"
+  ]
+ },
+ "1658": {
+  "group": "random",
+  "desc": "They are all function words or punctuation marks.",
+  "first_auroc": 0.56,
+  "auroc15": 0.7711111111111111,
+  "shuffled15": 0.7866666666666666,
+  "pos": [
+   "17 at Corpus Playroom ⏎ An historical play by Canadian writer Vern Thiessen, touching on the little know life of William Shakespeare's wife[[,]] Anne Hathaway.",
+   " assigned to look into a plan by Robert Moses to build a bridge from Rye, N.Y., across Long Island Sound to Oyster Bay[[.]] \"This was the",
+   "'t sleeping. In it, there's an interview with Pepa Prieto alongside some of her work. My favorite part of the interview is[[ when]] they ask her if",
+   "05, Rome, Italy by Pope Benedict XVI| ⏎ Born to a prosperous family in Chorio, a small village outside of Reggio Calabria[[ in]] the Aspromonte"
+  ],
+  "neg": [
+   "The Spanish Masters,” featuring renowned cellist Zuill Bailey and soprano Isabel Bayrakdarian accompanying recreations of century-old piano-playing —[[ was]] coming in over budget",
+   " the lives of tens of thousands of individuals, provided vital support to community education and advocacy activities to raise awareness of the importance of eye health and[[ promoted]] the role of the"
+  ]
+ },
+ "1104": {
+  "group": "random",
+  "desc": "They are all punctuation marks or digits within legal section numbering.",
+  "first_auroc": 0.84,
+  "auroc15": 0.9111111111111111,
+  "shuffled15": 0.3844444444444444,
+  "pos": [
+   " not be in the public domain. Check the policies of those sites individually to find out if you can use and reproduce information you find there.[[⏎]]You can download images",
+   "Song of Songs 4 ⏎ STANZA DIVISIONS OF MODERN TRANSL[[ATIONS]] ⏎ |Solomon",
+   "Tax Planning and Preparation ⏎ Our staff is skilled in preparing individual, corporation, partnership,[[ trust]], estate, gift",
+   " People Born Abroad to a Canadian Parent Before the Current Citizenship Act Came Into Effect on 15 February 1977 ⏎ -[[ ]]1. Registration of"
+  ],
+  "neg": [
+   "aries famously filled their days with guitar lessons and learning a foreign language. ⏎ MOST READ IN NEWS ⏎ LADS' HOL TRAGEDYPo[[ignant]] last photo shows tragic",
+   "man refers to the Absolute Consciousness; Highest Reality; Godhead. ⏎ - Charya means to follow or move with. ⏎ - So[[,]] brahmacharya"
+  ]
+ }
+}

@@ -25,6 +25,7 @@ content/projects/*.md   one page per system: its prose, stats and media
 content/posts/*.md      long-form writing (SCRIPTA)
 static/                 copied verbatim into dist/ (styles, favicon, media, Lenia)
 static/lenia/           isolated WebGPU simulation, glass renderer and still fallback
+static/lens/            generated static export of the LENS viewer (see static/lens/lens.md)
 tests/lenia.test.js     independent CPU longevity and locomotion check
 build.js                the generator
 project-lenia.js         single-specimen headers and seed-density fallbacks
